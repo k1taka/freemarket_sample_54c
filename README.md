@@ -22,3 +22,146 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## users テーブル
+|Column          |Type   |Null|Options           |
+|----------------|-------|----|------------------|
+|id              |integer|not |foreign_key: true |
+|nickname        |string |not |unique:true       |
+|email           |string |not |false,unique:true |
+|password        |integer|not |                  |
+|family_name     |string |not |                  |
+|first_name      |string |not |                  |
+|family_name_furi|stirng |not |                  |
+|first_name_furi |string |not |                  |
+|birth_year      |date   |not |                  |    //Type or varchar
+|birth_month     |date   |not |                  |
+|birth_day       |date   |not |                  |
+|phone           |integer|not |unique:true       |
+|post_code       |char   |not |                  | 
+|prefecture_code |integer|not |foreign_key:true  |    //integer?
+| address_city   |string |not |                  |
+|address_building|string |not |                  |
+|profile         |text   |not |                  |
+|credit          |???    |not |                  |   //integer?
+|image_url       |string |not |default "no_image"|
+### association
+- has_many comments
+- belongs_to :prefecture
+- has_many :images
+
+## comments テーブル
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false                 |
+|comment         |text   |null:false                 |
+|seller_id       |integer|null:false,foreign_key:true|
+|item_id         |integer|null:false,foreign_key:true|
+### asociation
+- belongs_to saller(user)
+- belongs_to item
+
+## Prefecture
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false,foreign_key:true|
+|name            |string |null:false                 |
+### asociation
+- has_many sallers(users)
+- has_many items
+
+## items テーブル
+|Column            |Type   |Null|Options           |
+|------------------|-------|----|------------------|
+|id                |integer|not |foreign_key: true |
+|name              |string |not |index:true        |
+|description       |text   |not |                  |
+|category_id       |integer|not |foreign_key:true  |
+|size_id           |integer|not |foreign_key:true  |
+|brand             |string |    |                  |
+|condition_id      |integer|not |foreign_key:true  |
+|shipping_fee_payer|string |not |foreign_key:true  |
+|delivery_way      |string |not |                  |
+|shipping_address  |string |not |foreign_key:true  |
+|shipping_day_id   |string |not |foreign_key:true  |
+|price             |integer|not |                  |
+|saller_id         |integer|not |foreign_key:true  |
+|buyer_id          |integer|not |foreign_key:true  |
+### asociation
+- belongs_to :category
+- belongs_to :size
+- belongs_to :condition
+- belongs_to :shipping_fee_payer
+- belongs_to :shipping_address
+- belongs_to :shipping_day_id
+- belongs_to :saller_id,class_name:user
+- belongs_to :buyer_id,class_name:user
+- has_many :comments
+- has_many :images
+
+## image
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false                 |
+|item_id         |integer|null:false,foreign_ket:true|
+|image_url       |string |null:false,index:true      |
+### association
+- belongs_to :item
+
+## category
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false                 |
+|name            |string |null:false                 |
+|ancestry        |string |null:false                 |
+### asociation
+- has_many :items
+
+## size
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false                 |
+|name            |string |null:false                 |
+### asociation
+- has_many :items
+
+## condition
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false                 |
+|condition       |string |null:false                 |
+### asociation
+- has_many :items
+
+## shipping_address
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false                 |
+|address         |string |null:false                 |  //prefectureから値をもらう
+### asociation
+- has_many :items
+
+## shipping fee payer
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false                 |
+|payer           |string |null:false                 |
+### asociation
+- has_many :items
+
+## shipping_day
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false                 |
+|ready_days      |string |null:false                 |
+### asociation
+- has_many :items
+
+
+
+
+
+
+
+
+
