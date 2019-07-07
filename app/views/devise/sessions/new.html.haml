@@ -1,0 +1,46 @@
+.page
+  .page__center-box
+    .page__center-box__logo{align:"center"}
+      = image_tag "mercari_logo_horizontal.png", size: "300x90", alt: "logo"
+    .page__center-box__contents
+      .page__center-box__contents__top
+        .page__center-box__contents__top__contents
+          .page__center-box__contents__top__contents__top{align:"center"} アカウントをお持ちでない方はこちら
+          .page__center-box__contents__top__contents__bottom{align:"center"} 新規会員登録
+      .page__center-box__contents__center
+        .page__center-box__contents__center__contents
+          .page__center-box__contents__center__contents__top
+          .page__center-box__contents__center__contents__bottom
+    .page__center-box__bottom
+      .page__center-box__bottom__info
+        %ul.page__center-box__bottom__info__ul
+          %li.page__center-box__bottom__info__ul__li
+            %a{ href: "#", class: "page__center-box__bottom__info__ul__li__a" } プライバシーポリシー
+          %li.page__center-box__bottom__info__ul__li
+            %a{ href: "#", class: "page__center-box__bottom__info__ul__li__a" } メルカリ利用規約
+          %li.page__center-box__bottom__info__ul__li
+            %a{ href: "#", class: "page__center-box__bottom__info__ul__li__a" } 特定商取引に関する表記
+      .page__center-box__bottom__logo{align:"center"}
+        = image_tag "mercari_logo_vertical.png", size: "120x120", alt: "logo"
+      .page__center-box__bottom__copy-right{align:"center"} © 2019 Mercari
+
+
+
+
+-# %h2 Log in
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"

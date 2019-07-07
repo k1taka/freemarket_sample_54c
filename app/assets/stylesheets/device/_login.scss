@@ -1,0 +1,91 @@
+.page{
+  height:100%;
+  width:auto;
+  background-color:rgb(245, 245, 245);
+  &__center-box{
+    margin-left : auto ; margin-right : auto ;
+    width:570px;
+    height:1236px;
+    background-color:white;
+    &__logo{
+      background-color: rgb(245, 245, 245);
+      padding:30px;
+    }
+    &__contents{
+      height:850px;
+      background-color:white;
+      &__top{
+        height:170px;
+        padding:40px 85px;
+        box-sizing: border-box;
+        border-bottom: 2px solid rgb(245, 245, 245);
+        &__contents{
+          height:30px;
+          &__top{
+            height:30px;
+          }
+          &__bottom{
+            margin-top:5px;
+            padding:15px;
+            box-sizing: border-box;
+            height:52px;
+            background-color:blue;
+            color:white;
+            font-size:17px;
+            }
+          }
+        }
+      }   
+      &__center{
+        height:170px;
+        padding:40px 85px;
+        box-sizing: border-box;
+        &__contents{
+          height:82px;
+          background-color:white;
+          &__top{
+            height:30px;
+          }
+          &__bottom{
+            margin-top:5px;
+            padding:15px;
+            box-sizing: border-box;
+            height:52px;
+            background-color:blue;
+          }
+        }
+      }
+    &__bottom{
+      height:230px;
+      padding-top:40px;
+      padding-bottom:30px;
+      box-sizing: border-box;
+      background-color:rgb(245, 245, 245);
+      &__info{
+        background-color:white;
+        height:20px;
+        &__ul{
+          background-color:rgb(245, 245, 245);
+          &__li{
+            display: inline-block;
+            text-align: center;
+            font-size:16px;
+            margin-right:20px;
+            margin-left:20px;
+            &__a{
+              display: block;
+            }
+          }
+        }
+      }
+      &__logo{
+        background-color:rgb(245, 245, 245);
+        height:120px;
+      }
+      &__copy-right{
+        background-color: rgb(245, 245, 245);
+        height:20px;
+      }
+    }
+  }
+}
