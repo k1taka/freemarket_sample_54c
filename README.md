@@ -43,7 +43,7 @@ Things you may want to cover:
 | address_city   |string |not |                  |
 |address_building|string |not |                  |
 |profile         |text   |not |                  |
-|credit          |???    |not |                  |   //integer?
+|credit          |integer|not |                  |   //integer?
 |image_url       |string |not |default "no_image"|
 ### association
 - has_many comments
