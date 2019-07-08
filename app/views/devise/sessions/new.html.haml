@@ -1,0 +1,44 @@
+.login-page
+  .box
+    .top-logo{align:"center"}
+      = image_tag "mercari_logo_horizontal.png", size: "300x90", alt: "logo"
+    .contents
+      .user-new
+        .user-new__message{align:"center"} アカウントをお持ちでない方はこちら
+        .user-new__btn{align:"center"} 新規会員登録
+      .login-btns
+        .facebook 
+          =link_to "https://www.facebook.com/", class: "facebook__link" do
+            .facebook__link__logo
+              = fa_icon 'facebook-square', class: "icon"
+            .facebook__link__message Facebookでログイン
+        .gogle 
+          = link_to 'Signin with Google', user_google_omniauth_authorize_path
+      .inputs
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .input-field
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"            
+            %br/
+            = f.password_field :password, autocomplete: "current-password"
+            %br/
+            = flash[:recaptcha_error]
+            = recaptcha_tags
+            = f.submit "ログイン", class: "login-btn"
+            -# = render "devise/shared/links"
+
+        .forget-pass
+    .info
+      %ul.complaiance
+        %li.complaiance__urls
+          %a{ href: "#"} プライバシーポリシー
+        %li.complaiance__urls
+          %a{ href: "#"} メルカリ利用規約
+        %li.complaiance__urls
+          %a{ href: "#"} 特定商取引に関する表記
+      .bottom-logo{align:"center"}
+        = image_tag "mercari_logo_vertical.png", size: "120x120", alt: "logo"
+      .copy-right{align:"center"} © 2019 Mercari
+
+
+
