@@ -6,7 +6,7 @@
     margin-left: auto ;
     margin-right: auto ;
     width:570px;
-    height:1236px;
+    height:1270px;
     background-color:white;
     .top-logo{
       background-color: rgb(245, 245, 245);
@@ -71,7 +71,6 @@
             text-decoration: none;
             display: flex;
             &__logo{
-              background-color:pink;
             }
             &__message{
               color:black;
@@ -80,12 +79,12 @@
         }
       }
       .inputs{
-        height:469px;
-        padding:10px 120px;
+        height:490px;
+        padding:10px 90px;
         box-sizing: border-box;
         #user_email{
           height:60px;
-          width:325px;
+          width:390px;
           background-color:#E8F0FE;
           border-radius: 5px 5px 5px 5px;
         }
@@ -93,7 +92,7 @@
           margin-top:25px;
           margin-bottom:30px;
           height:60px;
-          width:325px;
+          width:390px;
           background-color:#E8F0FE;
           border-radius: 5px 5px 5px 5px;
         }
@@ -103,9 +102,9 @@
         }
         .login-btn{
           margin-top:30px;
-          margin-bottom:20px;
+          margin-bottom:40px;
           height:60px;
-          width:330px;
+          width:420px;
           color:white;
           background-color:#ea352d;
         }
@@ -115,6 +114,7 @@
       height:230px;
       padding-top:40px;
       padding-bottom:30px;
+      margin-top:34px;
       box-sizing: border-box;
       background-color:rgb(245, 245, 245);  
       .complaiance{
