@@ -25,7 +25,8 @@
             = flash[:recaptcha_error]
             = recaptcha_tags
             = f.submit "ログイン", class: "login-btn"
-            -# = render "devise/shared/links"
+            =link_to "https://www.facebook.com/", class: "" do
+              メールアドレスをお忘れの方
 
         .forget-pass
     .info
