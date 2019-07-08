@@ -1,2 +1,69 @@
-.test
-  testa
+.detail-container
+  .main
+    %h1.item-name
+      NIKEシューズ
+    .content
+      .item-photo
+        .item-photo__top
+          = image_tag 'bannar_image', height: '300', width: '300', class: ''
+        .item-photo__bottoms
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+
+      %table{border:"1"}
+        %tr
+          %th 出品者
+          %td
+            =link_to "TAKAHASHI MANAMI","https://www.mercari.com/jp/"
+            .ratings
+              .ratings__set
+                = fa_icon 'smile', class: ' fa-smile ratings__set--grin'
+                %span.ratings__set__num 100
+              .ratings__set
+                = fa_icon 'meh', class: 'ratings__set--meh'
+                %span.ratings__set__num 200
+              .ratings__set
+                = fa_icon 'frown', class: 'ratings__set--frown'
+                %span.ratings__set__num 300
+        %tr
+          %th カテゴリー
+
+          %td
+            =link_to "レディース","https://www.mercari.com/jp/"
+            %br
+            = link_to "https://www.mercari.com/jp/" do
+              = fa_icon 'arrow-right', class: 'arrow-black'
+            =link_to "ジーンズ","https://www.mercari.com/jp/"
+            %br 
+            = link_to "https://www.mercari.com/jp/" do
+              = fa_icon 'arrow-right', class: 'arrow-black'
+            =link_to "ジーンズ","https://www.mercari.com/jp/"
+        %tr
+          %th ブランド
+          %td
+            =link_to "NIKE","https://www.mercari.com/jp/"
+            
+        %tr
+          %th 商品の状態
+          %td やや傷や汚れあり
+        %tr
+          %th 配送料の負担
+          %td 送料込み（出品者負担）
+        %tr
+          %th 配送の方法
+          %td 普通郵便（定形、定形外）
+        %tr
+          %th 発送元地域
+          %td
+            =link_to "東京都","https://www.mercari.com/jp/",class: "content__cell__item"
+        %tr
+          %th 発送日の目安
+          %td 2~3日で発送
