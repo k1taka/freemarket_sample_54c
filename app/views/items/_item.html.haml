@@ -1,0 +1,33 @@
+:ruby
+  ladies=[
+    {text:"値段は安いです。",price:400,image_url:'https://static.mercdn.net/thumb/photos/m27352383233_1.jpg?1558138031',good:4},
+    {text:"値段は安いです。",price:400,image_url:'https://static.mercdn.net/thumb/photos/m27352383233_1.jpg?1558138031',good:4},
+    {text:"値段は安いです。",price:400,image_url:'https://static.mercdn.net/thumb/photos/m27352383233_1.jpg?1558138031',good:4},
+    {text:"値段は安いです。",price:400,image_url:'https://static.mercdn.net/thumb/photos/m27352383233_1.jpg?1558138031',good:4},    
+  ] 
+
+
+.items-wrapper
+  %h3.item-header 
+    = link_to "#" do
+      -# 変数を持ってくる
+      レディース新着アイテム 
+  .items-box
+    - ladies.each do |lady|
+      .item-box
+        = link_to "#" do
+          .item-box__photo
+            = image_tag "#{lady[:image_url]}", alt: '', height: '', width: '', class: 'item-box__photo'
+          .item-box__text
+            .item-box__text__name 
+              = "#{lady[:text]}"
+            .item-box__text__num
+              .item-box__text__num--price 
+                = "#{lady[:price]}"+"円"
+              .item-box__text__num--like 
+                =fa_icon "far heart", class: 'icon'
+                %span 
+                  ="#{lady[:good]}"
+  .view-all
+    = link_to "#" do
+      すべての商品を見る

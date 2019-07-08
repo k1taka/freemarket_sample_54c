@@ -15,12 +15,16 @@ a{
     }
     .items-wrapper{ 
       margin:0 auto 30px;
-      max-width:65%;
+      max-width:930px;
+      
 
       .item-header{
         font-size:22px;
         text-align:center;  
         margin:26px 11px;
+        a:hover{
+          text-decoration-line: underline;
+        }
       }
       .items-box{
         display:flex;
@@ -47,12 +51,25 @@ a{
               word-wrap: break-word;
               height:48px;
             }
-            &__price{
-              font-size:14px;
+            &__num{
               margin-top:8px;
               font-weight:600;
-
+              font-size:14px;
+              display: flex;
+              justify-content: space-between;
+              &--price{
+              
+              }
+              &--like{
+                height:14px;
+                opacity:0.6;
+              }
+              span{
+                font-weight:400;
+                opacity:1;
+              }
             }
+          
           }
         }
       }
