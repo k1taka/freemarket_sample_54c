@@ -78,3 +78,8 @@ gem 'pry-rails'
 gem 'kaminari'
 
 gem "jquery-rails"
+
+gem 'recaptcha', require: "recaptcha/rails"
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
