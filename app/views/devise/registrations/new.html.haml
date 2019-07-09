@@ -1,0 +1,56 @@
+.register-page
+  .top-logo
+    = image_tag "mercari_logo_horizontal.png", size: "300x90", alt: "logo"
+    .progress-bar
+      .phase
+        .phase__first-status 会員情報
+        .phase__first-location{align:"center"} ●
+      .phase
+        .phase__status 会員情報
+        .phase__location{align:"center"} ●
+      .phase
+        .phase__status 会員情報
+        .phase__location{align:"center"} ●
+      .phase
+        .phase__status 会員情報
+        .phase__location{align:"center"} ●
+      .phase
+        .phase__status 会員情報
+        .phase__location{align:"center"} ●
+  .box  
+    .contents
+      .nav-message
+      .inputs
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| 
+          = render "devise/shared/error_messages", resource: resource 
+          .input-field
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"            
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"   
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"   
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"   
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"   
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"   
+            %br/
+            = flash[:recaptcha_error]
+            = recaptcha_tags
+            = f.submit "次へ進む", class: "first-next"
+            -# = render "devise/shared/links"
+
+        .forget-pass
+    .info
+      %ul.complaiance
+        %li.complaiance__urls
+          %a{ href: "#"} プライバシーポリシー
+        %li.complaiance__urls
+          %a{ href: "#"} メルカリ利用規約
+        %li.complaiance__urls
+          %a{ href: "#"} 特定商取引に関する表記
+      .bottom-logo{align:"center"}
+        = image_tag "mercari_logo_vertical.png", size: "120x120", alt: "logo"
+      .copy-right{align:"center"} © 2019 Mercari
