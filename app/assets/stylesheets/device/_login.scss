@@ -1,0 +1,141 @@
+.login-page{
+  height:100%;
+  width:auto;
+  background-color:rgb(245, 245, 245);
+  .box{
+    margin-left: auto ;
+    margin-right: auto ;
+    width:570px;
+    height:1270px;
+    background-color:white;
+    .top-logo{
+      background-color: rgb(245, 245, 245);
+      padding:30px;
+    }
+    .contents{
+      height:850px;
+      background-color:white;
+      .user-new{
+        height:170px;
+        padding:40px 85px;
+        box-sizing: border-box;
+        border-bottom: 2px solid rgb(245, 245, 245);
+        &__message{
+          height:30px;
+        }
+        &__btn{
+          margin-top:5px;
+          padding:15px;
+          box-sizing: border-box;
+          height:52px;
+          background-color:#0099e8;
+          border:#0099e8;
+          color:white;
+          font-size:17px;
+        }
+      }
+      .login-btns{
+        height:215px;
+        padding:40px 85px;
+        box-sizing: border-box;
+        background-color:white;
+        .facebook{
+          height:60px;
+          padding:10px;
+          box-sizing: border-box;
+          background-color:#385185;
+          .facebook__link{
+            text-decoration: none;
+            display: flex;
+            &__logo{
+              .icon{
+                font-size:40px;
+                margin-left:10px;
+                color:white;
+              }
+            }
+            &__message{
+              margin-left:70px;
+              margin-top:10px;
+              color:white;
+            }
+          }
+        }
+        .gogle{
+          height:60px;
+          padding:20px;
+          margin-top:15px;
+          box-sizing: border-box;
+          border: 1px solid black;
+          .gogle__link{
+            text-decoration: none;
+            display: flex;
+            &__logo{
+            }
+            &__message{
+              color:black;
+            }
+          }
+        }
+      }
+      .inputs{
+        height:490px;
+        padding:10px 90px;
+        box-sizing: border-box;
+        #user_email{
+          height:60px;
+          width:390px;
+          background-color:#E8F0FE;
+          border-radius: 5px 5px 5px 5px;
+        }
+        #user_password{
+          margin-top:25px;
+          margin-bottom:30px;
+          height:60px;
+          width:390px;
+          background-color:#E8F0FE;
+          border-radius: 5px 5px 5px 5px;
+        }
+        .g-recaptcha{
+          padding-left:14px;
+          padding-right:20px;
+        }
+        .login-btn{
+          margin-top:30px;
+          margin-bottom:40px;
+          height:60px;
+          width:420px;
+          color:white;
+          background-color:#ea352d;
+        }
+      }
+    }
+    .info{
+      height:230px;
+      padding-top:40px;
+      padding-bottom:30px;
+      margin-top:34px;
+      box-sizing: border-box;
+      background-color:rgb(245, 245, 245);  
+      .complaiance{
+        background-color:rgb(245, 245, 245);
+        height:20px;
+        &__urls{
+          display: inline-block;
+          text-align: center;
+          font-size:16px;
+          margin-right:15px;
+          margin-left:15px;
+        }
+      }
+      .bottom-logo{
+        background-color:rgb(245, 245, 245);
+        height:120px;
+      }
+      .copy-right{
+        background-color: rgb(245, 245, 245);
+        height:20px;
+      }
+    }
+  }
+} 
