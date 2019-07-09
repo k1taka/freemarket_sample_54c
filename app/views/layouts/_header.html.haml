@@ -1,0 +1,45 @@
+%header
+  .header
+    .header-top
+      .header-top__logo
+        = image_tag 'mercari_logo_horizontal.png', alt: '', height: '40px', width: '136px', class: ''
+      %form(action="#"){class:"header-top__form"}
+        %input(type="search"){class:"header-top__form--search",placeholder:"何かお探しですか？"}
+          = fa_icon "search", class: 'icon',id:"search"
+    .nav-box
+      %nav.nav-left
+        %ul.search-list   
+          %li.search-list__category
+            = link_to "#" do
+              =fa_icon "list", class: 'icon'  #display:none;でカテゴリ表示機能実装
+              %span カテゴリーから探す
+          %li.search-list__bland
+            = link_to "#" do
+              =fa_icon "tag", class: 'icon'  #
+              %span ブランドから探す  
+      %nav.nav-right
+        %ul.user-page
+          %li.user-page__like
+            = link_to "#" do
+              =fa_icon "heart-o", class: 'icon'
+              %span いいね！一覧
+          %li.user-page__notification
+            = link_to "#" do
+              =fa_icon "bell-o", class: 'icon'
+              %span お知らせ
+          %li.user-page__todo-list
+            = link_to "#" do
+              =fa_icon "check", class: 'icon'
+              %span やることリスト
+          %li.user-page__mypage
+            = link_to "#" do
+              
+              = image_tag 'https://static.mercdn.net/thumb/photos/m45245951061_1.jpg?1561365524', alt: '', height: '32', width: '32', class: 'user-page__mypage--img'
+              %span マイページ
+-# パンくずルート
+.bread-crumbs
+  %ul
+    %li.itemscope
+      =link_to "#" do
+        %span メルカリ
+      =fa_icon "chevron-right", class: 'icon'
