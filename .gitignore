@@ -24,7 +24,6 @@
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
-/config/initializers/devise.rb
+/config/master.key  
 /config/initializers/recaptcha.rb
 public/uploads/*
