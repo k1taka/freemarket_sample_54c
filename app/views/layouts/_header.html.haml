@@ -36,3 +36,10 @@
               
               = image_tag 'https://static.mercdn.net/thumb/photos/m45245951061_1.jpg?1561365524', alt: '', height: '32', width: '32', class: 'user-page__mypage--img'
               %span マイページ
+-# パンくずルート
+.bread-crumbs
+  %ul
+    %li.itemscope
+      =link_to "#" do
+        %span メルカリ
+      =fa_icon "chevron-right", class: 'icon'
