@@ -1,46 +1,105 @@
+:ruby
+  year  = ["--"],
+          ["1996"],
+          ["1995"]
+
+  month = ["--"],
+          ["3"],
+          ["2"]
+
+  day   = ["--"],
+          ["15"],
+          ["14"]
+
+
 .register-page
   .top-logo
     = image_tag "mercari_logo_horizontal.png", size: "300x90", alt: "logo"
     .progress-bar
-      .phase
-        .phase__first-status 会員情報
-        .phase__first-location{align:"center"} ●
-      .phase
-        .phase__status 会員情報
-        .phase__location{align:"center"} ●
-      .phase
-        .phase__status 会員情報
-        .phase__location{align:"center"} ●
-      .phase
-        .phase__status 会員情報
-        .phase__location{align:"center"} ●
-      .phase
-        .phase__status 会員情報
-        .phase__location{align:"center"} ●
+      .first-phase
+        .first-phase__status 会員情報
+        .first-phase__location{align:"center"} ●
+      .second-phase
+        .second-phase__status 電話番号認証
+        .second-phase__location{align:"center"} ●
+      .third-phase
+        .third-phase__status お届け先住所入力
+        .third-phase__location{align:"center"} ●
+      .forth-phase
+        .forth-phase__status 支払い方法
+        .forth-phase__location{align:"center"} ●
+      .last-phase
+        .last-phase__status 完了
+        .last-phase__location{align:"center"} ●
   .box  
     .contents
-      .nav-message
-      .inputs
+      .nav-message　会員情報入力
+      .form-area
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| 
           = render "devise/shared/error_messages", resource: resource 
-          .input-field
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email"            
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email"   
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email"   
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email"   
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email"   
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email"   
-            %br/
+          .form
+            .form__text
+              .form__text__title ニックネーム
+              .need-btn 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form__field", placeholder: "例)メルカリ太郎"       
+            .form__text
+              .form__text__title メールアドレス
+              .need-btn 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form__field", placeholder: "PC・携帯どちらでも可"      
+            .form__text
+              .form__text__title パスワード
+              .need-btn 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form__field", placeholder: "6文字以上"       
+            .form__text
+              .form__text__title パスワード（確認）
+              .need-btn 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form__field", placeholder: "6文字以上"      
+            .info-text
+              .info-text__title 本人確認
+              .info-text__message 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            .form__name
+              .name-top
+                .name-top__title お名前（全角）
+                .need-btn 必須
+              .name-field
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "name-field__first", placeholder: "例)山田"    
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "name-field__last", placeholder: "例)彩"        
+            .form__name
+              .name-top
+                .name-top__title お名前カナ（全角）
+                .need-btn 必須
+              .name-field
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "name-field__first", placeholder: "例)ヤマダ"     
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "name-field__last" , placeholder: "例)アヤ"       
+            .form__birth
+              .birth-top
+                .birth-top__title 生年月日
+                .need-btn 必須
+              .birth-fields
+                .birth-field
+                  = fa_icon 'chevron-down' ,class: "select-btn"
+                  = f.select :name, [*year]
+                  .time 年 
+                .birth-field
+                  = fa_icon 'chevron-down' ,class: "select-btn"
+                  = f.select :name, [*month]
+                  .time 月
+                .birth-field
+                  = fa_icon 'chevron-down', class: "select-btn"
+                  = f.select :name, [*day]
+                  .time 日
+            .warning ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
             = flash[:recaptcha_error]
             = recaptcha_tags
+            .warning-next
+              「次へ進む」のボタンを押すことにより、
+              =link_to "https://www.facebook.com/", class: "btn-about-rule" do
+                利用規約
+              に同意したものとみなします
             = f.submit "次へ進む", class: "first-next"
-            -# = render "devise/shared/links"
+            =link_to "https://www.facebook.com/", class: "btn-about-this" do 
+              本人情報の登録について
+              = fa_icon 'chevron-right'
 
         .forget-pass
     .info
