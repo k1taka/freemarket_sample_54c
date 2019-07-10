@@ -61,7 +61,7 @@ Things you may want to cover:
 - belongs_to saller(user)
 - belongs_to item
 
-## Prefecture
+## Prefectures テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|
 |id              |integer|null:false,foreign_key:true|
@@ -80,14 +80,14 @@ Things you may want to cover:
 |size_id            |integer|    |foreign_key:true  |
 |brand              |string |    |                  |
 |condition_id       |integer|not |foreign_key:true  |
-|shipping_fee_payer |string |not |foreign_key:true  |
-|shipping_way_id    |integer|not |                  |
+|shipping_payer_id  |integer|not |foreign_key:true  |
+|shipping_way       |string |not |                  |
 |shipping_address_id|integer|not |foreign_key:true  |
 |shipping_day_id    |integer|not |foreign_key:true  |
 |price              |integer|not |                  |
 |saller_id          |integer|not |foreign_key:true  |
 |buyer_id           |integer|not |foreign_key:true  |
-### asociation
+### asociation 
 - belongs_to :category
 - belongs_to :size
 - belongs_to :condition
@@ -99,7 +99,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :images
 
-## image
+## images テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|
 |id              |integer|null:false                 |
@@ -108,7 +108,7 @@ Things you may want to cover:
 ### association
 - belongs_to :item
 
-## category
+## categories  テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|
 |id              |integer|null:false                 |
@@ -117,7 +117,7 @@ Things you may want to cover:
 ### asociation
 - has_many :items
 
-## size
+## sizes テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|
 |id              |integer|null:false                 |
@@ -125,7 +125,7 @@ Things you may want to cover:
 ### asociation
 - has_many :items
 
-## condition
+## conditions テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|
 |id              |integer|null:false                 |
@@ -133,7 +133,7 @@ Things you may want to cover:
 ### asociation
 - has_many :items
 
-## shipping_address
+## shipping_addresses テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|
 |id              |integer|null:false                 |
@@ -141,7 +141,7 @@ Things you may want to cover:
 ### asociation
 - has_many :items
 
-## shipping fee payer
+## shipping fee payers テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|
 |id              |integer|null:false                 |
@@ -149,7 +149,7 @@ Things you may want to cover:
 ### asociation
 - has_many :items
 
-## shipping_day
+## shipping_days テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|
 |id              |integer|null:false                 |
