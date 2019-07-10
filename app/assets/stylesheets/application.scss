@@ -19,5 +19,7 @@
  @import "modules/header";
  @import "modules/footer";
  @import "modules/side_bar";
+ @import "modules/users/mypage1";
  @import "modules/top";
- @import "device/login";
+ @import "devise/login";
+ @import "devise/logout";
