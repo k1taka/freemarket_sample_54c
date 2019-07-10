@@ -46,7 +46,7 @@ Things you may want to cover:
 |credit          |integer|not |                  |   //integer?
 |image_url       |string |not |default "no_image"|
 ### association
-- has_many :comments
+- has_many comments
 - belongs_to :prefecture
 - has_many :images
 
@@ -58,7 +58,7 @@ Things you may want to cover:
 |seller_id       |integer|null:false,foreign_key:true|
 |item_id         |integer|null:false,foreign_key:true|
 ### asociation
-- belongs_to saller,class_name: user
+- belongs_to saller(user)
 - belongs_to item
 
 ## Prefecture
@@ -94,8 +94,8 @@ Things you may want to cover:
 - belongs_to :shipping_fee_payer
 - belongs_to :shipping_address
 - belongs_to :shipping_day_id
-- belongs_to :saller_id,class_name: user
-- belongs_to :buyer_id,class_name: user
+- belongs_to :saller_id,class_name:user
+- belongs_to :buyer_id,class_name:user
 - has_many :comments
 - has_many :images
 
