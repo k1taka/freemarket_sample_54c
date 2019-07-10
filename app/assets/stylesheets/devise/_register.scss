@@ -1,0 +1,125 @@
+.register-page{
+  height:100%;
+  width:auto;
+  background-color:rgb(245, 245, 245);
+  .top-logo{
+    width:1000px;
+    margin-left: auto ;
+    margin-right: auto ;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(245, 245, 245);
+    padding:30px;
+    .progress-bar{
+      width:600px;
+      display: flex;
+        justify-content: space-between;
+      color:white;
+      background-color: black;
+      .phase{
+        width:70px;
+        &::after{
+          content:"ー";
+          color:white;
+          
+        }
+        &__first-status{
+          box-sizing: border-box;
+          padding-top:15px;
+          padding-left:5px;
+        }
+        &__first-location{
+          width:70px;
+          padding:10px;
+          font-size:30px;
+        }
+        &__status{
+          box-sizing: border-box;
+          box-sizing: border-box;
+          padding-top:15px;
+          padding-left:5px;
+        }
+        &__location{
+          font-size:30px;
+        }
+        &__last-status{
+          box-sizing: border-box;
+          padding-top:15px;
+          padding-left:5px;         
+        }
+        &__last-location{
+          font-size:30px;
+        }
+      }
+    }
+  }
+  .box{
+    margin-left: auto ;
+    margin-right: auto ;
+    width:870px;
+    height:1270px;
+    background-color:white;
+    .contents{
+      height:850px;
+      background-color:white;
+      .nav-message{
+        height:120px;
+        padding:40px 85px;
+        box-sizing: border-box;
+        border-bottom: 2px solid rgb(245, 245, 245);
+      }
+      .inputs{
+        height:490px;
+        padding:30px 240px;
+        box-sizing: border-box;
+        #user_email{
+          height:50px;
+          width:400px;
+          margin-top:20px;
+          margin-bottom:20px;
+          background-color:#E8F0FE;
+          border-radius: 5px 5px 5px 5px;
+        }
+        .g-recaptcha{
+          padding-left:14px;
+          padding-right:20px;
+        }
+        .next{
+          margin-top:30px;
+          margin-bottom:40px;
+          height:60px;
+          width:420px;
+          color:white;
+          background-color:#ea352d;
+        }
+      }
+    }
+    .info{
+      height:230px;
+      padding-top:40px;
+      padding-bottom:30px;
+      margin-top:34px;
+      box-sizing: border-box;
+      background-color:rgb(245, 245, 245);  
+      .complaiance{
+        background-color:rgb(245, 245, 245);
+        height:20px;
+        &__urls{
+          display: inline-block;
+          text-align: center;
+          font-size:16px;
+          margin-right:15px;
+          margin-left:15px;
+        }
+      }
+      .bottom-logo{
+        background-color:rgb(245, 245, 245);
+        height:120px;
+      }
+      .copy-right{
+        background-color: rgb(245, 245, 245);
+        height:20px;
+      }
+    }
+  }
+} 

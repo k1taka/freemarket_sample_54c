@@ -1,2 +1,130 @@
-.test
-  testa
+.detail-container
+  .main
+    %h1.item-name
+      NIKEシューズ
+    .content
+      .item-photo
+        .item-photo__top
+          = image_tag 'bannar_image', height: '300', width: '300', class: ''
+        .item-photo__bottoms
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+          = image_tag 'bannar_image', class: 'item-photo__bottoms__bottom'
+
+      %table{border:"1"}
+        %tr
+          %th 出品者
+          %td
+            =link_to "TAKAHASHI MANAMI","https://www.mercari.com/jp/"
+            .ratings
+              .ratings__set
+                = fa_icon 'smile', class: ' fa-smile ratings__set--grin'
+                %span.ratings__set__num 100
+              .ratings__set
+                = fa_icon 'meh', class: 'ratings__set--meh'
+                %span.ratings__set__num 200
+              .ratings__set
+                = fa_icon 'frown', class: 'ratings__set--frown'
+                %span.ratings__set__num 300
+        %tr
+          %th カテゴリー
+          %td
+            =link_to "レディース","https://www.mercari.com/jp/"
+            %br
+            = fa_icon 'arrow-right', class: 'arrow-color'
+            =link_to "ジーンズ","https://www.mercari.com/jp/"
+            %br 
+            = fa_icon 'arrow-right', class: 'arrow-color'
+            =link_to "ジーンズ","https://www.mercari.com/jp/"
+        %tr
+          %th ブランド
+          %td
+            =link_to "NIKE","https://www.mercari.com/jp/" 
+        %tr
+          %th 商品の状態
+          %td やや傷や汚れあり
+        %tr
+          %th 配送料の負担
+          %td 送料込み（出品者負担）
+        %tr
+          %th 配送の方法
+          %td 普通郵便（定形、定形外）
+        %tr
+          %th 発送元地域
+          %td
+            =link_to "東京都","https://www.mercari.com/jp/",class: "content__cell__item"
+        %tr
+          %th 発送日の目安
+          %td 2~3日
+    .item-price
+      %span.item-price__bold
+        ¥5,655
+      %span.item-price__tax
+        （税込み）
+      %span.item-price__shipping
+        送料込み
+    =link_to "購入画面に進む","https://www.mercari.com/jp/",class:"item-buy-btn"
+    %p.item-description
+      バンズ ボルトです。
+      6.7年前に購入したものになります。詳細分かり兼ねます。
+      そのまま物置き保管となっておりました。
+      画像にありますように内側カカト破れ、外側カカト部分ステッチに多少ほつれあります。
+      アッパーはオフホワイト系のスエード、ソールカラーは人気のブラックです。当時あまり見ないモデルだと思い購入した記憶があります。レトロな雰囲気もカッコ可愛いです。
+      状態も割と古いものになりますが、まだまだ履けるかと思います。古着にご理解のある方よろしくお願い致します。
+      完品を求める方、神経質な方はご遠慮ください。   
+    .item-button
+      .evaluation
+        %button.evaluation--likes
+          = fa_icon 'heart', class: 'heart'
+          %span いいね！
+          %span 4
+        %button.evaluation--improper
+          = fa_icon 'flag', class:'far fa-flag'
+          %span 不適切な商品の報告
+      %button.safety
+        =link_to "https://www.mercari.com/jp/",class:"btn" do
+          = fa_icon 'lock',class:'lock'
+          = "あんしん・あんぜんへの取り組み"
+  %ul.messages
+    %li.message
+      .message__user
+        = image_tag 'anonymous .svg', height: '40', width: '40', class: 'message__user__photo'
+      .message__body
+        .message__body__text
+          出品者がコメントを削除しました。
+        = fa_icon 'clock',class:'far fa-clock message__body__time'
+        %span.message__body__time
+          17時間前
+    %li.message
+      .message__user
+        = image_tag 'anonymous .svg', height: '40', width: '40', class: 'message__user__photo'
+      .message__body
+        .message__body__text
+          出品者がコメントを削除しました。
+        = fa_icon 'clock',class:'far fa-clock message__body__time'
+        %span.message__body__time
+          17時間前
+    %p.message__notion
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    %form
+      %textarea.comment__text
+      %button.comment__btn
+        コメントする
+  .social-link
+    %ul.box
+      %li
+        = link_to "https://facebook.com/" do
+          = fa_icon 'facebook-square', class: 'fab fa-facebook-square fa-fw box__facebook'  
+      %li
+        = link_to "https://twitter.com/" do
+          = fa_icon 'twitter-square', class: 'fab fa-twitter-square fa-fw box__twitter'
+      %li
+        = link_to "https://www.pinterest.jp/" do
+          = fa_icon 'pinterest', class: 'fab fa-pinterest fa-fw box__pinterest'  
