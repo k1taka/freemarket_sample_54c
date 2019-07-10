@@ -1,0 +1,40 @@
+//必須ボタン
+.need-btn{
+  font-size:12px;
+  font-weight:600;
+  background-color:rgb(234, 53, 45);
+  color:white;
+  height:20px;
+  border-radius:2px;
+  line-height: 20px;
+  padding:2px 4px;
+  margin-left:8px;
+}
+//display:flex; 
+.flex{
+  display:flex;
+}
+
+//select buttonの矢印を消す（代わりにfontawesomeの矢印を入れる）
+
+
+  .select-wrap{
+    position: relative;
+    .chevron-select{
+      position: absolute;
+      right:5;
+      top:5;
+    }
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color:white;
+      width: 400px;
+      height:48px;
+      }
+      select::-ms-expand {
+        display: none;
+      }
+  }
+//fontawesome編集

@@ -127,8 +127,9 @@ header{
           background-color:white;
           display: flex;
           a{
-            height:32px;
+
           span{
+            vertical-align: top;
             color:black;
             height:32px;
             &:hover{
