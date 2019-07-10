@@ -19,8 +19,10 @@
  @import "modules/header";
  @import "modules/footer";
  @import "modules/side_bar";
+ @import "modules/users/mypage1";
  @import "modules/top";
+ @import "devise/login";
+ @import "devise/logout";
+ @import "device/register";
  @import "modules/items/show";
  @import "users";    //ユーザーページ背景仮色付け
- @import "device/login";
- @import "device/register"
