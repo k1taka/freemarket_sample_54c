@@ -34,3 +34,26 @@
       }
   }
 }
+.form__group {
+  margin: 40px 0 0;
+  width: 572px;
+    label {
+      font-weight: 600;
+    }
+    p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+      display: block;
+    }
+    input {
+      margin: 8px 0 0;
+      height: 30px;
+      width: 540px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      display: inline-block;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+}
