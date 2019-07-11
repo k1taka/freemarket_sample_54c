@@ -31,5 +31,18 @@
       .select-wrap
         = fa_icon 'angle-down', class: "chevron-select"
         %select
+      .form__group
+        %label 市区町村
+        %span.any-btn 任意
+        %input.form__group__input{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
+      .form__group
+        %label 番地 
+        %span.any-btn 任意
+        %input.form__group__input{name: "address1", placeholder: "例）青山1-1-1", type: "text", value: ""}/
+      .form__group
+        %label 建物名
+        %span.any-btn 任意
+        %input.form__group__input{name: "address2", placeholder: "例）柳ビル103", type: "text", value: ""}/
+
 
 
