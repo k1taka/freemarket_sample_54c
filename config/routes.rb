@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items
-  resources :users
+  resources :users do
+    resource :credit,only: [:show,:new,:create,:delete]#クレジットカードに必要なカラムによって、ルーティングが変わることがある。
+  end
+
 end

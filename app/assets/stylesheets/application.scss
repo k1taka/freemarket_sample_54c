@@ -27,6 +27,7 @@
  @import "devise/register";
  @import "modules/items/show";
  @import "users";    //ユーザーページ背景仮色付け
- @import "device/login";
- @import "device/register";
+ @import "devise/login";
+ @import "devise/register";
  @import "modules/items/new";
+@import  "modules/credit/show";
