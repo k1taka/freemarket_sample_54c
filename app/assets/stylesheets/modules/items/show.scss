@@ -18,11 +18,9 @@
     .content{
       margin:0 40px;
       display: flex;
-
       .item-photo{
         width:300px;
         height:420px;
-        // background-color:green;
         margin-right:20px;
         &__bottoms{
           margin-top:-6px;
@@ -35,7 +33,6 @@
             height:60px;
           }
         }
-
       }
       table{
         width:300px;
@@ -49,7 +46,6 @@
             font-size:12px;
             padding:8px;
             text-decoration: none;
-
           }
           td{
             background-color: #fff;
@@ -61,9 +57,6 @@
             }
             .ratings{
               display:flex;
-              // width:100px;
-              // height:30px;
-              // background-color: yellow;
               &__set{
                 width:50px;
                 height:15px;
@@ -178,11 +171,8 @@
           margin-top:5px;
           vertical-align: bottom;
         }
-
       }
-      
-      &__body{
-        
+      &__body{ 
         width:600px;
         padding:20px;
         margin:30px 20px 0 0;
@@ -190,7 +180,6 @@
         border-radius: 10px;
         font-size: 14px;
         &__time{
-          // margin-top:15px;
           color:#aaa;
           font-size: 14px;
         }        
@@ -252,7 +241,6 @@
         height:44px;
         color:rgb(50, 105, 189);
         margin-right:5px;
-
       }
       &__twitter{
         width:44px;
