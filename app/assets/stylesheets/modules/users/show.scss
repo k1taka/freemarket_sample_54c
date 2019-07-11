@@ -98,6 +98,11 @@
       width: 572px;
       text-align: center;
       background-color: #ea352d;
+      color: #fff;
+      &:hover {
+        text-decoration: none;
+        opacity: 1.5;
+      }
     }
 }
 .text-right {
