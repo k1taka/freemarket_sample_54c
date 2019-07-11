@@ -10,12 +10,10 @@
         .image__title--font 出品画像
         .image__title--btn.need-btn  必須
       .image__text 最大10枚までアップロードできます
-      //仮置きフォーム
-      .image__photo#upload-btn
+      %label.image__photo#upload-btn{name:"image1"}
         //画像置場
         .image__photo--save-folder
         .image__photo--upload
-          //display:none をすること
           %input.image__photo--upload--input#file{type:"file",name:"image1"}
           .image__photo--upload--text 
             ドラッグ&ドロップ
