@@ -16,6 +16,7 @@
  */
 
  @import "reset";
+ @import "shared";
  @import "modules/header";
  @import "modules/footer";
  @import "modules/side_bar";
@@ -26,3 +27,6 @@
  @import "devise/register";
  @import "modules/items/show";
  @import "users";    //ユーザーページ背景仮色付け
+ @import "device/login";
+ @import "device/register";
+ @import "modules/items/new";

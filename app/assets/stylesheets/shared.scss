@@ -1,0 +1,54 @@
+//必須ボタン
+.need-btn{
+  font-size:12px;
+  font-weight:600;
+  background-color:rgb(234, 53, 45);
+  color:white;
+  height:20px;
+  border-radius:2px;
+  line-height: 20px;
+  padding:2px 4px;
+  margin-left:8px;
+}
+//display:flex; 
+.flex{
+  display:flex;
+}
+
+//select buttonの矢印を消す（代わりにfontawesomeの矢印を入れる）
+
+
+  .select-wrap{
+    margin-top:8px;
+    position: relative;
+    .chevron-select{
+      position: absolute;
+      right:24px;
+      top:15px;
+    }
+    select {
+      padding-left:10px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color:white;
+      width: 400px;
+      height:48px;
+      }
+      select::-ms-expand {
+        display: none;
+      }
+  }
+// 赤箱ボタン
+.red-btn{
+  margin:30px auto 40px;
+  height:70px;
+  width:430px;
+  color:white;
+  background-color:#ea352d;
+  text-align:center;
+  line-height:70px;
+  a{
+    color:white;
+  }
+}
