@@ -4,24 +4,13 @@
     -# = image_tag 'bannar_image', height: '390', width: '100%', class: ''
   .pickup-container
     %h2.pickup-head  
-      ピックアップカテゴリー
+      商品一覧
       .items-wrapper
         %h3.item-header 
           = link_to "#" do
             レディース新着アイテム
-          .items-box
-            = render 'item' 
-          .view-all
-            = link_to "#" do
-              ="すべての商品を見る"
-  .pickup-container
-    %h2.pickup-head  ピックアップブランド
-    .items-wrapper
-      %h3.item-header 
-        = link_to "#" do
-          レディース新着アイテム
-      .items-box
-        = render 'item' 
-      .view-all
-        = link_to "#" do
-          ="すべての商品を見る"
+        .items-box
+          = render 'item' 
+        .view-all
+          = link_to "#" do
+            ="すべての商品を見る"
