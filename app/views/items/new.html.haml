@@ -42,23 +42,164 @@
         .category__select.select-wrap
           =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
           %select.category__select--list
-            %option{:value => ""} ---
-            %option{:value => "1"} レディース
-            %option{:value => "2"} メンズ
-            %option{:value => "3"} ベビー・キッズ
-            %option{:value => "4"} インテリア・住まい・小物
-            %option{:value => "5"} 本・音楽・ゲーム
-            %option{:value => "1328"} おもちゃ・ホビー・グッズ
-            %option{:value => "6"} コスメ・香水・美容
-            %option{:value => "7"} 家電・スマホ・カメラ
-            %option{:value => "8"} スポーツ・レジャー
-            %option{:value => "9"} ハンドメイド
-            %option{:value => "1027"} チケット
-            %option{:value => "1318"} 自動車・オートバイ
-            %option{:value => "10"} その他
+            %option{value:""} ---
+            %option{value:"1"} レディース
+            %option{value:"2"} メンズ
+            %option{value:"3"} ベビー・キッズ
+            %option{value:"4"} インテリア・住まい・小物
+            %option{value:"5"} 本・音楽・ゲーム
+            %option{value:"1328"} おもちゃ・ホビー・グッズ
+            %option{value:"6"} コスメ・香水・美容
+            %option{value:"7"} 家電・スマホ・カメラ
+            %option{value:"8"} スポーツ・レジャー
+            %option{value:"9"} ハンドメイド
+            %option{value:"1027"} チケット
+            %option{value:"1318"} 自動車・オートバイ
+            %option{value:"10"} その他
             //子カテゴリ
         .category__select.select-wrap
           =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
           %select.category__select--list
-          
-
+            %option{value:""} ---
+            %option{value:"11"} トップス
+            %option{value:"12"} ジャケット/アウター
+            %option{value:"13"} パンツ
+            %option{value:"14"} スカート
+            %option{value:"15"} ワンピース
+            %option{value:"16"} 靴
+            %option{value:"17"} ルームウェア/パジャマ
+            %option{value:"18"} レッグウェア
+            %option{value:"19"} 帽子
+            %option{value:"20"} バッグ
+            %option{value:"21"} アクセサリー
+            %option{value:"22"} ヘアアクセサリー
+            %option{value:"23"} 小物
+            %option{value:"24"} 時計
+            %option{value:"25"} ウィッグ/エクステ
+            %option{value:"26"} 浴衣/水着
+            %option{value:"27"} スーツ/フォーマル/ドレス
+            %option{value:"28"} マタニティ
+            %option{value:"29"} その他
+            -# 孫カテゴリ
+        .category__select.select-wrap
+          =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
+          %select.category__select--list
+            %option{value:""} ---
+            %option{value:"137"} テーラードジャケット
+            %option{value:"138"} ノーカラージャケット
+            %option{value:"139"} Gジャン/デニムジャケット
+            %option{value:"140"} レザージャケット
+            %option{value:"141"} ダウンジャケット
+            %option{value:"142"} ライダースジャケット
+            %option{value:"143"} ミリタリージャケット
+            %option{value:"144"} ダウンベスト
+            %option{value:"145"} ジャンパー/ブルゾン
+            %option{value:"146"} ポンチョ
+            %option{value:"149"} ロングコート
+            %option{value:"150"} トレンチコート
+            %option{value:"151"} ダッフルコート
+            %option{value:"152"} ピーコート
+            %option{value:"1129"} チェスターコート
+            %option{value:"1149"} モッズコート
+            %option{value:"147"} スタジャン
+            %option{value:"153"} 毛皮/ファーコート
+            %option{value:"154"} スプリングコート
+            %option{value:"148"} スカジャン
+            %option{value:"155"} その他
+        .category-size
+          .catagory-size__title.flex
+            .category-size__title--text サイズ
+            .category-size__title--btn.need-btn 必須
+            //sizeセレクト
+          .category-size__select.select-wrap
+            =fa_icon "chevron-down", class: 'icon chevron-select category-size__select--icon'
+            %select.category-size__select--list
+              %option{value:""} ---
+              %option{value:"153"} XXS以下
+              %option{value:"154"} XS(SS)
+              %option{value:"2"} S
+              %option{value:"3"} M
+              %option{value:"4"} L
+              %option{value:"5"} XL(LL)
+              %option{value:"155"} 2XL(3L)
+              %option{value:"156"} 3XL(4L)
+              %option{value:"157"} 4XL(5L)以上
+              %option{value:"7"} FREE SIZE
+          //親いらない リファクタいんぐ対象
+        .category-brand
+          .catagory-brand__title.flex
+            .category-brand__title--text ブランド
+            .category-brand__title--btn.need-btn 任意
+          .category-brand__select.select-wrap
+            %input.category-brand__select--list{type:"text",placeholder:"商品名(必須４０文字まで)"}
+        .category-condition
+          .category__title.flex
+            .category-condition__title--text 商品の状態
+            .category-condition__title--btn.need-btn 必須
+          .category-condition__select.select-wrap
+            =fa_icon "chevron-down", class: 'icon chevron-select category-condition__select--icon'
+            %select.category-condition__select--list
+              %option{value:""} ---
+              %option{value:"1"} 新品、未使用
+              %option{value:"2"} 未使用に近い
+              %option{value:"3"} 目立った傷や汚れなし
+              %option{value:"4"} やや傷や汚れあり
+              %option{value:"5"} 傷や汚れあり
+              %option{value:"6"} 全体的に状態が悪い
+    .item-shipping.border-bottom.flex
+      .sub-head 配送について
+      .shipping
+        .shipping__title--head.flex
+          .shipping__title--text 配送料の負担
+          .shipping__title--btn.need-btn 必須
+        .shipping__select.select-wrap
+          =fa_icon "chevron-down", class: 'icon chevron-select category-condition__select--icon'
+          %select.shipping__select--list
+          //JS で配送料の負担を選択したら出るようにする
+        .shipping__title.flex
+          .shipping__title--text 配送の方法
+          .shipping__title--btn.need-btn 必須
+        .shipping__select.select-wrap
+          =fa_icon "chevron-down", class: 'icon chevron-select category-condition__select--icon'
+          %select.shipping__select--list
+        .shipping__title.flex
+          .shipping__title--text 発送元の地域
+          .shipping__title--btn.need-btn 必須
+        .shipping__select.select-wrap
+          =fa_icon "chevron-down", class: 'icon chevron-select category-condition__select--icon'
+          %select.shipping__select--list
+        .shipping__title.flex
+          .shipping__title--text 発送までの日数
+          .shipping__title--btn.need-btn 必須
+        .shipping__select.select-wrap
+          =fa_icon "chevron-down", class: 'icon chevron-select category-condition__select--icon'
+          %select.shipping__select--list
+    .item-price.border-bottom.flex
+      .sub-head 販売価格
+      .right-wrap
+        .price.flex.border-bottom
+          .price__title--head.flex
+            .price__title--text 価格
+            .price__title--btn.need-btn 必須
+          .price__select.select-wrap
+            = "¥"
+            %input.price__select--list{type:"text",placeholder:"例) 300"}
+        .price-charge.flex.border-bottom
+          .price-charge__title.flex
+            .price-charge__title--text 販売手数料(10%)
+          .price-charge__result
+            = "-"
+        .price-benefit.flex
+          .price-benefit__title.flex
+            .price-benefit__title--text 販売利益
+          .price-benefit__result
+            = "-"
+    .send-item-content
+      .description
+        禁止されている出品、行為を必ずご確認ください。
+        %br またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+        また、出品をもちまして加盟店規約に同意したことになります。
+        = link_to "#" do
+          .red-btn 出品する
+        = link_to "#" do
+          .red-btn.gray もどる
