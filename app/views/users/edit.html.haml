@@ -2,3 +2,8 @@
   = render 'shared/side_bar'
   %section.mypage-container
     .profile__head プロフィール
+    %form.profil__main{ action: "#", method: "POST"}
+      .profil__main__icon
+        .main__icon__box
+          %image.main__icon__box__image{ height: "60", src: "assets/images/shinchan.jpeg", width: "60"}
+        %input.input-default{ name: "nickname", placeholder: "例)AYA☆セール中", :type => "text", :value => ""}/
