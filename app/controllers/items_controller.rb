@@ -8,9 +8,6 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def showshow
-  end
-
   #商品購入確認ページ
   def confirmation
   end
@@ -32,7 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item=Item.find(params[:sellar_id])  #リファクタリングor削除
+    @item=Item.find(params[:item])  #リファクタリング
   end
 
 end
