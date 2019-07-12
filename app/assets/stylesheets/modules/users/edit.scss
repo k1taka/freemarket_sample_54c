@@ -1,0 +1,79 @@
+.mypage-container {
+  width: 700px;
+  background-color: #fff;
+}
+
+.profile__head {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-bottom: 1px solid #f5f5f5;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.profil__main__icon {
+  padding: 72px 16px 24px;
+  background-image: url('louie-martinez-482218-unsplash.jpg');
+  background-size: 700px 156px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__icon__box {
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+    &__image {
+      width: 60px;
+      height: 60px;
+    }
+}
+
+.input-default {
+  width: 220px;
+  margin: 0 0 0 8px;
+  height: 30px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.profil__main__content {
+  padding: 40px 16px;
+}
+
+.textarea-default {
+  min-height: 216px;
+  width: 648px;
+  padding: 10px;
+  display: block;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.red-btn {
+  margin: 16px 0 0 0;
+  height: 48px;
+    a {
+      display: block;
+      line-height: 48px;
+      width: 668px;
+      text-align: center;
+      background-color: #ea352d;
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        opacity: 1.5;
+      }
+    }
+}
