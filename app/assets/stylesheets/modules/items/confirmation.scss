@@ -1,0 +1,110 @@
+.confirm-main{
+  height:100%;
+  width:700px;
+  background-color:white;
+  margin:0 auto;
+}
+.confirm-content{
+  width:400px;
+  border:1px solid #f5f5f5;
+  padding:50px 150px;
+}
+.name-header{
+  height:40px;
+  text-align: center;
+  line-height:30px;
+  &__confirm{
+    font-weight: bold;
+    line-height:40px; 
+    font-size:22px;
+   }
+}
+.item-header{
+  display: flex;
+  &__photo{
+  }
+  &__title{
+    margin-left:20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+.price-confirm{
+  display: flex;
+  text-align:center;
+  margin:0 auto;
+  width:200px;
+  .price-value{
+    font-size: 20px;
+    display:block;
+    margin:0 auto;
+  }
+  .price-tax{
+    font-size: 15px;
+    display:block;
+  }
+}
+.total-fee{
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+  &__word{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__valu{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.fee-notion{
+  color:red;
+  font-size: 15px;
+}
+
+.payment-list{
+  padding:24px 0px;
+  font-size:16px;
+  font-weight:400;
+  &__num{
+    margin-top:8px;
+  }
+ }
+ .confirm__point{
+  width:420px;
+  height:40px;
+  background-color:#ccc;
+  text-align: center;
+  line-height:40px;
+  margin:20px auto;
+}
+.confirm__submit{
+  width:420px;
+  height:40px;
+  text-align: center;
+  line-height:40px;
+  margin:20px auto;
+  border:1px solid #f5f5f5;
+  background: #888;
+  color: #fff;
+}
+.shipping-addres{
+  width:400px;
+  border:1px solid #f5f5f5;
+  padding:50px 150px;
+}
+.shipping-way{
+  width:400px;
+  border:1px solid #f5f5f5;
+  padding:50px 150px;
+}
+.change-right{
+  text-align: right;
+  color:#0099e8;
+  text-decoration: none;
+}
+.change-sentence{
+  color:#0099e8;
+  text-decoration: none;
+}
