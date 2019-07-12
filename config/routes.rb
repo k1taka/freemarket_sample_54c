@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  # itemsはusersにネストさせる
+  
+  # itemsはusersにネストさせる編集の都合上現在ここ
   resources :items ,only: [:index,:show,:new,:create,]do
     get "confirmation", on: :collection
   end

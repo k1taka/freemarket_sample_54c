@@ -18,7 +18,18 @@ class ItemsController < ApplicationController
   end
   
   def create
+    redirect_to :index
   end
 
+
+  private
+
+  def item_params
+    params.require(:items).permit(:content, :image).merge(user_id: current_user.id) #permit部分は編集すること
+  end
+
+  def set_item
+    @item=Item.find(params[:item])  #リファクタリング
+  end
 
 end
