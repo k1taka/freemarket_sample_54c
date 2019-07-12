@@ -21,3 +21,16 @@
   align-items: center;
   justify-content: center;
 }
+
+.main__icon__box {
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+    &__image {
+      width: 60px;
+      height: 60px;
+    }
+}
