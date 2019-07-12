@@ -11,9 +11,14 @@ Rails.application.routes.draw do
   # itemsはusersにネストさせる編集の都合上現在ここ
   resources :items ,only: [:index,:show,:new,:create,]do
     get "confirmation", on: :collection
+    get "showshow", on: :collection ####
   end
   resources :users do
-    resource :credit, only: [:show,:new,:create,:delete]#クレジットカードに必要なカラムによって、ルーティングが変わることがある。
+    get "showshow", on: :collection  ###
+    get "logout", on: :collection 
+    get "editedit" ,on: :collection  ###
+    #resource :credit, only: [:show,:new,:create,:delete]#クレジットカードに必要なカラムによって、ルーティングが変わることがある。
   end
+  resource :credit, only: [:show,:new,:create,:delete] ###
 
 end

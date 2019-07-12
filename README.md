@@ -49,6 +49,7 @@ Things you may want to cover:
 - has_many :comments
 - belongs_to :prefecture
 - has_many :images
+- has_one :credit
 
 ## comments テーブル
 |Column          |Type   |Options                    |
