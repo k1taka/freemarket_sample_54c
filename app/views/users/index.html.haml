@@ -1,2 +1,82 @@
-.user-page
+
+:ruby
+  announces =[{
+    Name:"コメントがつきました", url:"#"
+  },{
+    Name:"いいね！がつきました", url:"#"
+  },{
+    Name:"いいね！した商品にコメントがつきました", url:"#"
+  }]
+
+:ruby
+  transactions =[{
+    Name:"「バッグ」を購入しました。取引が完了しました", url:"#"
+  },{
+    Name:"「Tシャツ」を購入しました。取引が完了しました", url:"#"
+  },{
+    Name:"「キーホルダー」を購入しました。取引が完了しました", url:"#"
+  }]
+
+.container
   = render 'shared/side_bar'
+  .mypage__box
+    %section.mypage-profile
+      =link_to "#", class: "mypage-profile__user" do
+        .mypage-profile__user__top
+        .mypage-profile__user__middle MT
+        .mypage-profile__user__bottom
+          .mypage-profile__user__bottom__evaluation
+            評価
+            %span.evaluation-num
+              172
+          .mypage-profile__user__bottom__exhibit
+            出品数
+            %span.exhibit-num
+              151
+    %section.mypage-announce
+      %ul.mypage-announce__tab
+        %li.mypage-announce__tab__notification
+          お知らせ
+          -# =link_to '#' do
+        %li.mypage-announce__tab__todo
+          やることリスト
+          -# =link_to '#' do
+      .mypage-announce__detail
+        %ul.detail__box
+          - announces.each do |announce|
+            %li.detail__box__list
+              =link_to "#", class: "detail__box__list__inner" do
+                .detail__image
+                  %img.detail__image__photo{ alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+                .detail__text
+                  .detail__text__top #{announce[:Name]}
+                  %time.detail__text__time
+                    .detail__text__time__icon
+                      = fa_icon 'twitter', class: "far icon"
+                    %span.detail__text__time__num 9時間前
+                = fa_icon 'chevron-right', class: "announce-icon"
+          %li.list__go
+            =link_to "#", class: "list__go__inner" do
+              一覧を見る
+    %section.buyed-item
+      .buyed-item__title
+        購入した商品
+      %ul.status__tab
+        %li.status__tab__doing
+          取引中
+        %li.status__tab__past
+          過去の取引
+      .buyed-item__list
+        %ul.item__box
+          - transactions.each do |transaction|
+            %li.item__box__list
+              =link_to "#", class: "item__box__list__link" do
+                .buyed__image
+                  %img.buyed__image__photo{ alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+                .buyed__text
+                  .buyed__text__top #{transaction[:Name]}
+                  .buyed__text__time 取引完了
+                = fa_icon 'chevron-right', class: "announce-icon"
+          %li.buyed-list__go
+            =link_to "#", class: "buyed-list__go__inner" do
+              一覧を見る

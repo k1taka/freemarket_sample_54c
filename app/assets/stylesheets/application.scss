@@ -16,11 +16,24 @@
  */
 
  @import "reset";
+ @import "shared";
  @import "modules/header";
  @import "modules/footer";
  @import "modules/side_bar";
+ @import "modules/users/mypage1";
  @import "modules/top";
+ @import "devise/login";
+ @import "devise/logout";
+ @import "devise/register";
+ @import "modules/items/show";
  @import "users";    //ユーザーページ背景仮色付け
+<<<<<<< HEAD
  @import "device/login";
  @import "device/register";
  @import "shared";
+=======
+ @import "modules/items/new";
+ @import  "modules/credit/show";
+ @import "modules/users/show";
+ @import "modules/users/edit";
+>>>>>>> master

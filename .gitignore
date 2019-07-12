@@ -24,6 +24,10 @@
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
+<<<<<<< HEAD
 /config/master.key
+=======
+/config/master.key  
+>>>>>>> master
 /config/initializers/recaptcha.rb
 public/uploads/*

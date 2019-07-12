@@ -1,0 +1,23 @@
+.logout {
+  height: 179px;
+  background-color: #fff;
+    &__box {
+      height: 51px;
+      width: 572px;
+      padding: 64px;
+    }
+}
+.logout-btn-box {
+  max-width: 320px;
+  margin: 0 auto;
+    &__inner {
+      display: block;
+      text-align: center;
+      font-size: 14px;
+      border: 1px solid #ea352d;
+      color: #fff;
+      background-color: #ea352d;
+      line-height: 48px;
+      text-decoration: none;
+    }
+}
