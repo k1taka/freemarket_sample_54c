@@ -2,6 +2,7 @@
   width: 700px;
   background-color: #fff;
 }
+
 .profile__head {
   font-size: 24px;
   font-weight: bold;
@@ -9,4 +10,14 @@
   border-bottom: 1px solid #f5f5f5;
   text-align: center;
   line-height: 1.4;
+}
+
+.profil__main__icon {
+  padding: 72px 16px 24px;
+  background-image: url('louie-martinez-482218-unsplash.jpg');
+  background-size: 700px 156px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
