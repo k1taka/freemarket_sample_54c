@@ -1,0 +1,110 @@
+.registration {
+  width: 700px;
+  color: #333;
+  background: #fff;
+    &__head {
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid #f5f5f5;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.4;
+    }
+    &__main {
+      padding: 64px;
+    }
+}
+.disctiption {
+  &__top {
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+  &__bottom {
+    margin: 8px 0 0;
+    line-height: 1.5;
+    text-align: right;
+    display: block;
+      a {
+        color: #0099e8;
+        touch-action: manipulation;
+        &:hover {
+          text-decoration: underline;
+          opacity: 0.7;
+        }
+      }
+  }
+}
+.form__group {
+  margin: 40px 0 0;
+  width: 572px;
+    label {
+      font-weight: 600;
+    }
+    p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+      display: block;
+    }
+    input {
+      margin: 8px 0 0;
+      height: 30px;
+      width: 540px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      display: inline-block;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    a {
+      color: #0099e8;
+      touch-action: manipulation;
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.7;
+      }
+    }
+}
+.any-btn {
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #ccc;
+  color: white;
+  height: 20px;
+  border-radius: 2px;
+  line-height: 20px;
+  padding:2px 4px;
+  margin-left:8px;
+}
+.select-wrap {
+  select {
+    width: 100%;
+    border: 1px solid #ccc;
+  }
+  .chevron-select {
+    font-size: 20px;
+    color: #888;
+  }
+}
+.red-btn {
+  max-width: 320px;
+  margin: 40px 0 0 0;
+  height: 48px;
+    a {
+      display: block;
+      line-height: 48px;
+      width: 572px;
+      text-align: center;
+      background-color: #ea352d;
+      color: #fff;
+      &:hover {
+        text-decoration: none;
+        opacity: 1.5;
+      }
+    }
+}
+.text-right {
+  text-align: right;
+}
