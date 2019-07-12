@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   # ユーザーページ
   def index
   end
-
+  
   # 本人情報確認
   def show
   end
