@@ -13,7 +13,7 @@
               = fa_icon 'facebook-square', class: "icon"
             .facebook__link__message Facebookでログイン
         .gogle 
-          = link_to 'Signin with Google', user_google_omniauth_authorize_path
+          = link_to 'Signin with Google', "https://www.facebook.com/"
       .inputs
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .input-field
@@ -23,7 +23,7 @@
             = f.password_field :password, autocomplete: "current-password"
             %br/
             = flash[:recaptcha_error]
-            = recaptcha_tags
+            -# = recaptcha_tags  リキャプチャを用いた、認証機能
             = f.submit "ログイン", class: "login-btn"
             =link_to "https://www.facebook.com/", class: "" do
               メールアドレスをお忘れの方

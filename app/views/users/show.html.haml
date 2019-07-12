@@ -1,0 +1,55 @@
+.container
+  = render 'shared/side_bar'
+  %section.registration
+    .registration__head 本人情報の登録
+    %form.registration__main
+      .disctiption
+        %p.disctiption__top
+          お客さまの本人情報をご登録ください。
+          %br>/
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.disctiption__bottom.text-right
+          =link_to '#' do
+            本人確認書類のアップロードについて
+            = fa_icon 'chevron-right', class: "icon"
+      .form__group
+        %label お名前
+        %p 高橋愛実
+      .form__group
+        %label お名前カナ
+        %p タカハシ マナミ
+      .form__group
+        %label 生年月日
+        %p 1991/04/20
+      .form__group
+        %label 郵便番号
+        %span.any-btn 任意
+        %input.form__group__input{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+      .form__group
+        %label 都道府県
+        %span.any-btn 任意
+        .select-wrap
+          = fa_icon 'angle-down', class: "chevron-select"
+          %select
+        .form__group
+          %label 市区町村
+          %span.any-btn 任意
+          %input.form__group__input{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
+        .form__group
+          %label 番地 
+          %span.any-btn 任意
+          %input.form__group__input{name: "address1", placeholder: "例）青山1-1-1", type: "text", value: ""}/
+        .form__group
+          %label 建物名
+          %span.any-btn 任意
+          %input.form__group__input{name: "address2", placeholder: "例）柳ビル103", type: "text", value: ""}/
+        .red-btn
+          =link_to '#' do
+            登録する
+        .form__group
+          %p.text-right
+            =link_to '#' do
+              本人情報の登録について
+              = fa_icon 'chevron-right', class: "icon"
+
+
