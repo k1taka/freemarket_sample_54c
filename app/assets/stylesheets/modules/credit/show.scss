@@ -1,0 +1,63 @@
+.credit-user-contents{
+  background-color:white;
+  width:700px;
+  height:calc(50px + 205px + 64px + 64px);
+  font-weight:700;
+  .header{
+    font-size:24px;
+    font-weight:700;
+    width:652px;
+    height:33px;
+    padding:8px 24px;
+    text-align:center;
+  }
+}
+
+.credit-content{
+  padding:64px;
+  .credit--under-bar{
+    width:100%;
+    height: 100%;
+    .credit-inner{
+      max-width:320px;
+      margin:0 auto;
+      font-weight:700;
+      font-size:16px;
+    }
+  }
+}
+
+.payment-list{
+  position: relative;
+  padding:24px 0px;
+  font-size:16px;
+  font-weight:400;
+  &__num{
+    margin-top:8px;
+  }
+  .payment-remove{
+    position: absolute;
+    right:20px;
+    top:30px; 
+    background-color:white;
+    color:rgb(234, 53, 45);
+    border-color:rgb(234, 53, 45);
+    border-radius:1px;
+    padding:4px 6px;
+  }
+}
+
+ button .payment-way{
+  font-size:14px;
+  margin-top:40px;
+  text-align:right;
+  &__icon{
+  margin-left:8px;
+  }
+  a{
+    color:#0099e8;
+    &:hover{
+    text-decoration: line;
+    }
+ }
+}
