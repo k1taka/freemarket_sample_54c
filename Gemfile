@@ -91,4 +91,7 @@ gem "jquery-rails"
 gem 'recaptcha', require: "recaptcha/rails"
 
 gem 'omniauth'
+
 gem 'omniauth-google-oauth2'
+
+gem 'ancestry'
