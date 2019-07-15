@@ -7,21 +7,22 @@
     = form_for @item,url:{action:"create"} do |f|
       %h1.header.border-bottom 商品の情報を入力
       .images
-        = f.fields_for :images do |i| 
-          .image__title.flex
-            .image__title--font 出品画像
-            .image__title--btn.need-btn  必須
-          .image__text 最大10枚までアップロードできます
-          = i.label :image do
-            .image__photo
-              .image__photo--save-folder
-              .image__photo--upload
-                .image__photo--upload--input
-                  = i.file_field :image
-                .image__photo--upload--text 
-                  ドラッグ&ドロップ
-                  %br
-                  またはクリックしてファイルをアップロード
+        .image__title.flex
+          .image__title--font 出品画像
+          .image__title--btn.need-btn  必須
+        .image__text 最大10枚までアップロードできます
+        - 2.times do
+          = f.fields_for :images do |i| 
+            = i.label :image do
+              .image__photo
+                .image__photo--save-folder
+                .image__photo--upload
+                  .image__photo--upload--input
+                    = i.file_field :image
+                  .image__photo--upload--text 
+                    ドラッグ&ドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
       .item-content.border-bottom
         .item-name
           .item-name__title.flex
@@ -84,29 +85,8 @@
               -# 孫カテゴリ
           .category__select.select-wrap
             =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
-            %select.category__select--list
-              %option{value:""} ---
-              %option{value:"137"} テーラードジャケット
-              %option{value:"138"} ノーカラージャケット
-              %option{value:"139"} Gジャン/デニムジャケット
-              %option{value:"140"} レザージャケット
-              %option{value:"141"} ダウンジャケット
-              %option{value:"142"} ライダースジャケット
-              %option{value:"143"} ミリタリージャケット
-              %option{value:"144"} ダウンベスト
-              %option{value:"145"} ジャンパー/ブルゾン
-              %option{value:"146"} ポンチョ
-              %option{value:"149"} ロングコート
-              %option{value:"150"} トレンチコート
-              %option{value:"151"} ダッフルコート
-              %option{value:"152"} ピーコート
-              %option{value:"1129"} チェスターコート
-              %option{value:"1149"} モッズコート
-              %option{value:"147"} スタジャン
-              %option{value:"153"} 毛皮/ファーコート
-              %option{value:"154"} スプリングコート
-              %option{value:"148"} スカジャン
-              %option{value:"155"} その他
+            .category__select--list
+              = f.collection_select :category_id, @categories,:id, :name,prompt: "---"
           .category-size
             .catagory-size__title.flex
               .category-size__title--text サイズ

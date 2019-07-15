@@ -17,13 +17,13 @@ class ItemsController < ApplicationController
   #商品出品ページ
   def new
     @item = Item.new
-    10.times{@item.images.build}
+    @item.images.build
     render layout: 'logo'
   end
   
   def create
-    binding.pry
     @item =Item.new(item_params)
+    binding.pry
   if @item.save
     redirect_to root_path, notice: 'グループを作成しました'
   else
@@ -35,9 +35,9 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image])
+    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price,images_attributes:[:image])
     #.merge(user_id: current_user.id)
-    #:category  :image seller_id
+    #:  seller_id
   end
 
   def update_item_params
@@ -53,6 +53,7 @@ class ItemsController < ApplicationController
     @shipping_way = ShippingWay.all
     @shipping_address = ShippingAddress.all
     @shipping_day = ShippingDay.all
+    @categories=Category.all
   end
 
 end
