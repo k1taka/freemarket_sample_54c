@@ -39,16 +39,24 @@ Things you may want to cover:
 |birth_day       |date   |not |                  |
 |phone           |integer|not |unique:true       |
 |post_code       |char   |not |                  | 
-|prefecture_id   |integer|not |foreign_key:true  |    //integer?
 |address_city    |string |not |                  |
 |address_building|string |not |                  |
-|profile         |text   |not |                  |
-|credit          |integer|not |                  |   //integer?
+|profile         |text   |    |                  |
 |image_url       |string |not |default "no_image"|
 ### association
 - has_many :comments
 - belongs_to :prefecture
 - has_many :images
+- has_one : credit
+
+## credit テーブル
+|Column          |Type   |Options                    |
+|----------------|-------|---------------------------|
+|id              |integer|null:false                 |
+|credit          |text   |null:false                 |
+|user_id         |integer|null:false,foreign_key:true|
+### asociation
+- belongs_to user
 
 ## comments テーブル
 |Column          |Type   |Options                    |

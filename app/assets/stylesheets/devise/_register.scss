@@ -279,7 +279,7 @@
           font-size:16px;
           display: flex;
           justify-content: space-between;
-          &__first{
+          &__family{
             width:185px;
             box-sizing: border-box;
             padding:18px;
@@ -287,7 +287,7 @@
             margin-right:10px;
             
           }
-          &__last{
+          &__first{
             width:185px;
             box-sizing: border-box;
             padding:18px;
@@ -319,7 +319,7 @@
               font-size:22px;
               color:#888;
             }
-            #user_name{
+            .birth{
               width:115px;
               height:60px;
               padding:10px;
