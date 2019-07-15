@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   #商品出品ページ
   def new
     @item = Item.new
-    @item.images.build
+    10.times{@item.images.build}
     render layout: 'logo'
   end
   
