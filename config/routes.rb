@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get "confirmation", on: :collection
   end
   resources :users do
+    get "logout" ,on: :collection
     resource :credit, only: [:show,:new,:create,:delete]#クレジットカードに必要なカラムによって、ルーティングが変わることがある。
   end
 
