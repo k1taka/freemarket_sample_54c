@@ -23,7 +23,5 @@ class Item < ApplicationRecord
   validates :price,presence: true
   # validates :category,presence: true
   # validates :image,presence: true
-
-
-
+  belongs_to :category
 end

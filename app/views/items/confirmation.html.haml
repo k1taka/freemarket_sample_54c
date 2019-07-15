@@ -1,0 +1,47 @@
+.confirmation--container
+  .confirm-main
+    .name-header
+      %h2.name-header__confirm 購入内容の確認
+    %section.confirm-content
+      .buy-content
+        .item-header
+          .item-header__photo
+            = image_tag "mercari_logo_horizontal.png", size: "60x60", alt: "logo"
+          .item-header__title  NIKE ビッグロゴTシャツ
+        .price-confirm
+          %span.price-value
+            ¥5,655
+          %span.price-tax
+            送料込み
+        .confirm__point
+          ポイントはありません
+        .total-fee
+          %span.total-fee__word
+            支払い金額
+          %span.total-fee__valu
+            ¥5,655
+        %span.fee-notion
+          配送先と支払い方法の入力を完了してください。
+        .confirm__submit 購入する
+    %section.shipping-addres
+      %h3 配送先
+      %p 〒203-0051 
+      %p 東京都 目黒区 中目黒4-1-1 
+      %p Takahashi Manami
+      .change-right
+        =link_to "変更する","#",class:"change-sentence"
+        = fa_icon 'chevron-right', class: 'fas fa-chevron-right'
+
+    %section.shipping-way
+      %h3 支払い方法
+      %ul.payment-list
+        %input{name: "__csrf_value", type: "hidden", value: "613b9f485a4015a17be14fcc46767b6be0cee6eca9300593cf973168d3d1bba3e5989c1a65bfeaf58b38cbb0b784cad928928885f1d5202ff5a69781528f47198"}
+        %input{name: "card_sequence_no",type: "hidden", value:"F2qQMyzLvTsvSZsLQeWcmVcc"}
+        %input{name: "method", type: "hidden", value: "card"}
+        %li.payment-list__figure
+          = image_tag  "mercari_logo_horizontal.png", height: "15", width: "49"
+        %li.payment-list__num  ************4049
+        %li.payment-list__num  02 / 21
+      .change-right
+        =link_to "変更する","#",class:"change-sentence"
+        = fa_icon 'chevron-right', class: 'fas fa-chevron-right'
