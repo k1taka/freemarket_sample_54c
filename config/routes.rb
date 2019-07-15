@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # itemsはusersにネストさせる編集の都合上現在ここ
   resources :items ,only: [:index,:show,:new,:create,]do
     get "confirmation", on: :collection
+    post "purchase", on: :collection
   end
   resources :users do
     get "logout" ,on: :collection
