@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  require 'payjp'
+
   #トップページ　商品一覧
   def index
 
@@ -19,6 +21,15 @@ class ItemsController < ApplicationController
   
   def create
     redirect_to :index
+  end
+
+  def purchase
+    Payjp.api_key = PAYJP_SECRET_KEY
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
   end
 
 
