@@ -7,20 +7,21 @@
     = form_for @item,url:{action:"create"} do |f|
       %h1.header.border-bottom 商品の情報を入力
       .images
-        .image__title.flex
-          .image__title--font 出品画像
-          .image__title--btn.need-btn  必須
-        .image__text 最大10枚までアップロードできます
-        .image__photo
-          = f.label :image do
-            .image__photo--save-folder
-            .image__photo--upload
-              .image__photo--upload--input
-                = f.file_field :image
-              .image__photo--upload--text 
-                ドラッグ&ドロップ
-                %br
-                またはクリックしてファイルをアップロード
+        = f.fields_for :images do |i| 
+          .image__title.flex
+            .image__title--font 出品画像
+            .image__title--btn.need-btn  必須
+          .image__text 最大10枚までアップロードできます
+          = i.label :image do
+            .image__photo
+              .image__photo--save-folder
+              .image__photo--upload
+                .image__photo--upload--input
+                  = i.file_field :image
+                .image__photo--upload--text 
+                  ドラッグ&ドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
       .item-content.border-bottom
         .item-name
           .item-name__title.flex
