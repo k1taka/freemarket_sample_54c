@@ -34,13 +34,16 @@ Things you may want to cover:
 |first_name      |string |not |                  |
 |family_name_kana|stirng |not |                  |
 |first_name_kana |string |not |                  |
-|birth_year      |date   |not |                  |    //Type or varchar
-|birth_month     |date   |not |                  |
-|birth_day       |date   |not |                  |
+|birth_year      |integer|not |                  |    //Type or varchar
+|birth_month     |integer|not |                  |
+|birth_day       |integer|not |                  |
 |phone           |integer|not |unique:true       |
 |post_code       |char   |not |                  | 
 |address_city    |string |not |                  |
-|address_building|string |not |                  |
+|address_location|string |not |                  |
+|address_building|string |    |                  |
+|address_phone   |integer|    |                  |
+|prefecture_id   |integer|not |                  |
 |profile         |text   |    |                  |
 |image_url       |string |not |default "no_image"|
 ### association

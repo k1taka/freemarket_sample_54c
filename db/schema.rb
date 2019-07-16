@@ -41,12 +41,14 @@ ActiveRecord::Schema.define(version: 2019_07_15_071742) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.date "birth_year"
-    t.date "birth_month"
-    t.date "birth_day"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
     t.string "post_code", limit: 8, null: false
     t.string "address_city", null: false
-    t.string "address_building", null: false
+    t.string "address_location", null: false
+    t.string "address_building"
+    t.integer "address_phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -12,7 +12,8 @@ before_action :configure_permitted_parameters, if: :devise_controller?
                                       :family_name_kana,:first_name_kana,
                                       :birth_year,:birth_month,:birth_day,
                                       :post_code,:nickname,:address_city ,
-                                      :address_building,:prefecture_id
+                                      :address_location,:address_building,
+                                      :address_phone,:prefecture_id,
                                       ])#カラム１日増やす    
   end
 end
