@@ -41,62 +41,19 @@
             .category__title--text カテゴリー
             .category__title--btn.need-btn 必須
             //親カテゴリ
-          .category__select.select-wrap
-            =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
-            %select.category__select--list
-              %option{value:""} ---
-              %option{value:"1"} レディース
-              %option{value:"2"} メンズ
-              %option{value:"3"} ベビー・キッズ
-              %option{value:"4"} インテリア・住まい・小物
-              %option{value:"5"} 本・音楽・ゲーム
-              %option{value:"1328"} おもちゃ・ホビー・グッズ
-              %option{value:"6"} コスメ・香水・美容
-              %option{value:"7"} 家電・スマホ・カメラ
-              %option{value:"8"} スポーツ・レジャー
-              %option{value:"9"} ハンドメイド
-              %option{value:"1027"} チケット
-              %option{value:"1318"} 自動車・オートバイ
-              %option{value:"10"} その他
-              //子カテゴリ
-          .category__select.select-wrap
-            =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
-            %select.category__select--list
-              %option{value:""} ---
-              %option{value:"11"} トップス
-              %option{value:"12"} ジャケット/アウター
-              %option{value:"13"} パンツ
-              %option{value:"14"} スカート
-              %option{value:"15"} ワンピース
-              %option{value:"16"} 靴
-              %option{value:"17"} ルームウェア/パジャマ
-              %option{value:"18"} レッグウェア
-              %option{value:"19"} 帽子
-              %option{value:"20"} バッグ
-              %option{value:"21"} アクセサリー
-              %option{value:"22"} ヘアアクセサリー
-              %option{value:"23"} 小物
-              %option{value:"24"} 時計
-              %option{value:"25"} ウィッグ/エクステ
-              %option{value:"26"} 浴衣/水着
-              %option{value:"27"} スーツ/フォーマル/ドレス
-              %option{value:"28"} マタニティ
-              %option{value:"29"} その他
-              -# 孫カテゴリ
-          .category__select.select-wrap
-            =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
-            .category__select--list
-              = f.collection_select :category_id, @categories,:id, :name,prompt: "---"
+          .category__select-wrap
+            .category__select.select-wrap
+              =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
+              .category__select--list
+                = f.select :category_id,  @category_parent_array,{},{id:"parent_category"} 
           .category-size
             .catagory-size__title.flex
               .category-size__title--text サイズ
               .category-size__title--btn.need-btn 必須
-              //sizeセレクト
             .category-size__select.select-wrap
               =fa_icon "chevron-down", class: 'icon chevron-select category-size__select--icon'
               .category-size__select--list
                 = f.collection_select :size_id, @sizes,:id, :size,prompt:"---"
-            //親いらない リファクタいんぐ対象
           .category-brand
             .catagory-brand__title.flex
               .category-brand__title--text ブランド
@@ -143,7 +100,7 @@
             =fa_icon "chevron-down", class: 'icon chevron-select category-condition__select--icon'
             .shipping__select--list
               = f.collection_select :shipping_day_id, @shipping_day,:id, :day,prompt: "---"
-      .item-price.border-bottom.flex
+      .item-price.border-bottom.flex#app
         .sub-head 販売価格
         .right-wrap
           .price.flex.border-bottom
@@ -162,7 +119,7 @@
             .price-benefit__title.flex
               .price-benefit__title--text 販売利益
             .price-benefit__result
-              = "-"
+              - {{price}}
       .send-item-content
         .description
           禁止されている出品、行為を必ずご確認ください。
