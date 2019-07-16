@@ -43,5 +43,6 @@
         %li.payment-list__num  ************4049
         %li.payment-list__num  02 / 21
       .change-right
-        =link_to "変更する","#",class:"change-sentence"
+        = form_tag(action: :pay, method: :post) do
+          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "変更する" ,"data-key": ENV["PAYJP_PUBLIC_KEY"]}
         = fa_icon 'chevron-right', class: 'fas fa-chevron-right'
