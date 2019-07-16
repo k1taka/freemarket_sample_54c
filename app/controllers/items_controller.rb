@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   def confirmation
   end
 
+  # クレジットカード決済のカード情報記入ページ
   def pay
     Payjp.api_key = PAYJP_SECRET_KEY
     Payjp::Charge.create(
