@@ -100,7 +100,7 @@
             =fa_icon "chevron-down", class: 'icon chevron-select category-condition__select--icon'
             .shipping__select--list
               = f.collection_select :shipping_day_id, @shipping_day,:id, :day,prompt: "---"
-      .item-price.border-bottom.flex#app
+      .item-price.border-bottom.flex
         .sub-head 販売価格
         .right-wrap
           .price.flex.border-bottom
@@ -119,7 +119,7 @@
             .price-benefit__title.flex
               .price-benefit__title--text 販売利益
             .price-benefit__result
-              - {{price}}
+              = "-"
       .send-item-content
         .description
           禁止されている出品、行為を必ずご確認ください。
