@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_07_14_085318) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -39,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_07_14_085318) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.bigint "category_id", null: false
     t.integer "size_id"
     t.string "brand"
     t.integer "condition_id", null: false
@@ -50,7 +48,6 @@ ActiveRecord::Schema.define(version: 2019_07_14_085318) do
     t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["shipping_way_id"], name: "index_items_on_shipping_way_id"
   end
 
@@ -64,21 +61,8 @@ ActiveRecord::Schema.define(version: 2019_07_14_085318) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
-    t.string "nickname"
+    t.string "name"
     t.string "token"
-    t.integer "prefecture_id"
-    t.string "family_name", null: false
-    t.string "first_name", null: false
-    t.string "family_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
-    t.string "post_code", limit: 8, null: false
-    t.string "address_city", null: false
-    t.string "address_location", null: false
-    t.string "address_building"
-    t.integer "address_phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

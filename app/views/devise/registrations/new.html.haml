@@ -1,3 +1,12 @@
+=render partial: "for-select"
+:ruby 
+  year = ["--"],["1900"]
+  
+  month = ["--"],["3"]
+           
+  day   = ["--"],["15"],["14"]
+
+
 .register-page
   .top-logo
     = image_tag "mercari_logo_horizontal.png", size: "300x90", alt: "logo"
@@ -27,19 +36,19 @@
             .form-first__text
               .form__text__title ニックネーム
               .need-btn 必須
-            = f.text_field :nickname, class: "form-first__field", placeholder: "例)メルカリ太郎"       
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-first__field", placeholder: "例)メルカリ太郎"       
             .form-first__text
               .form__text__title メールアドレス
               .need-btn 必須
-            = f.email_field :email, autocomplete: "email", class: "form-first__field", placeholder: "PC・携帯どちらでも可"      
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-first__field", placeholder: "PC・携帯どちらでも可"      
             .form-first__text
               .form__text__title パスワード
               .need-btn 必須
-            = f.password_field :password, class: "form-first__field", placeholder: "6文字以上"       
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-first__field", placeholder: "6文字以上"       
             .form-first__text
               .form__text__title パスワード（確認）
               .need-btn 必須
-            = f.password_field :password, class: "form-first__field", placeholder: "6文字以上"      
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-first__field", placeholder: "6文字以上"      
             .info-text
               .info-text__title 本人確認
               .info-text__message 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
@@ -48,15 +57,15 @@
                 .name-top__title お名前（全角）
                 .need-btn 必須
               .name-field
-                = f.text_field :family_name, class: "name-field__family", placeholder: "例)山田"    
-                = f.text_field :first_name, class: "name-field__first", placeholder: "例)彩"        
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "name-field__first", placeholder: "例)山田"    
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "name-field__last", placeholder: "例)彩"        
             .form-first__name
               .name-top
                 .name-top__title お名前カナ（全角）
                 .need-btn 必須
               .name-field
-                = f.text_field :family_name_kana, class: "name-field__family", placeholder: "例)ヤマダ"     
-                = f.text_field :first_name_kana, class: "name-field__first" , placeholder: "例)アヤ"       
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "name-field__first", placeholder: "例)ヤマダ"     
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: "name-field__last" , placeholder: "例)アヤ"       
             .form-first__birth
               .birth-top
                 .birth-top__title 生年月日
@@ -64,19 +73,19 @@
               .birth-fields
                 .birth-field
                   = fa_icon 'chevron-down' ,class: "select-btn"
-                  = f.collection_select :birth_year, Birth_year.all, :value, :value, include_blank:"--", class: "birth"
+                  = f.select :name, [*year]
                   .time 年 
                 .birth-field
                   = fa_icon 'chevron-down' ,class: "select-btn"
-                  = f.collection_select :birth_month, Birth_month.all, :value, :value, include_blank:"--", class: "birth"
+                  = f.select :name, [*month]
                   .time 月
                 .birth-field
                   = fa_icon 'chevron-down', class: "select-btn"
-                  = f.collection_select :birth_day, Birth_day.all, :value, :value, include_blank:"--", class: "birth"
+                  = f.select :name, [*day]
                   .time 日
             .warning ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-            -# = flash[:recaptcha_error]
-            -# = recaptcha_tags
+            = flash[:recaptcha_error]
+            = recaptcha_tags
             .warning-next
               「次へ進む」のボタンを押すことにより、
               =link_to "https://www.facebook.com/", class: "btn-about-rule" do
@@ -88,75 +97,75 @@
               = fa_icon 'chevron-right'
           .form-second
             .form-second__title 携帯電話の番号
-            = f.text_field :email, autocomplete: "email", class: "form-second__field", placeholder: "携帯電話の番号を入力"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-second__field", placeholder: "携帯電話の番号を入力"
             %div 本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行います。 
-            .second-next SMSを送信する
+            .second-next SNSを送信する
             .message-safe ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません
-            -# =link_to "https://www.facebook.com/", class: "btn-about-this" do 
+            =link_to "https://www.facebook.com/", class: "btn-about-this" do 
               電話番号の確認が必要な理由
               = fa_icon 'chevron-right'
           .form-third
             .form-third__title 認証番号
-            -# = f.text_field :email, autocomplete: "email", class: "form-third__field", placeholder: "認証番号を入力"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-third__field", placeholder: "認証番号を入力"
             %div SMSで届いた認証番号を入力してください
             .third-next 認証して完了
           .form-forth
             .form-forth__text
               .form-forth__title 郵便番号
               .need-btn 必須
-            = f.text_field :post_code, class: "form-forth__field", placeholder: "例）123-4567"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-forth__field", placeholder: "例）123-4567"
             .form-forth__text
               .form-forth__title 都道府県
               .need-btn 必須
             .locate-wrap
               = fa_icon 'chevron-down' ,class: "select-btn"
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :value, include_blank:"--", class: "prefecture"
+              = f.select :provider, ["aaaa"] 
             .form-forth__text
               .form-forth__title 市区町村
               .need-btn 必須
-            = f.text_field :address_city, class: "form-forth__field", placeholder: "例）横浜市緑区"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-forth__field", placeholder: "例）横浜市緑区"
             .form-forth__text
               .form-forth__title 番地
               .need-btn 必須
-            = f.text_field :address_location, class: "form-forth__field", placeholder: "例）青山1-1-1"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-forth__field", placeholder: "例）青山1-1-1"
             .form-forth__text
               .form-forth__title 建物名
               .need-btn任意
-            = f.text_field :address_building, class: "form-forth__field", placeholder: "例）柳ビル103"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-forth__field", placeholder: "例）柳ビル103"
             .form-forth__text
               .form-forth__title 電話
               .need-btn 任意
-            = f.text_field :address_phone, class: "form-forth__field", placeholder: "例）09012345678" 
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-forth__field", placeholder: "例）09012345678" 
             .forth-next 次へ進む
           .form-fifth
             .form-fifth__text
               .form-fifth_title カード番号
               .need-btn 必須
-            -# = f.text_field :email, autocomplete: "email", class: "form-forth__field", placeholder: "半角数字のみ"
-            -# .images-credit
-            -#   = image_tag "visa-logo.gif", size: "40x30", alt: "logo"
-            -#   = image_tag "mastercard-logo.gif", size: "40x30", alt: "logo"
-            -#   = image_tag "saison-logo.svg.png", size: "40x30", alt: "logo"
-            -#   = image_tag "jcb-logo.gif", size: "40x30", alt: "logo"
-            -#   = image_tag "diners-logo.gif", size: "40x30", alt: "logo"
-            -#   = image_tag "discover-logo.gif", size: "40x30", alt: "logo"
-            -# .form-fifth__text
-            -#   .form-fifth__title 有効期限
-            -#   .need-btn 必須
-            -# .limit-fields
-            -#   .limit-field
-            -#     = fa_icon 'chevron-down' ,class: "select-btn" 
-            -#     = f.select :nickname, ["konn"],{prompt:"--"}, class: "birth"         #仮置き
-            -#     .time 月
-            -#   .limit-field
-            -#     = fa_icon 'chevron-down' ,class: "select-btn"
-            -#     = f.select :nickname, ["konn"],{prompt:"--"}, class: "birth"         #仮置き
-            -#     .time 年 
-            -# .form-fifth__text
-            -#   .form-fifth__title セキュリティコード
-            -#   .need-btn 必須
-            -# = f.text_field :email, autocomplete: "email", class: "form-forth__field", placeholder: "カード背面4桁もしくは3桁の番号" 
-            -# =link_to "https://www.facebook.com/", class: "btn-about-this" do 
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-forth__field", placeholder: "半角数字のみ"
+            .images-credit
+              = image_tag "visa-logo.gif", size: "40x30", alt: "logo"
+              = image_tag "mastercard-logo.gif", size: "40x30", alt: "logo"
+              = image_tag "saison-logo.svg.png", size: "40x30", alt: "logo"
+              = image_tag "jcb-logo.gif", size: "40x30", alt: "logo"
+              = image_tag "diners-logo.gif", size: "40x30", alt: "logo"
+              = image_tag "discover-logo.gif", size: "40x30", alt: "logo"
+            .form-fifth__text
+              .form-fifth__title 有効期限
+              .need-btn 必須
+            .limit-fields
+              .limit-field
+                = fa_icon 'chevron-down' ,class: "select-btn" 
+                = f.select :name, ["konn"] 
+                .time 月
+              .limit-field
+                = fa_icon 'chevron-down' ,class: "select-btn"
+                = f.select :name, ["konn"] 
+                .time 年 
+            .form-fifth__text
+              .form-fifth__title セキュリティコード
+              .need-btn 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-forth__field", placeholder: "カード背面4桁もしくは3桁の番号" 
+            =link_to "https://www.facebook.com/", class: "btn-about-this" do 
               カード裏面の番号とは？
             .fifth-next 次へ進む
           .form-last
@@ -164,4 +173,3 @@
             .message-finish 会員登録が完了しました。 
             = f.submit "メルカリを始める", class: "last-next"
     = render partial: "info"
-

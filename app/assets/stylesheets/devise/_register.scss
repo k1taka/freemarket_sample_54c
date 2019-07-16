@@ -279,7 +279,7 @@
           font-size:16px;
           display: flex;
           justify-content: space-between;
-          &__family{
+          &__first{
             width:185px;
             box-sizing: border-box;
             padding:18px;
@@ -287,7 +287,7 @@
             margin-right:10px;
             
           }
-          &__first{
+          &__last{
             width:185px;
             box-sizing: border-box;
             padding:18px;
@@ -319,29 +319,7 @@
               font-size:22px;
               color:#888;
             }
-            #user_birth_year{
-              width:115px;
-              height:60px;
-              padding:10px;
-              box-sizing: border-box;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              appearance: none;
-              background-color:white;
-              border-radius: 5px 5px 5px 5px;
-            }
-            #user_birth_month{
-              width:115px;
-              height:60px;
-              padding:10px;
-              box-sizing: border-box;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              appearance: none;
-              background-color:white;
-              border-radius: 5px 5px 5px 5px;
-            }
-            #user_birth_day{
+            #user_name{
               width:115px;
               height:60px;
               padding:10px;
@@ -422,7 +400,7 @@
           height:70px;
           width:430px;
           font-size:16px;
-          padding:25px 157px;
+          padding:25px 158px;
           box-sizing: border-box;
           color:white;
           background-color:#ea352d;
@@ -497,7 +475,7 @@
             font-size:22px;
             color:#888;
           }
-          #user_prefecture_id{
+          #user_provider{
             width:420px;
             height:60px;
             padding:10px;
