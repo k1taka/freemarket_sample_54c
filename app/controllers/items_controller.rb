@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
   if @item.save
     redirect_to root_path, notice: 'グループを作成しました'
   else
+    # エラー表示実装すること。
     render :new
   end
   end
