@@ -38,11 +38,12 @@ $(function(){
  //親カテゴリセレクト 追加子供カテゴリ
   $("#parent_category").on("change",function(){
     let parentCategory = document.getElementById("parent_category").value;
+    console.log()
     if(parentCategory != "---"){//洗濯していることを確認
       $.ajax({
         url:"get_category_children",
         type:"GET",
-        data:{parent_name:parentCategory},
+        data:{parent_id:parentCategory},
         dataType:"JSON"
       })
 

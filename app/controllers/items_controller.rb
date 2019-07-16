@@ -18,16 +18,13 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do|parent|
-      @category_parent_array << parent.name
-    end
-    binding.pry
+    @category_parent_array =  Category.where(ancestry: nil)
     render layout: 'logo'
   end
   
   def create
     @item =Item.new(item_params)
+    binding.pry
   if @item.save
     redirect_to root_path, notice: 'グループを作成しました'
   else
@@ -38,7 +35,7 @@ class ItemsController < ApplicationController
   
   #出品ページ
   def get_category_children
-    @category_children = Category.find_by(name:"#{params[:parent_name]}",ancestry: nil).children
+    @category_children = Category.find("#{params[:parent_id]}").children
   end
 
   def get_category_grandchildren
