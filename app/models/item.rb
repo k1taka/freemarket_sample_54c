@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   
-  has_many :images
+  has_many :images , dependent: :destroy
   accepts_nested_attributes_for :images
   belongs_to_active_hash :size
   belongs_to_active_hash :prefecture
@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_address
   belongs_to_active_hash :shipping_day
   belongs_to_active_hash :condition
-
+  belongs_to :category
   
   validates :name,presence: true
   validates :description,presence: true
@@ -21,7 +21,6 @@ class Item < ApplicationRecord
   validates :shipping_address_id,presence: true
   validates :shipping_day_id,presence: true
   validates :price,presence: true
-  # validates :category,presence: true
+  validates :category_id,presence: true
   # validates :image,presence: true
-  belongs_to :category
 end
