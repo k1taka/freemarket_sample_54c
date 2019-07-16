@@ -20,11 +20,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do|parent|
+      @category_parent_array << parent.name
+    end
     render layout: 'logo'
   end
   
   def create
-    binding.pry
     @item =Item.new(item_params)
   if @item.save
     redirect_to root_path, notice: 'グループを作成しました'
@@ -32,7 +35,13 @@ class ItemsController < ApplicationController
     render :new
   end
   end
+  
+  #出品ページ
+  def get_category_children
+    @category_children = Category.find_by(name:"#{params[:parent_name]}",ancestry: nil).children
+  end
 
+<<<<<<< HEAD
   def purchase
     Payjp.api_key = PAYJP_SECRET_KEY
     Payjp::Charge.create(
@@ -42,13 +51,18 @@ class ItemsController < ApplicationController
     )
   end
 
+=======
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+>>>>>>> master
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image])
+    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price,images_attributes:[:image])
     #.merge(user_id: current_user.id)
-    #:category  :image seller_id
+    #:  seller_id
   end
 
   def update_item_params
@@ -64,6 +78,7 @@ class ItemsController < ApplicationController
     @shipping_way = ShippingWay.all
     @shipping_address = ShippingAddress.all
     @shipping_day = ShippingDay.all
+    @categories=Category.all
   end
 
 end

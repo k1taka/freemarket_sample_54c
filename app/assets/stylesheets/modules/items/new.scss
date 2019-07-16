@@ -31,7 +31,6 @@
 
     .images{
       width:540px;
-      height:223px;
       padding:40px;
       .image__title{
         &--font{
@@ -115,11 +114,17 @@
     }
     //カテゴリなし
     //カテゴリサイズ
+
+    .category__select-wrap{
+      width: 390px;
+    }
     .category-size{
+      display:none;
       margin-top:40px;
     }
     //カテゴリブランド
     .category-brand{
+      display:none;
       margin-top:40px;
       &__title{
         &--text{
@@ -157,6 +162,7 @@
       font-size: 14px;
     }
     .shipping{
+      width: 390px;
       &__title{
         padding-top:40px;
       }
@@ -200,9 +206,14 @@
       }
     }//price-charge
     .price-benefit{
+      font-size:16px;
+      font-weight:600;
       justify-content: space-between;
       padding:24px 0px;
       font-weight:600;
+      &__result{
+        font-size:34px;
+      }
     }
   }//right-wrap
 }//item-price
