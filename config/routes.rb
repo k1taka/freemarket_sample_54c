@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'items#index'
   devise_for :users, controllers: {
-    registarations:     'users/registarations',
+    registrations:     'users/registrations',
     passwords:          'users/passwords',
     omniauth_callbacks: 'users/omniauth_callbacks' 
   }
@@ -10,8 +10,13 @@ Rails.application.routes.draw do
   
   # itemsはusersにネストさせる編集の都合上現在ここ
   resources :items ,only: [:index,:show,:new,:create,]do
-    get "confirmation", on: :collection
-    post "purchase", on: :collection
+    collection do
+      get "confirmation"
+      post "purchase", on: :collection
+      get "get_category_children", defaults:{ format: "json"}
+      get "get_category_grandchildren",defaults:{ format:"json"}
+    end
+
   end
   resources :users do
     get "logout" ,on: :collection
