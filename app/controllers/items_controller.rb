@@ -35,7 +35,13 @@ class ItemsController < ApplicationController
     render :new
   end
   end
+  
+  #出品ページ
+  def get_category_children
+    @category_children = Category.find_by(name:"#{params[:parent_name]}",ancestry: nil).children
+  end
 
+<<<<<<< HEAD
   def purchase
     Payjp.api_key = PAYJP_SECRET_KEY
     Payjp::Charge.create(
@@ -45,14 +51,11 @@ class ItemsController < ApplicationController
     )
   end
 
-  #出品ページ
-  def get_category_children
-    @category_children = Category.find_by(name:"#{params[:parent_name]}",ancestry: nil).children
-  end
-
+=======
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
+>>>>>>> master
 
   private
 
