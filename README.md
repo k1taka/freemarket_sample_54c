@@ -152,7 +152,7 @@ Things you may want to cover:
 ### asociation
 - has_many :items
 
-## shipping fee payers テーブル
+## shipping payers テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|
 |id              |integer|null:false                 |
