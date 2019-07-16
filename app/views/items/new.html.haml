@@ -45,7 +45,7 @@
             .category__select.select-wrap
               =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
               .category__select--list
-                = f.select :category_id,  @category_parent_array,{},{id:"parent_category"} 
+                = f.select :category_id,  @category_parent_array,{id},{id:"parent_category"} 
           .category-size
             .catagory-size__title.flex
               .category-size__title--text サイズ
