@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
       card: params['payjp-token'],
       currency: 'jpy'
     )
+    redirect_to action: show
   end
   
   #商品出品ページ
