@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_07_16_152533) do
+ActiveRecord::Schema.define(version: 2019_07_16_093930) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -53,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_152533) do
     t.integer "status", default: 0
     t.integer "seller_id"
     t.integer "buyer_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
     t.index ["shipping_way_id"], name: "index_items_on_shipping_way_id"
@@ -72,16 +72,16 @@ ActiveRecord::Schema.define(version: 2019_07_16_152533) do
     t.string "nickname"
     t.string "token"
     t.integer "prefecture_id"
-    t.string "family_name", null: false
-    t.string "first_name", null: false
-    t.string "family_name_kana", null: false
-    t.string "first_name_kana", null: false
+    t.string "family_name"
+    t.string "first_name"
+    t.string "family_name_kana"
+    t.string "first_name_kana"
     t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_day"
-    t.string "post_code", limit: 8, null: false
-    t.string "address_city", null: false
-    t.string "address_location", null: false
+    t.string "post_code", limit: 8
+    t.string "address_city"
+    t.string "address_location"
     t.string "address_building"
     t.integer "address_phone"
     t.index ["email"], name: "index_users_on_email", unique: true
