@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # prepend_before_action :check_captcha, only: [:create] 
+  prepend_before_action :check_captcha, only: [:create] 
+  prepend_before_action :require_no_authentication, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+
+  def index
+    
+  end
 
   # GET /resource/sign_up
   def new
@@ -10,24 +15,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
