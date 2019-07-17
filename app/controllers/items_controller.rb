@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   #トップページ　商品一覧
   def index
-
+    @items =Item.all.order("created_at DESC").limit(20)
   end
 
   #商品詳細ページ
