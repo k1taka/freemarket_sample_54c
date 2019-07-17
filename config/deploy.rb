@@ -1,6 +1,9 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
+# 本番環境のマスターキーの指定
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
+
 set :application, "freemarket_sample_54c"
 
 # どのリポジトリからアプリをpullするかを指定する
