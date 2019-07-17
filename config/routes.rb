@@ -14,9 +14,14 @@ Rails.application.routes.draw do
   
   # itemsはusersにネストさせる編集の都合上現在ここ
   resources :items ,only: [:index,:show,:new,:create,]do
-    get "confirmation", on: :collection
+    collection do
+      get "confirmation"
+      get "get_category_children", defaults:{ format: "json"}
+      get "get_category_grandchildren",defaults:{ format:"json"}
+    end
   end
   resources :users do
+    get "logout" ,on: :collection
     resource :credit, only: [:show,:new,:create,:delete]#クレジットカードに必要なカラムによって、ルーティングが変わることがある。
   end
 

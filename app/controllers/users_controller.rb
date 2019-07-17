@@ -16,7 +16,11 @@ class UsersController < ApplicationController
   end
 
   #ログアウトページ 飛ぶページの予定
+  def logout
+  end
+  
   def delete
   end
+
   
 end
