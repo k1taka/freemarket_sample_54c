@@ -1,0 +1,115 @@
+.register-index{
+  height:100%;
+  width:auto;
+  background-color:rgb(245, 245, 245);
+  .box{
+    margin-left: auto ;
+    margin-right: auto ;
+    width:570px;
+    background-color:white;
+    .top-logo{
+      background-color: rgb(245, 245, 245);
+      padding:30px;
+    }
+      .nav{
+        height:110px;
+        padding:38px 210px;
+        box-sizing: border-box;
+        font-size:25px;
+        border-bottom: 2px solid rgb(245, 245, 245);
+        }
+      }
+      .register-btns{
+        padding:40px 85px;
+        box-sizing: border-box;
+        background-color:white;
+        .e_mail{
+          height:60px;
+          padding:10px;
+          box-sizing: border-box;
+          background-color:#EA352D;
+          margin-bottom:20px;
+          .facebook__link{
+            text-decoration: none;
+            display: flex;
+            &__logo{
+              .icon{
+                font-size:40px;
+                margin-left:10px;
+                color:white;
+              }
+            }
+            &__message{
+              margin-left:70px;
+              margin-top:10px;
+              color:white;
+            }
+          }
+        }
+        .facebook{
+          height:60px;
+          padding:10px;
+          box-sizing: border-box;
+          background-color:#385185;
+          .facebook__link{
+            text-decoration: none;
+            display: flex;
+            &__logo{
+              .icon{
+                font-size:40px;
+                margin-left:10px;
+                color:white;
+              }
+            }
+            &__message{
+              margin-left:70px;
+              margin-top:10px;
+              color:white;
+            }
+          }
+        }
+        .gogle{
+          height:60px;
+          padding:20px;
+          margin-top:15px;
+          box-sizing: border-box;
+          border: 1px solid black;
+          .gogle__link{
+            text-decoration: none;
+            display: flex;
+            &__logo{
+            }
+            &__message{
+              color:black;
+            }
+          }
+        }
+      }
+    }
+  .info{
+      height:230px;
+      padding-top:40px;
+      padding-bottom:30px;
+      margin-top:34px;
+      box-sizing: border-box;
+      background-color:rgb(245, 245, 245);  
+      .complaiance{
+        background-color:rgb(245, 245, 245);
+        height:20px;
+        &__urls{
+          display: inline-block;
+          text-align: center;
+          font-size:16px;
+          margin-right:15px;
+          margin-left:15px;
+        }
+      }
+      .bottom-logo{
+        background-color:rgb(245, 245, 245);
+        height:120px;
+      }
+      .copy-right{
+        background-color: rgb(245, 245, 245);
+        height:20px;
+      }
+  }
