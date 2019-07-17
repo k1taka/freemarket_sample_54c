@@ -24,10 +24,12 @@ $(function(){
     let grandchildHtml =`<div class="category__select--add select-wrap" id="grandchildren_wrapper">
                       <i class='fa fa-chevron-down icon chevron-select category__select--icon'></i>
                       <div class="category__select--list">
-                        <select id="grandchild_category"　name="item[category_id]">
+                       <form method="post" action="create">
+                        <select id="grandchild_category" name="item[category_id]">
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                         </select>
+                      </form>
                       </div>
                     </div>
                     `
