@@ -10,7 +10,7 @@ $(function(){
     let childHtml =`<div class="category__select--add select-wrap" id="children_wrapper">
                       <i class='fa fa-chevron-down icon chevron-select category__select--icon'></i>
                       <div class="category__select--list">
-                        <select id="child_category" name="category">
+                        <select id="child_category" name="item[category_id]">
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                         </select>
@@ -24,10 +24,12 @@ $(function(){
     let grandchildHtml =`<div class="category__select--add select-wrap" id="grandchildren_wrapper">
                       <i class='fa fa-chevron-down icon chevron-select category__select--icon'></i>
                       <div class="category__select--list">
-                        <select id="grandchild_category"　name="category_id">
+                       <form method="post" action="create">
+                        <select id="grandchild_category" name="item[category_id]">
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                         </select>
+                      </form>
                       </div>
                     </div>
                     `
@@ -38,11 +40,12 @@ $(function(){
  //親カテゴリセレクト 追加子供カテゴリ
   $("#parent_category").on("change",function(){
     let parentCategory = document.getElementById("parent_category").value;
+    console.log()
     if(parentCategory != "---"){//洗濯していることを確認
       $.ajax({
         url:"get_category_children",
         type:"GET",
-        data:{parent_name:parentCategory},
+        data:{parent_id:parentCategory},
         dataType:"JSON"
       })
 

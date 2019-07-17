@@ -5,6 +5,7 @@
       = image_tag 'mercari_logo_horizontal.png', alt: '', height: '70', width: '200', class: ''
   .top-main
     = form_for @item,url:{action:"create"} do |f|
+      = render "layouts/error",model: f.object
       %h1.header.border-bottom 商品の情報を入力
       .images
         .image__title.flex
@@ -45,7 +46,7 @@
             .category__select.select-wrap
               =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
               .category__select--list
-                = f.select :category_id,  @category_parent_array,{},{id:"parent_category"} 
+                = f.collection_select :category_id,  @category_parent_array,:id,:name,{prompt:"---"},{id:"parent_category"} 
           .category-size
             .catagory-size__title.flex
               .category-size__title--text サイズ

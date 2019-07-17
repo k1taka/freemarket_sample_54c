@@ -27,13 +27,13 @@ a{
       }
       .items-box{
         display:flex;
-        justify-content: center;
+        flex-wrap: wrap;
         margin:auto;
       } 
       //render
         .item-box{
           background-color: white;
-          width:213px;
+          width:200px;
           height:330px;
           margin-left:20px;
           margin-bottom:20px;

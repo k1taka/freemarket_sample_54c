@@ -1,0 +1,31 @@
+.register-index
+  .box
+    .top-logo{align:"center"}
+      = image_tag "mercari_logo_horizontal.png", size: "300x90", alt: "logo"
+
+    .nav 新規会員登録
+    .register-btns
+      .e_mail
+        =link_to "/users/sign_up", class: "facebook__link" do
+          .facebook__link__logo
+            = fa_icon 'envelope', class: "icon"
+          .facebook__link__message メールアドレスで登録する
+      .facebook 
+        =link_to "https://www.facebook.com/", class: "facebook__link" do
+          .facebook__link__logo
+            = fa_icon 'facebook-square', class: "icon"
+          .facebook__link__message Facebookで登録する
+      .gogle 
+        -# = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path
+    
+    .info
+      %ul.complaiance
+        %li.complaiance__urls
+          %a{ href: "#"} プライバシーポリシー
+        %li.complaiance__urls
+          %a{ href: "#"} メルカリ利用規約
+        %li.complaiance__urls
+          %a{ href: "#"} 特定商取引に関する表記
+      .bottom-logo{align:"center"}
+        = image_tag "mercari_logo_vertical.png", size: "120x120", alt: "logo"
+      .copy-right{align:"center"} © 2019 Mercari
