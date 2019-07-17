@@ -1,23 +1,28 @@
 .register-index
   .box
-    .top-logo{align:"center"}
-      = image_tag "mercari_logo_horizontal.png", size: "300x90", alt: "logo"
+    = link_to root_path do
+      .top-logo{align:"center"}
+        = image_tag "mercari_logo_horizontal.png", size: "300x90", alt: "logo"
 
     .nav 新規会員登録
     .register-btns
       .e_mail
-        =link_to "/users/sign_up", class: "facebook__link" do
-          .facebook__link__logo
+        =link_to "/users/sign_up", class: "e_mail__link" do
+          .e_mail__link__logo
             = fa_icon 'envelope', class: "icon"
-          .facebook__link__message メールアドレスで登録する
+          .e_mail__link__message メールアドレスで登録する
       .facebook 
         =link_to "https://www.facebook.com/", class: "facebook__link" do
           .facebook__link__logo
             = fa_icon 'facebook-square', class: "icon"
           .facebook__link__message Facebookで登録する
       .gogle 
-        = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path
-    
+        = link_to user_google_oauth2_omniauth_authorize_path, class: "gogle__link" do
+          .gogle__link__logo
+            = image_tag "google-logo.jpg", size: "40x40", alt: "logo"
+          .gogle__link__message Googleで登録する  
+
+
     .info
       %ul.complaiance
         %li.complaiance__urls

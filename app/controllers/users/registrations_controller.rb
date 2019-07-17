@@ -2,7 +2,6 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: [:create] 
-  prepend_before_action :require_no_authentication, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
   def index
