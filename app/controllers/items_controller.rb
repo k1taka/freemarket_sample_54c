@@ -51,18 +51,16 @@ class ItemsController < ApplicationController
 
   def update_item_params
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image,:_destroy,:id])
-    #.merge(user_id: current_user.id)
-    #:category  :image seller_id
   end
 
   def set_item_new #createにも必要　validateでエラーが出る
+    @category_parent_array =  Category.where(ancestry: nil)
     @sizes = Size.all
     @conditions = Condition.all
     @shipping_payers = ShippingPayer.all
     @shipping_way = ShippingWay.all
     @shipping_address = ShippingAddress.all
     @shipping_day = ShippingDay.all
-    @categories=Category.all
   end
 
 end

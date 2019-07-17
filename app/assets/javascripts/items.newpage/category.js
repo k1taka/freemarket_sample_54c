@@ -10,7 +10,7 @@ $(function(){
     let childHtml =`<div class="category__select--add select-wrap" id="children_wrapper">
                       <i class='fa fa-chevron-down icon chevron-select category__select--icon'></i>
                       <div class="category__select--list">
-                        <select id="child_category" name="category">
+                        <select id="child_category" name="item[category_id]">
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                         </select>

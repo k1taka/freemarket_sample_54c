@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_address
   belongs_to_active_hash :shipping_day
   belongs_to_active_hash :condition
-  belongs_to :category
+  belongs_to :category,optional: true
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User",optional: true
   enum status: [:selling_item,:sold_item]

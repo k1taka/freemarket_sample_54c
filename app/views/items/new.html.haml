@@ -5,6 +5,7 @@
       = image_tag 'mercari_logo_horizontal.png', alt: '', height: '70', width: '200', class: ''
   .top-main
     = form_for @item,url:{action:"create"} do |f|
+      = render "layouts/error",model: f.object
       %h1.header.border-bottom 商品の情報を入力
       .images
         .image__title.flex
