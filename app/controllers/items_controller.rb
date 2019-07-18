@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   #トップページ　商品一覧
   def index
-    @items =Item.all.order("created_at DESC").limit(20)
+    @items = Item.all.order("created_at DESC").limit(20)
   end
 
   #商品詳細ページ
@@ -16,13 +16,15 @@ class ItemsController < ApplicationController
 
   # クレジットカード決済のカード情報記入ページ
   def pay
+    @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      amount: 2000, # 決済する値段
+      amount: @item.price, # 決済する値段
       card: params['payjp-token'],
       currency: 'jpy'
     )
-    redirect_to action: show
+    @item.update(pay_item_params)
+    redirect_to action: index
   end
   
   #商品出品ページ
@@ -57,7 +59,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price,images_attributes:[:image]).merge(seller_id: current_user.id)
+  end
 
+  def pay_item_params
+    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price,images_attributes:[:image]).merge(buyer_id: current_user.id, status: params[:status])
   end
 
   def update_item_params
