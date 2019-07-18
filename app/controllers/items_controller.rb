@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   def confirmation
   end
 
-  # クレジットカード決済のカード情報記入ページ
+  # クレジットカード決済のカード情報記入＆購入確定ページ
   def pay
     @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
@@ -37,7 +37,6 @@ class ItemsController < ApplicationController
   
   def create
     @item =Item.new(item_params)
-    binding.pry
   if @item.save
     redirect_to root_path, notice: 'グループを作成しました'
   else
