@@ -146,6 +146,35 @@ header{
   }
 }
 
+.login-nav{
+  display: flex;
+}
+
+.login-nav__signup{
+  display: block;
+  padding: 0 10px;
+  line-height: 30px;
+  border-radius: 4px;
+  border: 1px solid #ea352d;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.login-nav__signin{
+  display: block;
+  margin: 0 0 0 10px;
+  padding: 0 10px;
+  line-height: 30px;
+  border-radius: 4px;
+  border: 1px solid #0099e8;
+  background: #fff;
+  color: #0099e8;
+  text-align: center;
+  text-decoration: none;
+}
+
 .bread-crumbs{
   z-index:1;
   position: relative;
