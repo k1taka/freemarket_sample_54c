@@ -13,6 +13,17 @@ class ItemsController < ApplicationController
   #商品購入確認ページ
   def confirmation
   end
+
+  # クレジットカード決済のカード情報記入ページ
+  def pay
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: 2000, # 決済する値段
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+    redirect_to action: show
+  end
   
   #商品出品ページ
   def new

@@ -13,7 +13,29 @@
     <%= render partial: 'layouts/header' %>
 
   <body>
+
     <%= yield %>
+
+    <style type="text/css">
+      #payjp_checkout_box input[type=button]
+      {
+      width:420px;
+      height:40px;
+      background-color:#ccc;
+      background-image:none;
+      border:none;
+      color:none;
+      color: #333333;
+      border-radius:0px;
+      text-align: center;
+      margin:20px auto;
+      -webkit-appearance:none;
+      display:inline-block;
+      font-size:14px;
+      cursor:pointer;
+      }
+    </style>
+
   </body>
 
     <%= render partial: 'layouts/footer' %>

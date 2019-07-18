@@ -96,3 +96,5 @@ gem 'omniauth-google-oauth2'
 
 gem 'active_hash', '~> 1.5.3'
 gem 'ancestry'
+gem 'payjp'
+gem 'dotenv-rails'
