@@ -44,7 +44,8 @@
           padding:10px;
           box-sizing: border-box;
           background-color:#385185;
-          .facebook__link{
+          border-radius:5px;
+          &__link{
             text-decoration: none;
             display: flex;
             &__logo{
@@ -55,7 +56,7 @@
               }
             }
             &__message{
-              margin-left:70px;
+              margin-left:79px;
               margin-top:10px;
               color:white;
             }
@@ -63,17 +64,20 @@
         }
         .gogle{
           height:60px;
-          padding:20px;
+          padding:9px;
           margin-top:15px;
           box-sizing: border-box;
           border: 1px solid black;
-          .gogle__link{
+          border-radius:5px;
+          &__link{
             text-decoration: none;
             display: flex;
-            &__logo{
-            }
+            margin-left:7px;
             &__message{
               color:black;
+              font-size:15px;
+              margin-left:80px;
+              margin-top:6px;
             }
           }
         }
