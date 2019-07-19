@@ -18,7 +18,6 @@ class User < ApplicationRecord
     
     elsif User.where(email: data.info.email) != nil
       add_sns_user = User.find_by(email: data.info.email)
-      binding.pry
       ForeignAccount.create(
                             user_id: add_sns_user.id,
                             provider: data.provider,
