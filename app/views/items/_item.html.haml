@@ -24,7 +24,7 @@
 
 - @items.each do |item|
   .item-box
-    = link_to "#" do
+    = link_to item_path(item) do
       .item-box__photo
         -# = image_tag "#{item.images.first.image}", alt: '', height: '', width: '', class: 'item-box__photo'
         -# %img{ src: "#{item.images.first.image.url}" }

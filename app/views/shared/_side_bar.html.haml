@@ -9,7 +9,7 @@
     },{
       Name:"いいね！一覧", url:"#"
     },{
-      Name:"出品する", url: new_user_item_path(current_user.id)
+      Name:"出品する", url: new_item_path
     },{
       Name:"出品した商品 - 出品中", url: posting_item_user_path(current_user.id)
     },{
@@ -48,7 +48,7 @@
 
   :ruby
     third_pages =[{
-      Name:"プロフィール", url:"#"
+      Name:"プロフィール", url: edit_user_path(current_user.id)
     },{
       Name:"発送元・お届け先住所変更", url:"#"
     },{
