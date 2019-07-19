@@ -38,8 +38,9 @@ header{
         right:0px;  
         color:white;
       }
-    }  
-  }
+      }  
+  }//header-top
+}//header
   .nav-box{
     margin-top:8px;
     display:flex;
@@ -74,7 +75,6 @@ header{
       }
     }
     .nav-right{
-
       .user-page{
         display:flex;
         font-size:14px;
@@ -91,7 +91,6 @@ header{
           font-size:18px;
         }
         &__like{
-        
           padding:0px 14px;
           background-color:white;
           span{
@@ -104,7 +103,6 @@ header{
         &__notification{
           padding:0px 14px;
           background-color:white;
-          
           span{
             color:black;
             &:hover{
@@ -127,7 +125,6 @@ header{
           background-color:white;
           display: flex;
           a{
-
           span{
             vertical-align: top;
             color:black;
@@ -144,12 +141,9 @@ header{
       }
     }
   }
-}
-
 .login-nav{
   display: flex;
 }
-
 .login-nav__signup{
   display: block;
   padding: 0 10px;
@@ -202,5 +196,4 @@ header{
     }
   }
   }
-
 }

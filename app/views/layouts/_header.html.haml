@@ -2,7 +2,8 @@
   .header
     .header-top
       .header-top__logo
-        = image_tag 'mercari_logo_horizontal.png', alt: '', height: '40px', width: '136px', class: ''
+        = link_to root_path do
+          = image_tag 'mercari_logo_horizontal.png', alt: '', height: '40px', width: '136px', class: ''
       %form(action="#"){class:"header-top__form"}
         %input(type="search"){class:"header-top__form--search",placeholder:"何かお探しですか？"}
           = fa_icon "search", class: 'icon',id:"search"
@@ -18,30 +19,30 @@
               =fa_icon "tag", class: 'icon'  #
               %span ブランドから探す  
       %nav.nav-right
-      - if user_signed_in?
-        %ul.user-page
-          %li.user-page__like
-            = link_to "#" do
-              =fa_icon "heart-o", class: 'icon'
-              %span いいね！一覧
-          %li.user-page__notification
-            = link_to "#" do
-              =fa_icon "bell-o", class: 'icon'
-              %span お知らせ
-          %li.user-page__todo-list
-            = link_to "#" do
-              =fa_icon "check", class: 'icon'
-              %span やることリスト
-          %li.user-page__mypage
-            = link_to "#" do
-              = image_tag 'https://static.mercdn.net/thumb/photos/m45245951061_1.jpg?1561365524', alt: '', height: '32', width: '32', class: 'user-page__mypage--img'
-              %span マイページ
-      - else
-        %ul.login-nav
-          %li
-            = link_to '新規会員登録', new_user_registration_path, class: 'login-nav__signup'
-          %li
-            = link_to 'ログイン', new_user_session_path, class: 'login-nav__signin'
+        - if user_signed_in?
+          %ul.user-page
+            %li.user-page__like
+              = link_to "#" do
+                =fa_icon "heart-o", class: 'icon'
+                %span いいね！一覧
+            %li.user-page__notification
+              = link_to "#" do
+                =fa_icon "bell-o", class: 'icon'
+                %span お知らせ
+            %li.user-page__todo-list
+              = link_to "#" do
+                =fa_icon "check", class: 'icon'
+                %span やることリスト
+            %li.user-page__mypage
+              = link_to users_path do
+                = image_tag 'https://static.mercdn.net/thumb/photos/m45245951061_1.jpg?1561365524', alt: '', height: '32', width: '32', class: 'user-page__mypage--img'
+                %span マイページ
+        - else
+          %ul.login-nav
+            %li
+              = link_to '新規会員登録', new_user_registration_path, class: 'login-nav__signup'
+            %li
+              = link_to 'ログイン', new_user_session_path, class: 'login-nav__signin'
 
 -# パンくずルート
 .bread-crumbs
