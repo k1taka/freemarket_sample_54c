@@ -42,6 +42,15 @@ class ItemsController < ApplicationController
     render :new
   end
   end
+
+  #商品編集ページ
+  def edit
+    @item=Item.find(params[:id])
+  end
+
+  def update
+    
+  end
   
   #出品ページ
   def get_category_children
