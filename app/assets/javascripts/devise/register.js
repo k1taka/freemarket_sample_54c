@@ -9,6 +9,7 @@ $(function(){
     $(".second-phase__location").addClass("red")
     $(".second-phase__status").css({color:"#EA352D"})
   });
+
   $(".second-next").on("click",function(){
     $(".form-second").hide();
     $(".form-third").show();
@@ -16,6 +17,7 @@ $(function(){
     $(".nav-third").show();
     window.scrollTo(0,50);
   });
+
   $(".third-next").on("click",function(){
     $(".form-third").hide();
     $(".form-forth").show();
@@ -26,6 +28,7 @@ $(function(){
     $(".third-phase__location").addClass("red")
     $(".third-phase__status").css({color:"#EA352D"})
   });
+
   $(".forth-next").on("click",function(){
     $(".form-forth").hide();
     $(".form-fifth").show();
@@ -36,6 +39,7 @@ $(function(){
     $(".forth-phase__location").addClass("red")
     $(".forth-phase__status").css({color:"#EA352D"})
   });
+
   $(".fifth-next").on("click",function(){
     $(".form-fifth").hide();
     $(".form-last").show();
@@ -46,4 +50,5 @@ $(function(){
     $(".last-phase__location").addClass("red")
     $(".last-phase__status").css({color:"#EA352D"})
   });
+  
 });

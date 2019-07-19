@@ -8,7 +8,7 @@
         .user-new__btn{align:"center"} 新規会員登録
       .login-btns
         .facebook 
-          =link_to "https://www.facebook.com/", class: "facebook__link" do
+          = link_to user_facebook_omniauth_authorize_path, class: "facebook__link" do
             .facebook__link__logo
               = fa_icon 'facebook-square', class: "icon"
             .facebook__link__message Facebookでログイン
