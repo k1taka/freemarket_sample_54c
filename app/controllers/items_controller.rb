@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item_new,only: [:new,:create]
+  before_action :set_item,only: [:show,:confirmation,:pay]
 
   #トップページ　商品一覧
   def index
@@ -8,7 +9,6 @@ class ItemsController < ApplicationController
 
   #商品詳細ページ
   def show
-    @item = Item.find(params[:id])
   end
 
   #商品購入確認ページ
@@ -17,14 +17,13 @@ class ItemsController < ApplicationController
 
   # クレジットカード決済のカード情報記入＆購入確定ページ
   def pay
-    @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price, # 決済する値段
       card: params['payjp-token'],
       currency: 'jpy'
     )
-    @item.update(pay_item_params)
+    @item.update(buyer_id: current_user.id, status: params[:status])
     redirect_to action: index
   end
   
@@ -57,12 +56,14 @@ class ItemsController < ApplicationController
 
   private
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   def item_params
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price,images_attributes:[:image]).merge(seller_id: current_user.id)
   end
 
-  def pay_item_params
-    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price,images_attributes:[:image]).merge(buyer_id: current_user.id, status: params[:status])
   end
 
   def update_item_params
