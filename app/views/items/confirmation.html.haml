@@ -27,11 +27,12 @@
           %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": ENV["PAYJP_PUBLIC_KEY"]}
     %section.shipping-addres
       %h3 配送先
-      %p 〒203-0051 
-      %p 東京都 目黒区 中目黒4-1-1 
-      %p Takahashi Manami
+      = "〒#{@user.post_code}"
+      = "#{@user.address_location}"
+      = "#{@user.family_name} #{@user.first_name}"
       .change-right
-        =link_to "変更する","#",class:"change-sentence"
+        -# if で redirect_toをして本人確認したらページ遷移するようにすること
+        =link_to "変更する",address_path,class:"change-sentence"
         = fa_icon 'chevron-right', class: 'fas fa-chevron-right'
 
     %section.shipping-way
@@ -45,5 +46,5 @@
         %li.payment-list__num  ************4049
         %li.payment-list__num  02 / 21
       .change-right
-        =link_to "変更する","#",class:"change-sentence"
+        =link_to "変更する",pay_way_path,class:"change-sentence"
         = fa_icon 'chevron-right', class: 'fas fa-chevron-right'

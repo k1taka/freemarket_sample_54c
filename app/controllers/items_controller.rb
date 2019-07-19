@@ -9,10 +9,13 @@ class ItemsController < ApplicationController
 
   #商品詳細ページ
   def show
+    @item =Item.find(params[:id])
   end
 
   #商品購入確認ページ
   def confirmation
+    @item = Item.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   # クレジットカード決済のカード情報記入＆購入確定ページ
