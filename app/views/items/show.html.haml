@@ -1,7 +1,7 @@
 .detail-container
   .main
     %h1.item-name
-      NIKEシューズ
+      = @item.name
     .content
       .item-photo
         .item-photo__top
@@ -21,7 +21,7 @@
         %tr
           %th 出品者
           %td
-            =link_to "TAKAHASHI MANAMI","https://www.mercari.com/jp/"
+            =link_to "#{@item.seller.nickname}","/#{@item.seller.id}"
             .ratings
               .ratings__set
                 = fa_icon 'smile', class: ' fa-smile ratings__set--grin'
