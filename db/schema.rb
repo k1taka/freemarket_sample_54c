@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_093930) do
+ActiveRecord::Schema.define(version: 2019_07_18_083617) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2019_07_16_093930) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_credits_on_user_id"
+  end
+
+  create_table "foreign_accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.string "token", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_foreign_accounts_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -72,10 +80,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_093930) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
     t.string "nickname"
-    t.string "token"
     t.integer "prefecture_id"
     t.string "family_name"
     t.string "first_name"
@@ -94,5 +99,6 @@ ActiveRecord::Schema.define(version: 2019_07_16_093930) do
   end
 
   add_foreign_key "credits", "users"
+  add_foreign_key "foreign_accounts", "users"
   add_foreign_key "images", "items"
 end
