@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item_new,only: [:new,:create]
 
-  #トップページ　商品一覧
+  #トップページ 商品一覧
   def index
     @items =Item.all.order("created_at DESC").limit(20)
   end
@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image,:_destroy,:id])
   end
 
-  def set_item_new #createにも必要　validateでエラーが出る
+  def set_item_new #createにも必要 validateでエラーが出る
     @category_parent_array =  Category.where(ancestry: nil)
     @sizes = Size.all
     @conditions = Condition.all
