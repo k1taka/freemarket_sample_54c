@@ -11,8 +11,10 @@
           .e_mail__link__logo
             = fa_icon 'envelope', class: "icon"
           .e_mail__link__message メールアドレスで登録する
+      -# - if flash[:notice] 
+      -#   = flash[:notice]
       .facebook 
-        =link_to "https://www.facebook.com/", class: "facebook__link" do
+        =link_to user_facebook_omniauth_authorize_path, class: "facebook__link" do
           .facebook__link__logo
             = fa_icon 'facebook-square', class: "icon"
           .facebook__link__message Facebookで登録する
@@ -21,7 +23,6 @@
           .gogle__link__logo
             = image_tag "google-logo.jpg", size: "40x40", alt: "logo"
           .gogle__link__message Googleで登録する  
-
 
     .info
       %ul.complaiance

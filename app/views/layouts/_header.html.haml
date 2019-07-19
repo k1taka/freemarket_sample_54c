@@ -2,7 +2,8 @@
   .header
     .header-top
       .header-top__logo
-        = image_tag 'mercari_logo_horizontal.png', alt: '', height: '40px', width: '136px', class: ''
+        = link_to root_path do
+          = image_tag 'mercari_logo_horizontal.png', alt: '', height: '40px', width: '136px', class: ''
       %form(action="#"){class:"header-top__form"}
         %input(type="search"){class:"header-top__form--search",placeholder:"何かお探しですか？"}
           = fa_icon "search", class: 'icon',id:"search"
@@ -33,7 +34,7 @@
                 =fa_icon "check", class: 'icon'
                 %span やることリスト
             %li.user-page__mypage
-              = link_to "#" do
+              = link_to users_path do
                 = image_tag 'https://static.mercdn.net/thumb/photos/m45245951061_1.jpg?1561365524', alt: '', height: '32', width: '32', class: 'user-page__mypage--img'
                 %span マイページ
         - else
