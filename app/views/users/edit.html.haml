@@ -10,5 +10,5 @@
       .profil__main__content
         %textarea.textarea-default{ name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
         .red-btn
-          =link_to '#' do
+          =link_to "users/#{current_user.id}",method: "patch" do
             変更する

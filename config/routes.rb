@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get "sold_item"
       get "buyed_item" 
     end
+  end
     resource :credit, only: [:show,:new,:create,:delete]#クレジットカードに必要なカラムによって、ルーティングが変わることがある。
     resources :items ,only: [:index,:show,:new,:create,:edit,:update] do
       collection do
@@ -25,7 +26,6 @@ Rails.application.routes.draw do
         get "get_category_children", defaults:{ format: "json"}
         get "get_category_grandchildren",defaults:{ format:"json"}
       end
-    end
-  end  
+    end  
 
 end
