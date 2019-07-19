@@ -18,6 +18,7 @@
               =fa_icon "tag", class: 'icon'  #
               %span ブランドから探す  
       %nav.nav-right
+      - if user_signed_in?
         %ul.user-page
           %li.user-page__like
             = link_to "#" do
@@ -35,6 +36,13 @@
             = link_to "#" do
               = image_tag 'https://static.mercdn.net/thumb/photos/m45245951061_1.jpg?1561365524', alt: '', height: '32', width: '32', class: 'user-page__mypage--img'
               %span マイページ
+      - else
+        %ul.login-nav
+          %li
+            = link_to '新規会員登録', new_user_registration_path, class: 'login-nav__signup'
+          %li
+            = link_to 'ログイン', new_user_session_path, class: 'login-nav__signin'
+
 -# パンくずルート
 .bread-crumbs
   %ul
