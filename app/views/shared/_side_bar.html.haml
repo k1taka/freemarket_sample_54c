@@ -1,7 +1,7 @@
 .side-bar__box
   :ruby
     first_pages =[{
-      Name:"マイページ", url:"#"
+      Name:"マイページ", url:users_path
     },{
       Name:"お知らせ", url:"#"
     },{
@@ -9,17 +9,13 @@
     },{
       Name:"いいね！一覧", url:"#"
     },{
-      Name:"出品する", url:"#"
+      Name:"出品する", url: new_user_item_path(current_user.id)
     },{
-      Name:"出品した商品 - 出品中", url:"#"
+      Name:"出品した商品 - 出品中", url: posting_item_user_path(current_user.id)
     },{
-      Name:"出品した商品 - 取引中", url:"#"
+      Name:"出品した商品 - 売却済み", url:sold_item_user_path(current_user.id)
     },{
-      Name:"出品した商品 - 売却済み", url:"#"
-    },{
-      Name:"購入した商品 - 取引中", url:"#"
-    },{
-      Name:"購入した商品 - 過去の取引", url:"#"
+      Name:"購入した商品 - 過去の取引", url:buyed_item_user_path(current_user.id)
     },{
       Name:"ニュース一覧", url:"#"
     },{
@@ -31,10 +27,10 @@
     }]
 
   - first_pages.each do |page|
-    .side-bar
-      =link_to "https://www.facebook.com/", class: "side-bar__left" do
+    =link_to page[:url], class: "side-bar__left" do
+      .side-bar
         #{page[:Name]}
-      = fa_icon 'chevron-right', class: "side-bar__right"
+        = fa_icon 'chevron-right', class: "side-bar__right"
 
   :ruby
     second_pages =[{
@@ -45,10 +41,10 @@
 
   .side-title メルペイ
   - second_pages.each do |page|
-    .side-bar
-      =link_to "https://www.facebook.com/", class: "side-bar__left" do
+    =link_to "https://www.facebook.com/", class: "side-bar__left" do
+      .side-bar
         #{page[:Name]}
-      = fa_icon 'chevron-right', class: "side-bar__right"
+        = fa_icon 'chevron-right', class: "side-bar__right"
 
   :ruby
     third_pages =[{
@@ -64,12 +60,12 @@
     },{
       Name:"電話番号の確認", url:"#"
     },{
-      Name:"ログアウト", url:"#"
+      Name:"ログアウト", url:logout_users_path
     }]
 
   .side-title 設定
   - third_pages.each do |page|
-    .side-bar
-      =link_to "https://www.facebook.com/", class: "side-bar__left" do
+    =link_to page[:url], class: "side-bar__left" do
+      .side-bar
         #{page[:Name]}
-      = fa_icon 'chevron-right', class: "side-bar__right"
+        = fa_icon 'chevron-right', class: "side-bar__right"
