@@ -2,6 +2,7 @@ $(function(){
   $(".first-next").on("click",function(){
     var counter_first = [
     document.forms.new_user.user_nickname.value, 
+    document.forms.new_user.user_email.value, 
     document.forms.new_user.user_password.value, 
     document.forms.new_user.user_family_name.value, 
     document.forms.new_user.user_first_name.value, 
