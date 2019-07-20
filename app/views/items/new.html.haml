@@ -12,18 +12,18 @@
           .image__title--font 出品画像
           .image__title--btn.need-btn  必須
         .image__text 最大10枚までアップロードできます
-        - 2.times do
-          = f.fields_for :images do |i| 
-            = i.label :image do
-              .image__photo
-                .image__photo--save-folder
-                .image__photo--upload
-                  .image__photo--upload--input
-                    = i.file_field :image
-                  .image__photo--upload--text 
-                    ドラッグ&ドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
+        = f.fields_for :images do |i| 
+          = i.label :image do
+            .image__photo
+              .image__photo--save-folder
+              
+              .image__photo--upload
+                .image__photo--upload--input
+                  = i.file_field :image, multiple: true
+                .image__photo--upload--text 
+                  ドラッグ&ドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
       .item-content.border-bottom
         .item-name
           .item-name__title.flex
