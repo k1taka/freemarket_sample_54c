@@ -19,6 +19,17 @@ Rails.application.routes.draw do
       get "buyed_item" 
     end
   end
+   #mypage user_edit
+    get "profile",                 to: "mypage#profile",as: :profile
+    post "profile_update",         to: "mypage#profile_update",as: :profile_update
+    get "address",                 to: "mypage#address",as: :address
+    post "address_update",         to: "mypage#address_update",as: :address_update
+    get "pay_way",                 to: "mypage#pay_way",as: :pay_way
+    post "pay_way_update",         to: "mypage#pay_way_update",as: :pay_way_update
+    get "mail/password",           to: "mypage#mail_password",as: :mail_password
+    post "mail/password_update",   to: "mypage#mail_password_update",as: :mail_update
+
+  
    #カテゴリー
     get "categories", to: "category#index" ,as: :category
     get  "categories/search", to: "category#search",as: :category_search
@@ -30,10 +41,11 @@ Rails.application.routes.draw do
     
     resources :items ,only: [:index,:show,:new,:create,:edit,:update] do
       collection do
-        get "confirmation"
         get "get_category_children", defaults:{ format: "json"}
         get "get_category_grandchildren",defaults:{ format:"json"}
+        post "pay"
       end
+      get "confirmation",on: :member
     end  
 
 end

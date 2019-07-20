@@ -1,5 +1,9 @@
 %footer
   .footer
+    = link_to new_item_path do
+      .posting-btn
+        .posting-btn__text 出品
+        = fa_icon 'camera',class:"posting-btn__icon"
     .banner
       = image_tag "bottom-banner.png", alt: 'mercari', height: '260', width: '100%'
     .content
