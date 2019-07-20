@@ -42,8 +42,10 @@ a{
             text-decoration: none;
           }
           &__photo{
+          position:relative;
           height:220px;
           overflow:hidden;
+          z-index: 1;
           }
           &__text{
             padding:16px;
@@ -78,4 +80,3 @@ a{
         text-align:right;
         margin:20;
       }
-

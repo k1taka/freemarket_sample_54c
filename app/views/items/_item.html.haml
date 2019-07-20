@@ -3,7 +3,11 @@
     = link_to item_path(item) do
       .item-box__photo
         - item.images.each do |image|
-          = image_tag image.image.url, alt: '', height: '', width: '', class: 'item-box__photo'
+          = image_tag image.image.url,class: 'item-box__photo'
+          - if item.status == "sold_item"
+            .item-box__badge
+              .item-box__badge__word
+                sold
       .item-box__text
         .item-box__text__name 
           = "#{item.name}"
