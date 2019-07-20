@@ -4,8 +4,12 @@ class MypageController < ApplicationController
   def profile
   end
 
-  def profile_update
-    redirect_to action: "profile"
+  def profileupdate
+    if @user.update(profile_update)
+      redirect_to action: :profile
+    else
+      render :profile
+    end
   end
 
   def address
@@ -16,10 +20,14 @@ class MypageController < ApplicationController
   end
 
   def pay_way
+    #購入画面からのページ遷移の場合、購入ページに戻るようにする
+    @path = Rails.application.routes.recognize_path(request.referer)
+      
   end
 
   def pay_way_update
-    redirect_to action: "pay_way"
+    redirect_to controller: :items, action: :confirmation
+    # redirect_back(fallback_location: root_path) #直前にいたページに戻る
   end
 
   def mail_password
@@ -34,6 +42,10 @@ class MypageController < ApplicationController
   
   def set_user
     @user = User.find(current_user.id)
+  end
+
+  def profile_update
+    params.require(:user).permit(:nickname,:introduction )
   end
 
 end
