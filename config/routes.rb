@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get "buyed_item" 
     end
   end
-   #mypage
+   #mypage user_edit
     get "profile",                 to: "mypage#profile",as: :profile
     post "profile_update",         to: "mypage#profile_update",as: :profile_update
     get "address",                 to: "mypage#address",as: :address

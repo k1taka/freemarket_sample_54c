@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-  before_action :set_user,only: [:posting_item,:sold_item,:buyed_item]
+  before_action :set_user,only: [:index,:posting_item,:sold_item,:buyed_item]
   # ユーザーページ
   def index
+    @items = @user.buyed_items
   end
 
   # 出品中のアイテム
   def posting_item
-    @items =Item.selling_item
+    @items =Item.selling_item.where(seller_id:current_user.id)
   end
 
   # 売却済みのアイテム
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
   def show
   end
 
-  #プロフィール編集
+  #プロフィール編集 使用予定なし
   def edit
   end
 
