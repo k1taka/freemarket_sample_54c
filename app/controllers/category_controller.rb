@@ -1,7 +1,11 @@
 class CategoryController < ApplicationController
-  #カテゴリー一覧
+  #カテゴリー名一覧
   def index
   end
+
+  def show
+  end
+
   #カテゴリーソート
   def search
   end
