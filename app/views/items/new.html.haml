@@ -1,7 +1,7 @@
 -# 商品出品ページ
 .top
   .top-image
-    = link_to'root_path' do
+    = link_to root_path do
       = image_tag 'mercari_logo_horizontal.png', alt: '', height: '70', width: '200', class: ''
   .top-main
     = form_for @item,url:{action:"create"} do |f|
