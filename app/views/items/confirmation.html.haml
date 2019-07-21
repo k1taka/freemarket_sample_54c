@@ -7,19 +7,20 @@
         .item-header
           .item-header__photo
             = image_tag "mercari_logo_horizontal.png", size: "60x60", alt: "logo"
-          .item-header__title  NIKE ビッグロゴTシャツ
+          .item-header__title
+            = @item.name
         .price-confirm
           %span.price-value
-            ¥5,655
+            = "¥#{@item.price}"
           %span.price-tax
-            送料込み
+            = @item.shipping_payer.payer
         .confirm__point
           ポイントはありません
         .total-fee
           %span.total-fee__word
             支払い金額
           %span.total-fee__valu
-            ¥5,655
+            = "¥#{@item.price}"
         %span.fee-notion
           配送先と支払い方法の入力を完了してください。
         = form_with url: pay_item_path(@item) do |f|
