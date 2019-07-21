@@ -33,7 +33,7 @@ Rails.application.routes.draw do
    #カテゴリー
     get "categories", to: "category#index" ,as: :category
     get  "categories/search", to: "category#search",as: :category_search
-    get "categoryies/show", to:"category#show", as: :category_show
+    get "categories/:id", to:"category#show", as: :category_show
   #ブランド
     get "brands",to: "brand#index", as: :brand
     get "brands/search",to: "brand#search", as: :brand_search
