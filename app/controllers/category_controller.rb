@@ -5,6 +5,8 @@ class CategoryController < ApplicationController
   end
 
   def show
+    @category = Category.find(params[:id])
+    @items = Item.all.where(category: params[:id])
   end
 
   #カテゴリーソート
