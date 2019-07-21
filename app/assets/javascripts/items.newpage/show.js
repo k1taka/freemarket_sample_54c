@@ -2,7 +2,7 @@ $(function () {
   $('.item_delete').click(function(){
       $('.modalArea').fadeIn();
   });
-  $('.modalBg').click(function(){
+  $('.modalBg','.cancel_btn').click(function(){
     $('.modalArea').fadeOut();
   });
 });

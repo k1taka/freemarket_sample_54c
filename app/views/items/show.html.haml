@@ -132,6 +132,6 @@
             %br 
             %br 
             本当に削除しますか？
-        .modal-btns
-          .cancel-btn キャンセル 
-          .delete-btn 削除する
+        .modal_btns
+          .cancel_btn キャンセル 
+          =link_to "削除する",item_path(params[:id]), method: :delete, class:"delete_btn"

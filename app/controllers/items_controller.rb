@@ -64,6 +64,12 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def destroy
+    @target = Item.find_by(params[:id])
+    @target.destroy
+    redirect_to action: "index"
+  end
+
   private
 
   def set_item

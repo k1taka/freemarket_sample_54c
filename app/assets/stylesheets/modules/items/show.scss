@@ -345,10 +345,10 @@
         font-size:17px;
       }
     }
-    .modal-btns{
+    .modal_btns{
       display: flex;
       justify-content: space-between;
-      .cancel-btn{
+      .cancel_btn{
         padding:30px 147px;
         font-size:20px;
         width:395px;
@@ -358,13 +358,14 @@
         box-sizing: border-box;
         cursor: pointer;
       } 
-      .delete-btn{
+      .delete_btn{
         padding:25px 156px;
         font-size:20px;
         width:395px;
         height:83px;
         border: 1px solid #ccc;
         box-sizing: border-box;
+        color: #0099E8;
         cursor: pointer;
       }
     }
