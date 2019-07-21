@@ -2,5 +2,21 @@
   .main
     %h2.category-index カテゴリー一覧
     .parent-index
-      - @category_parent_array.each do |parent|
+      - @parents.each do |parent|
         =link_to "#{parent.name}","#",class: "parent-index__btn"
+      .child-index
+        - @parents.each do |parent|
+          .child-block
+            %h3.child-name  
+              = parent.name
+            %p.child-all
+              =link_to "すべて","#"              
+            - parent.children.each do |child|
+              %h4.child-list
+                =link_to "#{child.name}","#"
+              .grandchildren-lists
+                - child.children.each do |grand_child|
+                  .grandchildren-list
+                    =link_to "#{grand_child.name}","#"
+                  -# %td
+                  -#   =link_to "#{@item.seller.nickname}","/#{@item.seller.id}"

@@ -1,7 +1,7 @@
 class CategoryController < ApplicationController
   #カテゴリー名一覧
   def index
-    @category_parent_array =  Category.where(ancestry: nil)
+    @parents =  Category.all.where(ancestry: nil)
   end
 
   def show
