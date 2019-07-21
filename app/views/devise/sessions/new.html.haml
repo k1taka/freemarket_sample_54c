@@ -5,7 +5,8 @@
     .contents
       .user-new
         .user-new__message{align:"center"} アカウントをお持ちでない方はこちら
-        .user-new__btn{align:"center"} 新規会員登録
+        = link_to sign_up_index_path do
+          .user-new__btn{align:"center"} 新規会員登録
       .login-btns
         .facebook 
           = link_to user_facebook_omniauth_authorize_path, class: "facebook__link" do

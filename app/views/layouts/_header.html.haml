@@ -11,11 +11,11 @@
       %nav.nav-left
         %ul.search-list   
           %li.search-list__category
-            = link_to "#" do
+            = link_to category_path do
               =fa_icon "list", class: 'icon'  #display:none;でカテゴリ表示機能実装
               %span カテゴリーから探す
           %li.search-list__bland
-            = link_to "#" do
+            = link_to brand_path do
               =fa_icon "tag", class: 'icon'  #
               %span ブランドから探す  
       %nav.nav-right
@@ -40,7 +40,7 @@
         - else
           %ul.login-nav
             %li
-              = link_to '新規会員登録', new_user_registration_path, class: 'login-nav__signup'
+              = link_to '新規会員登録',  sign_up_index_path, class: 'login-nav__signup'
             %li
               = link_to 'ログイン', new_user_session_path, class: 'login-nav__signin'
 

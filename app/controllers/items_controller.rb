@@ -9,11 +9,13 @@ class ItemsController < ApplicationController
 
   #商品詳細ページ
   def show
-    @item = Item.find_by(params[:id]) 
+    @item =Item.find(params[:id])
   end
 
   #商品購入確認ページ
   def confirmation
+    @item = Item.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   # クレジットカード決済のカード情報記入＆購入確定ページ
@@ -79,8 +81,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price,images_attributes:[:image]).merge(seller_id: current_user.id)
   end
-
-
+  
   def update_item_params
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image,:_destroy,:id])
   end
