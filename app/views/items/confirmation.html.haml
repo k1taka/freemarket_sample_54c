@@ -24,7 +24,7 @@
           配送先と支払い方法の入力を完了してください。
         = form_tag(action: :pay, method: :post) do
           %input{name: "status", type: "hidden", value: "1"}
-          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": ENV["PAYJP_PUBLIC_KEY"]}
+          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": PAYJP_PUBLIC_KEY}
     %section.shipping-addres
       %h3 配送先
       %p 〒203-0051 
