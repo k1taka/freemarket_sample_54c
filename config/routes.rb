@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     # get "categories", to: "category#index" ,as: :category
     # get  "categories/search", to: "category#search",as: :category_search
     # get "categories/:id", to:"category#show", as: :category_show
-    resources :categories ,only: [:index,:show,:search]
+    resources :categories ,only: [:index,:show]
 
   #ブランド
     get "brands",to: "brand#index", as: :brand

@@ -9,8 +9,4 @@ class CategoriesController < ApplicationController
     @items = Item.where(category: params[:id])
   end
 
-  #カテゴリーソート
-  def search
-  end
-
 end
