@@ -89,6 +89,28 @@
         =link_to "https://www.mercari.com/jp/",class:"btn" do
           = fa_icon 'lock',class:'lock'
           = "あんしん・あんぜんへの取り組み"
+        送料込み
+    -if user_signed_in?
+      -if current_user.id != @item.seller_id     
+        =link_to "購入画面に進む", confirmation_item_path(@item),class:"item-buy-btn"
+    -else 
+      =link_to "購入画面に進む", confirmation_item_path(@item),class:"item-buy-btn"
+    %p.item-description
+      バンズ ボルトです。
+      6.7年前に購入したものになります。詳細分かり兼ねます。
+      そのまま物置き保管となっておりました。
+      画像にありますように内側カカト破れ、外側カカト部分ステッチに多少ほつれあります。
+      アッパーはオフホワイト系のスエード、ソールカラーは人気のブラックです。当時あまり見ないモデルだと思い購入した記憶があります。レトロな雰囲気もカッコ可愛いです。
+      状態も割と古いものになりますが、まだまだ履けるかと思います。古着にご理解のある方よろしくお願い致します。
+      完品を求める方、神経質な方はご遠慮をいただければと思います。
+    -if user_signed_in?  
+      -if current_user.id != @item.seller_id 
+        = render partial: "item-show_btn"
+    -else
+      = render partial: "item-show_btn"
+  -if user_signed_in?    
+    -if current_user.id == @item.seller_id
+      = render partial:"item-show_edit-btn"
   %ul.messages
     %li.message
       .message__user
@@ -114,14 +136,23 @@
       %textarea.comment__text
       %button.comment__btn
         コメントする
-  .social-link
-    %ul.box
-      %li
-        = link_to "https://facebook.com/" do
-          = fa_icon 'facebook-square', class: 'fab fa-facebook-square fa-fw box__facebook'  
-      %li
-        = link_to "https://twitter.com/" do
-          = fa_icon 'twitter-square', class: 'fab fa-twitter-square fa-fw box__twitter'
-      %li
-        = link_to "https://www.pinterest.jp/" do
-          = fa_icon 'pinterest', class: 'fab fa-pinterest fa-fw box__pinterest'  
+  -if user_signed_in?       
+    -if current_user.id != @item.seller_id 
+      = render partial:"item-show_social-btn"
+  -else 
+    = render partial:"item-show_social-btn"
+  %section.modalArea
+    .modalBg
+      .modalWrapper
+        .modalContents
+          .message 確認
+          .text 
+            削除すると二度と復活できません。
+            %br 
+            削除する代わりに停止することもできます
+            %br 
+            %br 
+            本当に削除しますか？
+        .modal_btns
+          .cancel_btn キャンセル 
+          =link_to "削除する",item_path(params[:id]), method: :delete, class:"delete_btn"

@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   #クレジットカードに必要なカラムによって、ルーティングが変わることがある。
     resource :credit, only: [:show,:new,:create,:delete]
     
-    resources :items ,only: [:index,:show,:new,:create,:edit,:update] do
+    resources :items ,only: [:index,:show,:new,:create,:edit,:update,:destroy] do
       collection do
         get "get_category_children", defaults:{ format: "json"}
         get "get_category_grandchildren",defaults:{ format:"json"}
