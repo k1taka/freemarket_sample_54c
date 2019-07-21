@@ -1,7 +1,6 @@
-
-カテゴリー一覧
-
-
-
--# - @category_parent_array.each do |parent|
--#   = parent.name
+.category-container
+  .main
+    %h2.category-index カテゴリー一覧
+    .parent-index
+      - @category_parent_array.each do |parent|
+        =link_to "#{parent.name}","#",class: "parent-index__btn"
