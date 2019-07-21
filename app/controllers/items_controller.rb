@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item_new,only: [:new,:create]
-  before_action :set_item,only: [:show,:confirmation,:pay]
+  before_action :set_item,only: [:show,:confirmation,:pay,:edit]
 
   #トップページ 商品一覧
   def index
@@ -9,25 +9,23 @@ class ItemsController < ApplicationController
 
   #商品詳細ページ
   def show
-    @item =Item.find(params[:id])
   end
 
   #商品購入確認ページ
   def confirmation
-    @item = Item.find(params[:id])
     @user = User.find(current_user.id)
   end
 
   # クレジットカード決済のカード情報記入＆購入確定ページ
   def pay
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key = 'sk_test_af6f5a016285e464ea52ff33'
     Payjp::Charge.create(
       amount: @item.price, # 決済する値段
       card: params['payjp-token'],
       currency: 'jpy'
     )
     @item.update(buyer_id: current_user.id, status: params[:status])
-    redirect_to action: index
+    redirect_to action: 'index'
   end
   
   #商品出品ページ
@@ -50,7 +48,6 @@ class ItemsController < ApplicationController
 
   #商品編集ページ
   def edit
-    @item=Item.find(params[:id])
   end
 
   def update
