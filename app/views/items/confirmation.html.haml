@@ -22,9 +22,9 @@
             ¥5,655
         %span.fee-notion
           配送先と支払い方法の入力を完了してください。
-        = form_tag(action: :pay, method: :post) do
-          %input{name: "status", type: "hidden", value: "1"}
-          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": PAYJP_PUBLIC_KEY}
+        = form_with url: pay_item_path(@item) do |f|
+          =  f.hidden_field :status, value: 'sold_item'
+          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_8fd9eca31134ba703ff094b9"}
     %section.shipping-addres
       %h3 配送先
       %p
