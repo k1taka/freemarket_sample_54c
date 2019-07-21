@@ -19,13 +19,35 @@ Rails.application.routes.draw do
       get "buyed_item" 
     end
   end
-    resource :credit, only: [:show,:new,:create,:delete]#クレジットカードに必要なカラムによって、ルーティングが変わることがある。
+   #mypage user_edit
+    get "profile",                 to: "mypage#profile",as: :profile
+    patch "profile_update",         to: "mypage#profileupdate",as: :profile_update
+    get "address",                 to: "mypage#address",as: :address
+    post "address_update",         to: "mypage#address_update",as: :address_update
+    get "pay_way",                 to: "mypage#pay_way",as: :pay_way
+    get "pay_way_update",         to: "mypage#pay_way_update",as: :pay_way_update
+    get "mail/password",           to: "mypage#mail_password",as: :mail_password
+    post "mail/password_update",   to: "mypage#mail_password_update",as: :mail_update
+
+  
+   #カテゴリー
+    get "categories", to: "category#index" ,as: :category
+    get  "categories/search", to: "category#search",as: :category_search
+    get "categoryies/show", to:"category#show", as: :category_show
+  #ブランド
+    get "brands",to: "brand#index", as: :brand
+    get "brands/search",to: "brand#search", as: :brand_search
+    get "brands/show", to: "brands#show", as: :brand_show
+  #クレジットカードに必要なカラムによって、ルーティングが変わることがある。
+    resource :credit, only: [:show,:new,:create,:delete]
+    
     resources :items ,only: [:index,:show,:new,:create,:edit,:update] do
       collection do
-        get "confirmation"
         get "get_category_children", defaults:{ format: "json"}
         get "get_category_grandchildren",defaults:{ format:"json"}
+        post "pay"
       end
+      get "confirmation",on: :member
     end  
 
 end
