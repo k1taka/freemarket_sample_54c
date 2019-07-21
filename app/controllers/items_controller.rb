@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   #商品詳細ページ
   def show
+    @item = Item.find_by(params[:id]) 
   end
 
   #商品購入確認ページ
@@ -73,7 +74,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price,images_attributes:[:image]).merge(seller_id: current_user.id)
   end
 
-  end
 
   def update_item_params
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image,:_destroy,:id])
