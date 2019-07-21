@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
 
   # クレジットカード決済のカード情報記入＆購入確定ページ
   def pay
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key = PAYJP_SECRET_KEY
     Payjp::Charge.create(
       amount: @item.price, # 決済する値段
       card: params['payjp-token'],
