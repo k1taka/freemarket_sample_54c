@@ -9,57 +9,58 @@ $(function(){
       </div>
       <div class="image-item__button">削除</div>
     </li>`
-    $("#preview").append(html)
+    $(".image-save-items").append(html)
   };
   
   // images 保存用配列
+  let file_array = [];
   
   //ドロップ発火
   $(".images").on("change","input[type=file]",function(e){
     e.preventDefault();
-    
-    let files = e.target.files
-    // let files = $(this).prop("files");
-    console.log(files)
+    //imageの取得
+      let files = e.target.files
+
     Array.prototype.forEach.call(files, function(file) {
-    console.log(file) 
-    //画像の読み込み filereaderはfileからURIを取得できる
-    let file_reader = new FileReader();
-    file_reader.onload = function(event){
-      //image file からURI部分の取得
-      let loadImageUrl = event.target.result;
-      buildHTML(loadImageUrl)
-    }
-    file_reader.readAsDataURL(file)
-  });//forEach
-  
+      file_array.push(file);
+      //画像の読み込み filereaderはfileからURIを取得できる
+      let file_reader = new FileReader();
+      file_reader.onload = function(event){
+        //image file からURI部分の取得
+        let loadImageUrl = event.target.result;
+        buildHTML(loadImageUrl)
+      }
+      file_reader.readAsDataURL(file)
+    });//forEach
   })
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+  $(".image-save-items").on("click",".image-item__button",function(){
+  let index = $(".image-item__button").index(this);
+  file_array.splice(index -1,1)
+  $(this).parent().remove();
+  })
+
   //画像一括送信  ajaxでコントローラに送る。
-  $("#item-send").on("submit",function(){
-  
+  $("#new_item").on("submit",function(e){
+    e.preventDefault();
+    let formData = new FormData($(this).get(0));
+    console.log(formData)
+    file_array.forEach(function(file){
+      formData.append("image[images][]", file)
+    })
     $.ajax({
       url: "/items",
       type: "POST",
-      datatype: "JSON",
-      data: ""
+      datatype: "json",
+      data: formData,
+      contentType: false,
+      processData: false
     })
-    .done(function(){
-      alert("出品に成功しました")
+    .done(function(data){
+      alert(data)
     })
     .fail(function(){
       alert("出品に失敗しました")
     })
-  
   })
-    
-  })
+})

@@ -12,15 +12,14 @@
           .image__title--font 出品画像
           .image__title--btn.need-btn  必須
         .image__text 最大10枚までアップロードできます
-        = f.fields_for :images do |i| 
-          = i.label :image do
-            .image__photo
-              .image__photo--save-folder
-              
+        .upload-area
+          .image__save-folder.flex
+            %ul.image-save-items.flex
+          %label.image__photo{for: "name1"}
               .image__photo--upload
                 .image__photo--upload--input
-                  = i.file_field :image, multiple: true
-                .image__photo--upload--text 
+                  %input{type:"file", id:"name1",multiple: true}
+                .image__photo--upload--text
                   ドラッグ&ドロップ
                   %br
                   またはクリックしてファイルをアップロード
@@ -46,7 +45,7 @@
             .category__select.select-wrap
               =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
               .category__select--list
-                = f.collection_select :category_id,  @category_parent_array,:id,:name,{prompt:"---"},{id:"parent_category"} 
+                = f.collection_select :category_id,  @category_parent_array,:id,:name,{prompt:"---"},{id:"parent_category"}
           .category-size
             .catagory-size__title.flex
               .category-size__title--text サイズ
@@ -126,6 +125,6 @@
           禁止されている出品、行為を必ずご確認ください。
           %br またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
           また、出品をもちまして加盟店規約に同意したことになります。
-          = f.submit "出品する",class:"red-btn"
+          = f.submit "出品する",class:"red-btn item-send",id:"item-send",disable_with: "Save"
           = link_to "users_path" do
             .red-btn.gray もどる

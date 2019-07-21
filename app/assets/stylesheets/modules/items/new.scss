@@ -30,7 +30,7 @@
  }//.top-main
 
     .images{
-      width:540px;
+      margin:0;
       padding:40px;
       .image__title{
         &--font{
@@ -41,28 +41,68 @@
         font-size:14px;
         margin-top:8px;
       }
-      .image__photo{
-        display:block;
-        width:620px;
-        height:162px;
-        margin-top:16px;
-        background-color: rgb(245, 245, 245);
-        border:dotted 1px;
-        &--upload{
-          position: relative;
-          &--input{
-            display:none;
-          }
-          &--text{
-            font-size:14px;
-            text-align:center;
-            position: absolute;
-            top:60px;
-            left:170px;
-          }
+    }//images
+    
+ //image-item 後からjsで追加部分
+.upload-area{
+  display:flex;
+  flex-wrap:wrap;
+  width:100%;
+  .image-save-items{
+    display:flex;
+    flex-wrap: wrap;
+    .image-item{
+      margin:16px 10px 10px 0px;
+      background-color:rgb(245,245,245);      
+      &__photo{
+        width:113px;
+        height:116px;
+        overflow:hidden;
+        position:relative;
+        img{
+          position:absolute;
+          top:50%;
+          left:50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: auto;
         }
       }
-    }//images
+      &__button{
+        background-color:rgb(235,235,235);
+        height:48px;
+        line-height:48px;
+        text-align:center;
+      }
+    }
+  }
+  .image__photo{
+    flex-grow:1;
+    width:100%;
+    height:162px;
+    margin-top:16px;
+    background-color: rgb(245, 245, 245);
+    border:dotted 1px;
+    &--upload{
+      position: relative;
+      &--input{
+        display:none;
+      }
+      &--text{
+        font-size:14px;
+        text-align:center;
+        position: absolute;
+        top:50%;
+        left:0;
+        right:0;
+        margin:auto;
+
+      }
+    }
+  }
+}
 
 
   .item-content{
