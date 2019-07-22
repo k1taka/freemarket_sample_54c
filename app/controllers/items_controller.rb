@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
             item_image = @item.images.new(image: image)
             item_image.save
           end
-          format.json{ render :json => {:redirect => "/"} }
+          format.json
       else
         # エラー表示実装すること。
         render :new

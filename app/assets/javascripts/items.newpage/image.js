@@ -7,9 +7,10 @@ $(function(){
       <div class="image-item__photo">
         <img src="${loadimageURI}" >
       </div>
+      <div class="image-item__button">編集</div>
       <div class="image-item__button">削除</div>
     </li>`
-    $(".image-save-items").append(html)
+    return html
   };
   
   // images 保存用配列
@@ -22,19 +23,30 @@ $(function(){
       let files = e.target.files
 
     Array.prototype.forEach.call(files, function(file) {
-      file_array.push(file);
-      //画像の読み込み filereaderはfileからURIを取得できる
-      let file_reader = new FileReader();
-      file_reader.onload = function(event){
-        //image file からURI部分の取得
-        let loadImageUrl = event.target.result;
-        buildHTML(loadImageUrl)
-      }
+      if(file_array.length <= 10){
+        file_array.push(file);
+        //画像の読み込み filereaderはfileからURIを取得できる
+        let file_reader = new FileReader();
+
+        file_reader.onload = function(event){
+          //image file からURI部分の取得
+          let loadImageUrl = event.target.result;
+          item = buildHTML(loadImageUrl)
+
+          const ulElement = document.getElementById( "target" ) ;
+          const childElementCount = ulElement.childElementCount ;
+          if(childElementCount <= 4){
+            $(".image-save-items").append(item)
+          }else{
+            $(".image-save-items2").append(item)
+          }
+        }//onload
       file_reader.readAsDataURL(file)
+      }//if
     });//forEach
   })
 
-  $(".image-save-items").on("click",".image-item__button",function(){
+  $(document).on("click",".image-item__button",function(){
   let index = $(".image-item__button").index(this);
   file_array.splice(index -1,1)
   $(this).parent().remove();

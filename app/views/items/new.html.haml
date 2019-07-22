@@ -14,15 +14,16 @@
         .image__text 最大10枚までアップロードできます
         .upload-area
           .image__save-folder.flex
-            %ul.image-save-items.flex
+            %ul.image-save-items.flex#target
+          .image__save-folder.flex
+            %ul.image-save-items2.flex
           %label.image__photo{for: "name1"}
-              .image__photo--upload
-                .image__photo--upload--input
-                  %input{type:"file", id:"name1",multiple: true}
-                .image__photo--upload--text
-                  ドラッグ&ドロップ
-                  %br
-                  またはクリックしてファイルをアップロード
+            .image__photo--input
+              %input{type:"file", id:"name1",multiple: true}
+            %span.image__photo--text
+              ドラッグ&ドロップ
+              %br
+              またはクリックしてファイルをアップロード
       .item-content.border-bottom
         .item-name
           .item-name__title.flex
