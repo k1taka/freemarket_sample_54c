@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item_new,only: [:new,:create]
-  before_action :set_item,only: [:show,:confirmation,:pay]
+  before_action :set_item,only: [:show,:confirmation,:pay,:edit]
 
   #トップページ 商品一覧
   def index
@@ -10,25 +10,23 @@ class ItemsController < ApplicationController
 
   #商品詳細ページ
   def show
-    @item =Item.find(params[:id])
   end
 
   #商品購入確認ページ
   def confirmation
-    @item = Item.find(params[:id])
     @user = User.find(current_user.id)
   end
 
   # クレジットカード決済のカード情報記入＆購入確定ページ
   def pay
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key = 'sk_test_af6f5a016285e464ea52ff33'
     Payjp::Charge.create(
       amount: @item.price, # 決済する値段
       card: params['payjp-token'],
       currency: 'jpy'
     )
     @item.update(buyer_id: current_user.id, status: params[:status])
-    redirect_to action: index
+    redirect_to action: 'index'
   end
   
   #商品出品ページ
@@ -57,7 +55,6 @@ class ItemsController < ApplicationController
 
   #商品編集ページ
   def edit
-    @item=Item.find(params[:id])
   end
 
   def update
@@ -71,6 +68,12 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+  def destroy
+    @target = Item.find_by(params[:id])
+    @target.destroy
+    redirect_to action: "index"
   end
 
   private
@@ -87,7 +90,6 @@ class ItemsController < ApplicationController
     # ajax通信
     params.require(:image).permit({images:[]})
   end
-
 
   def update_item_params
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image,:_destroy,:id])
