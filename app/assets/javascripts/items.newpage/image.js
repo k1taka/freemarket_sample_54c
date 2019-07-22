@@ -7,7 +7,6 @@ $(function(){
       <div class="image-item__photo">
         <img src="${loadimageURI}" >
       </div>
-      <div class="image-item__button">編集</div>
       <div class="image-item__button">削除</div>
     </li>`
     return html
