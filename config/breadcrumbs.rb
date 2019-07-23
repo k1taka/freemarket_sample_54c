@@ -36,3 +36,8 @@ crumb :logout do
   link "ログアウト", logout_users_path
   parent :mypage
 end
+
+crumb :categories do
+  link "カテゴリー一覧", categories_path
+  parent :root
+end

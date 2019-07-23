@@ -60,4 +60,6 @@
         - breadcrumb :mail_password
       - elsif request.path == '/users/logout'
         - breadcrumb :logout
+      - elsif request.path == '/categories'
+        - breadcrumb :categories
       = breadcrumbs separator: " &rsaquo; "
