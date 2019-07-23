@@ -1,0 +1,21 @@
+.category-page{
+  width:1000px;
+  margin:0 auto;
+}
+.name-index{
+  margin: 24px 50px 0px;
+  display: block;
+  font-weight:bold;
+  font-size: 22px;
+}
+.children-index--area{
+  display:flex;
+  flex-wrap: wrap;
+  width:800px;
+  margin:50px 0px 0px 50px;
+}
+.child-index__btn{
+  color: #0099e8;
+  text-decoration: none;
+  line-height:30px;
+}

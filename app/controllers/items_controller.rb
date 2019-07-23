@@ -5,12 +5,12 @@ class ItemsController < ApplicationController
   #トップページ 商品一覧
   def index
     @items = Item.all.order("created_at DESC").limit(20)
-
   end
 
   #商品詳細ページ
   def show
     @item_target = Item.find(params[:id])
+    @image = Image.find_by(item_id: @item.id)
   end
 
   #商品購入確認ページ
@@ -40,12 +40,18 @@ class ItemsController < ApplicationController
   
   def create
     @item =Item.new(item_params)
-  if @item.save
-    redirect_to root_path
-  else
-    # エラー表示実装すること。
-    render :new
-  end
+    respond_to do |format|
+      if @item.save
+          image_params[:images].each do |image|
+            item_image = @item.images.new(image: image)
+            item_image.save
+          end
+          format.json
+      else
+        # エラー表示実装すること。
+        render :new
+      end
+    end
   end
 
   #商品編集ページ
@@ -87,9 +93,14 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price,images_attributes:[:image]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:category_id,:price).merge(seller_id: current_user.id)
   end
-  
+
+  def image_params
+    # ajax通信
+    params.require(:image).permit({images:[]})
+  end
+
   def update_item_params
     params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image,:_destroy,:id])
   end

@@ -11,7 +11,7 @@
       %nav.nav-left
         %ul.search-list   
           %li.search-list__category
-            = link_to category_path do
+            = link_to categories_path do
               =fa_icon "list", class: 'icon'  #display:none;でカテゴリ表示機能実装
               %span カテゴリーから探す
           %li.search-list__bland
@@ -48,7 +48,18 @@
 .bread-crumbs
   %ul
     %li.itemscope
-      =link_to "#" do
-        %span メルカリ
-      =fa_icon "chevron-right", class: 'icon'
-= render partial: 'layouts/category'
+      - if request.path == '/users'
+        - breadcrumb :mypage
+      - elsif request.path == '/profile'
+        - breadcrumb :profile
+      - elsif request.path == '/address'
+        - breadcrumb :address
+      - elsif request.path == '/pay_way'
+        - breadcrumb :pay_way
+      - elsif request.path == '/mail/password'
+        - breadcrumb :mail_password
+      - elsif request.path == '/users/logout'
+        - breadcrumb :logout
+      - elsif request.path == '/categories'
+        - breadcrumb :categories
+      = breadcrumbs separator: " &rsaquo; "

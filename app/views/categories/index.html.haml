@@ -1,0 +1,20 @@
+.category-container
+  .main
+    %h2.category-index カテゴリー一覧
+    .parent-index
+      - @parents.each do |parent|
+        =link_to "#{parent.name}",category_path(parent),class: "parent-index__btn"
+      .child-index
+        - @parents.each do |parent|
+          .child-block
+            %h3.child-name  
+              = parent.name
+            %p.child-all
+              =link_to "すべて",category_path(parent)
+            - parent.children.each do |child|
+              %h4.child-list
+                =link_to "#{child.name}",category_path(child)
+              .grandchildren-lists
+                - child.children.each do |grand_child|
+                  .grandchildren-list
+                    =link_to "#{grand_child.name}",category_path(grand_child)
