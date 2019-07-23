@@ -48,6 +48,18 @@
 .bread-crumbs
   %ul
     %li.itemscope
-      =link_to "#" do
-        %span メルカリ
-      =fa_icon "chevron-right", class: 'icon'
+      - if request.path == '/users'
+        - breadcrumb :mypage
+      - elsif request.path == '/profile'
+        - breadcrumb :profile
+      - elsif request.path == '/address'
+        - breadcrumb :address
+      - elsif request.path == '/pay_way'
+        - breadcrumb :pay_way
+      - elsif request.path == '/mail/password'
+        - breadcrumb :mail_password
+      - elsif request.path == '/users/logout'
+        - breadcrumb :logout
+      - elsif request.path == '/categories'
+        - breadcrumb :categories
+      = breadcrumbs separator: " &rsaquo; "

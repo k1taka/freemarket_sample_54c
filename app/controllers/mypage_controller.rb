@@ -31,7 +31,6 @@ class MypageController < ApplicationController
   end
 
   def mail_password
-    redirect_to action: "mail_password"
   end
 
   def mail_password_update
