@@ -1,4 +1,5 @@
 .detail-container
+  = render partial: "notification_item"
   .main
     %h1.item-name
       = @item.name
@@ -73,21 +74,16 @@
         （税込み）
       %span.item-price__shipping
         = @item.shipping_payer.payer    
-    -if user_signed_in?
-      -if current_user.id != @item.seller_id     
-        =link_to "購入画面に進む", confirmation_item_path(@item),class:"item-buy-btn"
+    -if (user_signed_in? && current_user.id == @item.seller_id)
     -else 
       =link_to "購入画面に進む", confirmation_item_path(@item),class:"item-buy-btn"
     %p.item-description
       = @item.description
-    -if user_signed_in?  
-      -if current_user.id != @item.seller_id 
-        = render partial: "item-show_btn"
+    -if (user_signed_in? && current_user.id == @item.seller_id)
     -else
       = render partial: "item-show_btn"
-  -if user_signed_in?    
-    -if current_user.id == @item.seller_id
-      = render partial:"item-show_edit-btn"
+  -if (user_signed_in? && current_user.id == @item.seller_id)  
+    = render partial:"item-show_edit-btn"
   %ul.messages
     %li.message
       .message__user
@@ -113,9 +109,7 @@
       %textarea.comment__text
       %button.comment__btn
         コメントする
-  -if user_signed_in?       
-    -if current_user.id != @item.seller_id 
-      = render partial:"item-show_social-btn"
+  -if (user_signed_in? && current_user.id == @item.seller_id)  
   -else 
     = render partial:"item-show_social-btn"
   %section.modalArea
