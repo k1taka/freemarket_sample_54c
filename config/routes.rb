@@ -29,11 +29,7 @@ Rails.application.routes.draw do
     get "mail/password",           to: "mypage#mail_password",as: :mail_password
     post "mail/password_update",   to: "mypage#mail_password_update",as: :mail_update
 
-  
    #カテゴリー
-    # get "categories", to: "category#index" ,as: :category
-    # get  "categories/search", to: "category#search",as: :category_search
-    # get "categories/:id", to:"category#show", as: :category_show
     resources :categories ,only: [:index,:show]
 
   #ブランド
@@ -47,6 +43,7 @@ Rails.application.routes.draw do
       collection do
         get "get_category_children", defaults:{ format: "json"}
         get "get_category_grandchildren",defaults:{ format:"json"}
+        get "search"
       end
       member do
         get "confirmation"

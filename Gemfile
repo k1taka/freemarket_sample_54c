@@ -105,3 +105,5 @@ gem 'dotenv-rails'
 gem 'omniauth-facebook'
 
 gem "gretel"
+
+gem 'ransack'
