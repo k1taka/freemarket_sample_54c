@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item_new,only: [:new,:create]
-  before_action :set_item,only: [:show,:confirmation,:pay,:edit]
+  before_action :set_item_new,only: [:new,:create,:edit,:update]
+  before_action :set_item,only: [:show,:confirmation,:pay,:edit,:update]
 
   #トップページ 商品一覧
   def index
@@ -33,7 +33,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    @category_parent_array =  Category.where(ancestry: nil)
     render layout: 'logo'
   end
   
@@ -47,7 +46,6 @@ class ItemsController < ApplicationController
           end
           format.json
       else
-        # エラー表示実装すること。
         render :new
       end
     end
@@ -55,10 +53,29 @@ class ItemsController < ApplicationController
 
   #商品編集ページ
   def edit
+    @image = @item.images
+    @category_children = Category.find(@item.category_id).parent
+    @category_grandchildren = Category.find(@item.category_id)
+    render layout: 'logo'
+  end
+
+  def get_delete
+    @image = Image.find(params[:image_id])
+    @image.destroy
   end
 
   def update
-    
+    @item.update(item_params)
+    respond_to do |format|
+      format.json
+      binding.pry
+      if @item.save
+          image_params[:images].each do |image|
+            item_image = @item.images.new(image: image)
+            item_image.save
+          end
+      end
+    end
   end
   
   #出品ページ
@@ -91,9 +108,11 @@ class ItemsController < ApplicationController
     params.require(:image).permit({images:[]})
   end
 
-  def update_item_params
-    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image,:_destroy,:id])
+  def search
+    # redirect_to root_path if params[:keyword] == ""
+    # @items = Item.where('name LIKE(?)',"%#{params[:keyword]}%")
   end
+
 
   def set_item_new #createにも必要 validateでエラーが出る
     @category_parent_array =  Category.where(ancestry: nil)
