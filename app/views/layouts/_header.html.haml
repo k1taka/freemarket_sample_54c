@@ -4,9 +4,13 @@
       .header-top__logo
         = link_to root_path do
           = image_tag 'mercari_logo_horizontal.png', alt: '', height: '40px', width: '136px', class: ''
-      %form(action="#"){class:"header-top__form"}
-        %input(type="search"){class:"header-top__form--search",placeholder:"何かお探しですか？"}
+      = search_form_for @search,url:search_items_path do |f|{class:"header-top__form"}
+        = f.search_field :name_cont,class:"header-top__form--search",placeholder:"何かお探しですか？"
+        = f.submit "検索" do
           = fa_icon "search", class: 'icon',id:"search"
+      -# %form(action="#"){class:"header-top__form"}
+      -#   %input(type="search"){class:"header-top__form--search",placeholder:"何かお探しですか？"}
+      -#     = fa_icon "search", class: 'icon',id:"search"
     .nav-box
       %nav.nav-left
         %ul.search-list   
