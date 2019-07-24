@@ -53,10 +53,24 @@
             .category__title--btn.need-btn 必須
             //親カテゴリ
           .category__select-wrap
-            .category__select.select-wrap
-              =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
-              .category__select--list
-                = f.collection_select :category_id,  @category_parent_array,:id,:name,{prompt:"---"},{id:"parent_category"}
+            - if controller.action_name == "new"
+              .category__select.select-wrap
+                =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
+                .category__select--list
+                  = f.collection_select :category_id,  @category_parent_array,:id,:name,{prompt:"---"},{id:"parent_category"}
+            - if controller.action_name == "edit"
+              .category__select.select-wrap
+                =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
+                .category__select--list
+                  = f.collection_select :category_id,  @category_parent_array,:id,:name,{prompt:"---",selected:@category.parent.parent.id},{id:"parent_category"}
+              .category__select.select-wrap#children_wrapper
+                =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
+                .category__select--list
+                  = f.collection_select :category_id,  @category_children ,:id,:name,{selected:@category.parent.id},{id:"child_category"}
+              .category__select.select-wrap#grandchildren_wrapper
+                =fa_icon "chevron-down", class: 'icon chevron-select category__select--icon'
+                .category__select--list
+                  = f.collection_select :category_id,   @category_grandchildren,:id,:name,{prompt:"---",selsected:@category.id},{id:"grandchild_category"}
           .category-size
             .catagory-size__title.flex
               .category-size__title--text サイズ

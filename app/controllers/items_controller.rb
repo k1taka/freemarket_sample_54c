@@ -54,8 +54,9 @@ class ItemsController < ApplicationController
   #商品編集ページ
   def edit
     @image = @item.images
-    @category_children = Category.find(@item.category_id).parent
-    @category_grandchildren = Category.find(@item.category_id)
+    @category = Category.find(@item.category_id)
+    @category_children = @category.parent.siblings
+    @category_grandchildren = @category.siblings
     render layout: 'logo'
   end
 
@@ -68,7 +69,6 @@ class ItemsController < ApplicationController
     @item.update(item_params)
     respond_to do |format|
       format.json
-      binding.pry
       if @item.save
           image_params[:images].each do |image|
             item_image = @item.images.new(image: image)
