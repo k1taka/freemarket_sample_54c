@@ -5,11 +5,11 @@ class ItemsController < ApplicationController
   #トップページ 商品一覧
   def index
     @items = Item.all.order("created_at DESC").limit(20)
-   
   end
 
   #商品詳細ページ
   def show
+    @item_target = Item.find(params[:id])
     @image = Image.find_by(item_id: @item.id)
   end
 
@@ -58,8 +58,17 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  def update
-    
+  def update 
+    @item = Item.find(params[:id])
+    @status = params.require(:item)[:status].to_i
+    @item.update(status: @status)
+    if @status == 0
+      flash[:open] ="出品の再開をしました"
+      redirect_to action: 'show'
+    elsif @status == 2
+      flash[:close]="出品の一旦停止をしました"
+      redirect_to action: 'show'
+    end
   end
   
   #出品ページ
