@@ -29,7 +29,6 @@ Rails.application.routes.draw do
     get "mail/password",           to: "mypage#mail_password",as: :mail_password
     post "mail/password_update",   to: "mypage#mail_password_update",as: :mail_update
 
-  
    #カテゴリー
     resources :categories ,only: [:index,:show]
 
@@ -46,9 +45,9 @@ Rails.application.routes.draw do
         get "get_category_grandchildren",defaults:{ format:"json"}
         post "get_delete",defaults:{ format:"json"}
         get "search"
-
       end
       member do
+        patch "update_status"
         get "confirmation"
         post "pay"
       end

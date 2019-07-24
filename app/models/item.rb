@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   belongs_to :category,optional: true
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User",optional: true
-  enum status: [:selling_item,:sold_item]
+  enum status: {selling_item: 0, sold_item: 1, pause_item: 2}
   
   validates :name,presence: true
   validates :description,presence: true

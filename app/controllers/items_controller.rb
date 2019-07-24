@@ -1,15 +1,28 @@
 class ItemsController < ApplicationController
+  
   before_action :set_item_new,only: [:new,:create,:edit,:update]
-  before_action :set_item,only: [:show,:confirmation,:pay,:edit,:update]
+  before_action :set_item,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
 
   #トップページ 商品一覧
   def index
     @items = Item.all.order("created_at DESC").limit(20)
-   
   end
 
   #商品詳細ページ
   def show
+    @image = Image.find_by(item_id: @item.id)
+  end
+
+  def update_status
+    @status = params.require(:item)[:status].to_i
+    @item.update(status: @status)
+    if @status == 0
+      flash[:open] ="出品の再開をしました"
+      redirect_to action: 'show'
+    elsif @status == 2
+      flash[:close]="出品の一旦停止をしました"
+      redirect_to action: 'show'
+    end
   end
 
   #商品購入確認ページ
@@ -76,7 +89,6 @@ class ItemsController < ApplicationController
           end
       end
     end
-  end
   
   #出品ページ
   def get_category_children
@@ -91,6 +103,10 @@ class ItemsController < ApplicationController
     @target = Item.find_by(params[:id])
     @target.destroy
     redirect_to action: "index"
+  end
+
+  def search
+
   end
 
   private

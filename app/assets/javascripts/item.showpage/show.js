@@ -1,8 +1,8 @@
 $(function () {
   $('.item_delete').click(function(){
-      $('.modalArea').fadeIn();
+    $('.modalArea').fadeIn();
   });
-  $('.modalBg','.cancel_btn').click(function(){
+  $('.cancel_btn').click(function(){
     $('.modalArea').fadeOut();
   });
 });
