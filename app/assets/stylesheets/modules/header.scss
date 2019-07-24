@@ -13,7 +13,6 @@ header{
     padding-top:8px;
     display:flex;
     &__logo{
-
     }
     &__form{
       position: relative;
@@ -25,10 +24,11 @@ header{
       &--search{
         border-radius:4px;
         background-color: rgb(245,245,245);
-        width:100%;
+        width:800px;
         height:50px;
       }
-      #search{
+      &__icon{
+        background-color: rgb(245,245,245);
         line-height:40px;
         padding:4px 15px;
         box-sizing:border-box;
@@ -196,4 +196,10 @@ header{
     }
   }
   }
+}
+.search-btn{
+  position:relative;
+  right:40px;
+  border:none;
+  background-color: rgb(245,245,245);
 }
