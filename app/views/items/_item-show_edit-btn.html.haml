@@ -1,12 +1,12 @@
 .edit-btns
   =link_to "商品の編集", "https://www.mercari.com/jp/",class:"item_edit"
   .or or
-  -if @item_target.status == "selling_item"
-    = form_for @item_target do |f| 
+  -if @item.status == "selling_item"
+    = form_for (@item),url:update_status_item_path do |f| 
       = f.hidden_field :status, value:2
       =f.submit "出品を一旦停止する", class:"item_pause" 
-  -elsif @item_target.status == "pause_item"
-    = form_for @item_target do |f|
+  -elsif @item.status == "pause_item"
+    = form_for (@item),url:update_status_item_path do |f|
       =f.hidden_field :status, value:0
       =f.submit "出品を再開する", class:"item_pause_red " 
   .item_delete この商品を削除する

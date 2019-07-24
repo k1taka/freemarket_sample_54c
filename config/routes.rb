@@ -49,6 +49,7 @@ Rails.application.routes.draw do
         get "get_category_grandchildren",defaults:{ format:"json"}
       end
       member do
+        patch "update_status"
         get "confirmation"
         post "pay"
       end
