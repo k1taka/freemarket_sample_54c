@@ -88,6 +88,10 @@ class ItemsController < ApplicationController
     redirect_to action: "index"
   end
 
+  def search
+
+  end
+
   private
 
   def set_item

@@ -1,0 +1,7 @@
+.category-page
+  .main
+  .items-wrapper
+    %h3.item-header
+    .items-box
+      - @items = @search_items
+      = render partial: 'items/item',"@items":@items
