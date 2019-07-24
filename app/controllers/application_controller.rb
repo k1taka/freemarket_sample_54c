@@ -6,10 +6,7 @@ before_action :basic_auth , if: :production?
 before_action :configure_permitted_parameters, if: :devise_controller?
 before_action :set_search #ヘッダーの検索機能
 
-def set_search
-  @search = Item.ransack(params[:q])
-  @search_items = @search.result.order("created_at DESC").limit(20)
-end
+
 
   protected
   def configure_permitted_parameters
