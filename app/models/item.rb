@@ -24,5 +24,4 @@ class Item < ApplicationRecord
   validates :shipping_day_id,presence: true
   validates :price,presence: true
   validates :category_id,presence: true
-  # validates :image,presence: true
 end

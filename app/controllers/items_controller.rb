@@ -107,10 +107,6 @@ class ItemsController < ApplicationController
     params.require(:image).permit({images:[]})
   end
 
-  def update_item_params
-    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image,:_destroy,:id])
-  end
-
   def set_item_new #createにも必要 validateでエラーが出る
     @category_parent_array =  Category.where(ancestry: nil)
     @sizes = Size.all
