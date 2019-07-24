@@ -4,6 +4,7 @@ protect_from_forgery with: :exception #セキュリティ
 # before_action :authenticate_user!  サインイン完成させないとログインできないはず。
 before_action :basic_auth , if: :production?
 before_action :configure_permitted_parameters, if: :devise_controller?
+before_action :category_field
 before_action :set_search #ヘッダーの検索機能
 
 def set_search
@@ -24,6 +25,11 @@ end
   end
 
   private
+
+  def category_field
+    @parents =  Category.where(ancestry: nil)
+  end
+
   def production?
     Rails.env.production?
   end

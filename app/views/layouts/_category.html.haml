@@ -1,26 +1,15 @@
-:ruby
-  countForFirst = 1
-  .coategory
-    first.each |first| do
-    =link_to first[:url], class:"#{countForFirst}"
-
-
-
-
-
-  firsts =[
-          {name:"レディース", url:"#"},
-          {name:"メンズ", url:"#"},
-          {name:"ベビー・キッズ", url:"#"},
-          {name:"インテリア・住まい・小物", url:"#"},
-          {name:"本・音楽・ゲーム", url:"#"},
-          {name:"おもちゃ・ホビー・グッズ", url:"#"},
-          {name:"コスメ・香水・美容", url:"#"},
-          {name:"家電・スマホ・カメラ", url:"#"},
-          {name:"スポーツ・レジャー", url:"#"},
-          {name:"ハンドメイド", url:"#"},
-          {name:"チケット", url:"#"},
-          {name:"自動車・オートバイ", url:"#"},
-          {name:"その他", url:"#"}
-          ]
-  
+%ul.first_list
+  -@parents.each do |parent| 
+    %li.bar-parent
+      =link_to "#" ,class:"link-parent" do
+        =parent[:name]
+      %ul.second_list
+        -parent.children.each do |child|
+          %li.bar-child
+            =link_to "#", class:"link-child" do
+              =child[:name]
+            %ul.third_list
+              -child.children.each do |grandchild|
+                %li.bar-grandchild
+                  =link_to "#", class:"link-grandchild" do
+                    =grandchild[:name]
