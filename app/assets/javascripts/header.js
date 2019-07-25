@@ -5,11 +5,11 @@ $(document).ready(function(){
   $('.first_list').mouseleave(function(){
     $('.first_list').removeClass('showForCategory');
     });
-  $('.link-parent').hover(function(){ 
+  $('.bar-parent').hover(function(){ 
     $(this).addClass('colorForParent')
     $(this).children('.second_list').addClass('showForCategory');
   })
-  $('.link-parent').mouseleave(function(){
+  $('.bar-parent').mouseleave(function(){
     $(this).removeClass('colorForParent')
     $(this).children('.second_list').removeClass('showForCategory');
     });
