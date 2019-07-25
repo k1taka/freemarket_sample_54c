@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function(){
   $('.item_delete').click(function(){
     $('.modalArea').fadeIn();
   });

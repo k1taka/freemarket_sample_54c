@@ -1,0 +1,24 @@
+$(document).ready(function(){
+  $('.search-list__category').hover(function(){
+    $('.first_list').addClass('showForCategory');
+    });
+  $('.first_list').mouseleave(function(){
+    $('.first_list').removeClass('showForCategory');
+    });
+  $('.bar-parent').hover(function(){ 
+    $(this).addClass('colorForParent')
+    $(this).children('.second_list').addClass('showForCategory');
+  })
+  $('.bar-parent').mouseleave(function(){
+    $(this).removeClass('colorForParent')
+    $(this).children('.second_list').removeClass('showForCategory');
+    });
+  $('.bar-child').hover(function(){ 
+    $(this).addClass('colorForChild')
+    $(this).children('.third_list').addClass('showForCategory');
+  })
+  $('.bar-child').mouseleave(function(){
+    $(this).removeClass('colorForChild')
+    $(this).children('.third_list').removeClass('showForCategory');
+    });
+});
