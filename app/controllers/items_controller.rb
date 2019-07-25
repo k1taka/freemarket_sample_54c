@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   
   before_action :set_item_new,only: [:new,:create,:edit,:update]
   before_action :set_item,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
+  before_action :set_edit,only:[:edit]
 
   #トップページ 商品一覧
   def index
@@ -67,9 +68,6 @@ class ItemsController < ApplicationController
   #商品編集ページ
   def edit
     @image = @item.images
-    @category = Category.find(@item.category_id)
-    @category_children = @category.parent.siblings
-    @category_grandchildren = @category.siblings
     render layout: 'logo'
   end
 
@@ -90,7 +88,7 @@ class ItemsController < ApplicationController
     end
     respond_to do |format|
       format.json
-      if @item.save
+      if @item.save && params[:image]
           image_params[:images].each do |image|
             item_image = @item.images.new(image: image)
             item_image.save
@@ -147,6 +145,12 @@ class ItemsController < ApplicationController
     @shipping_way = ShippingWay.all
     @shipping_address = ShippingAddress.all
     @shipping_day = ShippingDay.all
+  end
+
+  def set_edit
+    @category = Category.find(@item.category_id)
+    @category_children = @category.parent.siblings
+    @category_grandchildren = @category.siblings
   end
 
 end
