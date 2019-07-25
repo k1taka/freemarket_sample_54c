@@ -44,6 +44,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -91,11 +93,19 @@ gem "jquery-rails"
 gem 'recaptcha', require: "recaptcha/rails"
 
 gem 'omniauth'
+
 gem 'omniauth-google-oauth2'
 
-
 gem 'active_hash', '~> 1.5.3'
+
 gem 'ancestry'
+
 gem 'payjp'
+
 gem 'dotenv-rails'
+
 gem 'omniauth-facebook'
+
+gem "gretel"
+
+gem 'ransack'

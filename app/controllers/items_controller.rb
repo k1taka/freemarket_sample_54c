@@ -1,16 +1,29 @@
 class ItemsController < ApplicationController
-  before_action :set_item_new,only: [:new,:create]
-  before_action :set_item,only: [:show,:confirmation,:pay,:edit]
+  
+  before_action :set_item_new,only: [:new,:create,:edit,:update]
+  before_action :set_item,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
+  before_action :set_edit,only:[:edit]
 
   #トップページ 商品一覧
   def index
     @items = Item.all.order("created_at DESC").limit(20)
-   
   end
 
   #商品詳細ページ
   def show
     @image = Image.find_by(item_id: @item.id)
+  end
+
+  def update_status
+    @status = params.require(:item)[:status].to_i
+    @item.update(status: @status)
+    if @status == 0
+      flash[:open] ="出品の再開をしました"
+      redirect_to action: 'show'
+    elsif @status == 2
+      flash[:close]="出品の一旦停止をしました"
+      redirect_to action: 'show'
+    end
   end
 
   #商品購入確認ページ
@@ -34,7 +47,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    @category_parent_array =  Category.where(ancestry: nil)
     render layout: 'logo'
   end
   
@@ -48,7 +60,6 @@ class ItemsController < ApplicationController
           end
           format.json
       else
-        # エラー表示実装すること。
         render :new
       end
     end
@@ -56,10 +67,34 @@ class ItemsController < ApplicationController
 
   #商品編集ページ
   def edit
+    @image = @item.images
+    render layout: 'logo'
+  end
+
+  def get_delete
+    @image = Image.find(params[:image_id])
+    begin
+      @image.destroy
+    rescue => error
+      puts error
+    end
   end
 
   def update
-    
+    begin
+      @item.update(item_params)
+    rescue => error
+      puts error
+    end
+    respond_to do |format|
+      format.json
+      if @item.save && params[:image]
+          image_params[:images].each do |image|
+            item_image = @item.images.new(image: image)
+            item_image.save
+          end
+      end
+    end
   end
   
   #出品ページ
@@ -77,6 +112,10 @@ class ItemsController < ApplicationController
     redirect_to action: "index"
   end
 
+  def search
+
+  end
+
   private
 
   def set_item
@@ -92,8 +131,9 @@ class ItemsController < ApplicationController
     params.require(:image).permit({images:[]})
   end
 
-  def update_item_params
-    params.require(:item).permit(:name, :description, :size_id,:brand,:condition_id,:shipping_payer_id,:shipping_way_id,:shipping_address_id,:shipping_day_id,:price,images_attributes:[:image,:_destroy,:id])
+  def search
+    # redirect_to root_path if params[:keyword] == ""
+    # @items = Item.where('name LIKE(?)',"%#{params[:keyword]}%")
   end
 
   def set_item_new #createにも必要 validateでエラーが出る
@@ -104,6 +144,12 @@ class ItemsController < ApplicationController
     @shipping_way = ShippingWay.all
     @shipping_address = ShippingAddress.all
     @shipping_day = ShippingDay.all
+  end
+
+  def set_edit
+    @category = Category.find(@item.category_id)
+    @category_children = @category.parent.siblings
+    @category_grandchildren = @category.siblings
   end
 
 end

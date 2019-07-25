@@ -20,7 +20,6 @@ $(function(){
     e.preventDefault();
     //imageの取得
       let files = e.target.files
-
     Array.prototype.forEach.call(files, function(file) {
       if(file_array.length <= 10){
         file_array.push(file);
@@ -55,12 +54,11 @@ $(function(){
   $("#new_item").on("submit",function(e){
     e.preventDefault();
     let formData = new FormData($(this).get(0));
-    console.log(formData)
     file_array.forEach(function(file){
       formData.append("image[images][]", file)
     })
     $.ajax({
-      url: "/items",
+      url: "/items/",
       type: "POST",
       datatype: "json",
       data: formData,
@@ -68,10 +66,52 @@ $(function(){
       processData: false
     })
     .done(function(data){
-      alert(data)
+      alert("出品完了しました")
     })
     .fail(function(){
       alert("出品に失敗しました")
     })
   })
+
+
+//edit-page ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+$(document).on("click",".image-item__button--presence",function(){
+ let imageData = $(this).parent().data("image")
+
+
+ $.ajax({
+   url: "/items/get_delete",
+   type:"post",
+   dataType: "json",
+   data: {image_id: imageData}
+ })
+ $(this).parent().remove();
+
+})
+  
+
+$(".edit_item").on("submit",function(e){
+  e.preventDefault();
+  let formData = new FormData($(this).get(0));
+  file_array.forEach(function(file){
+    formData.append("image[images][]", file)
+  })
+  let itemData = $(".images").data("item")
+  $.ajax({
+    url: `/items/${itemData}`,
+    type: "patch",
+    datatype: "json",
+    data: formData,
+    contentType: false,
+    processData: false
+  })
+  .done(function(){
+    alert("商品の情報をアップデートしました")
+  })
+  .fail(function(){
+    alert("出品に失敗しました")
+  })
+})
+
 })

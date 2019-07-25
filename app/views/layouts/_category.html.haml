@@ -1,0 +1,15 @@
+%ul.first_list
+  -@parents.each do |parent| 
+    %li.bar-parent
+      =link_to "#" ,class:"link-parent" do
+        =parent[:name]
+      %ul.second_list
+        -parent.children.each do |child|
+          %li.bar-child
+            =link_to "#", class:"link-child" do
+              =child[:name]
+            %ul.third_list
+              -child.children.each do |grandchild|
+                %li.bar-grandchild
+                  =link_to "#", class:"link-grandchild" do
+                    =grandchild[:name]

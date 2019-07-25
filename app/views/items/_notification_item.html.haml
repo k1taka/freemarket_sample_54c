@@ -1,0 +1,8 @@
+.notification
+  -flash.each do |key, value|
+    -if flash[:close]
+      = content_tag :div, value,class: key
+      .close_btn ×
+    -elsif flash[:open]
+      = content_tag :div, value, class: key
+      .close_btn ×
