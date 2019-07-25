@@ -66,7 +66,6 @@ $(function(){
       processData: false
     })
     .done(function(data){
-      alert(data)
     })
     .fail(function(){
       alert("出品に失敗しました")
@@ -107,7 +106,6 @@ $(".edit_item").on("submit",function(e){
     processData: false
   })
   .done(function(data){
-    alert(data)
   })
   .fail(function(){
     alert("出品に失敗しました")
