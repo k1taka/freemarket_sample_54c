@@ -75,11 +75,19 @@ class ItemsController < ApplicationController
 
   def get_delete
     @image = Image.find(params[:image_id])
-    @image.destroy
+    begin
+      @image.destroy
+    rescue => error
+      puts error
+    end
   end
 
   def update
-    @item.update(item_params)
+    begin
+      @item.update(item_params)
+    rescue => error
+      puts error
+    end
     respond_to do |format|
       format.json
       if @item.save
@@ -89,6 +97,7 @@ class ItemsController < ApplicationController
           end
       end
     end
+  end
   
   #出品ページ
   def get_category_children
