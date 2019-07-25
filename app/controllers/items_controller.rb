@@ -136,7 +136,6 @@ class ItemsController < ApplicationController
     # @items = Item.where('name LIKE(?)',"%#{params[:keyword]}%")
   end
 
-
   def set_item_new #createにも必要 validateでエラーが出る
     @category_parent_array =  Category.where(ancestry: nil)
     @sizes = Size.all
