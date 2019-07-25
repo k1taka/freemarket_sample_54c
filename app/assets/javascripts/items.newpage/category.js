@@ -38,10 +38,9 @@ $(function(){
  //親カテゴリセレクト 追加子供カテゴリ
   $("#parent_category").on("change",function(){
     let parentCategory = document.getElementById("parent_category").value;
-    console.log()
     if(parentCategory != "---"){//洗濯していることを確認
       $.ajax({
-        url:"get_category_children",
+        url:"/items/get_category_children",
         type:"GET",
         data:{parent_id:parentCategory},
         dataType:"JSON"
@@ -72,7 +71,7 @@ $(function(){
     let childId = $("#child_category option:selected").data("category")
     if(childId != "---"){      
       $.ajax({
-        url:"get_category_grandchildren",
+        url:"/items/get_category_grandchildren",
         data:"GET",
         dataType:"JSON",
         data:{child_id:childId}

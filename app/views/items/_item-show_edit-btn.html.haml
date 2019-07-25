@@ -1,5 +1,5 @@
 .edit-btns
-  =link_to "商品の編集", "https://www.mercari.com/jp/",class:"item_edit"
+  =link_to "商品の編集", edit_item_path(@item),class:"item_edit"
   .or or
   -if @item.status == "selling_item"
     = form_for (@item),url:update_status_item_path do |f| 
