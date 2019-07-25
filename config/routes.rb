@@ -36,13 +36,14 @@ Rails.application.routes.draw do
     get "brands",to: "brand#index", as: :brand
     get "brands/search",to: "brand#search", as: :brand_search
     get "brands/show", to: "brands#show", as: :brand_show
-  #クレジットカードに必要なカラムによって、ルーティングが変わることがある。
+  #クレジット
     resource :credit, only: [:show,:new,:create,:delete]
     
     resources :items ,only: [:index,:show,:new,:create,:edit,:update,:destroy] do
       collection do
         get "get_category_children", defaults:{ format: "json"}
         get "get_category_grandchildren",defaults:{ format:"json"}
+        post "get_delete",defaults:{ format:"json"}
         get "search"
       end
       member do

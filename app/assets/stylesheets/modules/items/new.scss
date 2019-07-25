@@ -1,5 +1,5 @@
 
-
+//商品出品・編集ページ
 .top{
   background-color:rgb(245,245,245);
   .top-image{
@@ -107,6 +107,13 @@
     height:48px;
     line-height:48px;
     text-align:center;
+    &--presence{
+      width:113px;
+    background-color:rgb(235,235,235);
+    height:48px;
+    line-height:48px;
+    text-align:center;
+    }
   }
 }
 
@@ -277,4 +284,8 @@
     background-color:gray;
     width:277px;
   }
+}
+//editPage js用
+.image__photo--hidden{
+  display: none;
 }
