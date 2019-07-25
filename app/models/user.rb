@@ -40,4 +40,8 @@ class User < ApplicationRecord
       return new_user if new_user
     end
   end
+
+  #validate
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 end

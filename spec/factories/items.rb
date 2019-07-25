@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :item do
     name                  {"キットカット"}
     description           {"美味しいよ！"}
-    category_id           {"324"}
+    category_id           {"187"}
     size_id               {"3"}
     brand                 {"puma"}
     condition_id          {"1"}

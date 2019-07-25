@@ -22,6 +22,18 @@ class Item < ApplicationRecord
   validates :shipping_way_id,presence: true
   validates :shipping_address_id,presence: true
   validates :shipping_day_id,presence: true
-  validates :price,presence: true
+  validates :price,presence: true,numericality: true
   validates :category_id,presence: true
+  validates :size_id,presence: true,if: :need_size?
+  validates :status, presence: true
+
+
+  #sizeはcategoryによって、nilで構わない
+  def need_size?
+    if category
+    categories =[15,16,17,18,20,21,29,30,33,34,35,38,43,44,45]
+    return categories.any? {|c| c == category.parent.id}
+    end
+  end
+
 end
