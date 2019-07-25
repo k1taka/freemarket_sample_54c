@@ -20,6 +20,7 @@
 }
 
 .second_list{
+  display:none;
   position:absolute;
   left:290px;
   top:0px;
@@ -41,6 +42,7 @@
 }
 
 .third_list{
+  display:none;
   position:absolute;
   left:290px;
   top:0px;
@@ -58,8 +60,19 @@
     padding-top:10px;
     padding-left:10px;
     box-sizing: border-box;
+    &:hover{
+      background-color:#F5F5F5;
+    }
   }
 }
-.first-list li:hover > ul >li{
 
+.showForCategory{
+  display:block;
+}
+.colorForParent{
+  background-color:#ea352d;
+  color:white;
+}
+.colorForChild{
+  background-color:#F5F5F5;
 }
