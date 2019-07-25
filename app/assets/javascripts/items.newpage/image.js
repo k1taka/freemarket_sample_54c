@@ -14,40 +14,12 @@ $(function(){
   
   // images 保存用配列
   let file_array = [];
-
-  //edit時の保存されていたデータ取り出し
-//  $(function(){
-//     $.ajax({
-//       url: " /items/get_edit_array",
-//       type: "get",
-//       datatype:"json",
-//     })
-//     .done(function(data){
-//      console.log(data)
-//     })
-//     .fail(function(){
-//       alert("error")
-//     })
-
-
-//    let files = $("#item_images_attributes_0_image").prop("files");
-//    Array.prototype.forEach.call(files, function(file) {
-//    file_array.push(file); 
-//    });
-//    console.log(files)
-//    console.log(file_array)
-//  })
-
-
-  
-  
   
   //ドロップ発火
   $(".images").on("change","input[type=file]",function(e){
     e.preventDefault();
     //imageの取得
       let files = e.target.files
-     console.log(files)
     Array.prototype.forEach.call(files, function(file) {
       if(file_array.length <= 10){
         file_array.push(file);
@@ -68,7 +40,6 @@ $(function(){
           }
         }//onload
       file_reader.readAsDataURL(file)
-      console.log(file_array)
       }//if
     });//forEach
   })
