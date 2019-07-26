@@ -2,7 +2,7 @@
   -if @category.children.present?
     .children-index--area
       - @category.children.each do |child|
-        =link_to "#{child.name}",category_path(child),class: "child-index__btn"
+        =link_to "#{child.name}/",category_path(child),class: "child-index__btn"
   .main
   %h2.name-index
     = "#{@category.name}の商品一覧"
