@@ -8,6 +8,10 @@
             .item-box__badge
               .item-box__badge__word
                 sold
+          - if item.status == "pause_item"
+            .item-box__badge--gray
+              .item-box__badge--gray__word
+                公開停止中
       .item-box__text
         .item-box__text__name 
           = "#{item.name}"
