@@ -1,11 +1,27 @@
 .main
-  .top_banner 
-    = image_tag 'bannar_image.png', height: '390', width: '100%', class: ''
+  .top_banner
+    .banner-main
+      .main__visual
+        .visual-inner
+          .inner-left
+            %h2.inner-left__top
+              スマホでかんたん
+              %br フリマアプリ
+            %p.inner-left__middle
+              メルカリはスマホカメラからすぐ出品できる
+              %br 購入時も安心な独自システムのアプリです
+            .inner-left__bottom
+              = image_tag 'app-store.svg', height: '50px', width: '170px', class: 'pull-left'
+              = image_tag 'google-play.svg', height: '50px', width: '170px', class: 'pull-left'
+          = image_tag 'main_content_pc.png',height: '390px', width: '390px', class: 'inner-right'
+    .banner-main
+      .main__visual__camp
+        = image_tag 'banner-camp.jpg', height: '390', width: 'auto', class: 'second-image'
   .pickup-container
     %h2.pickup-head
       商品一覧
       .items-wrapper
-        %h3.item-header 
+        %h3.item-header
         .items-box
           = render 'item'
         .view-all

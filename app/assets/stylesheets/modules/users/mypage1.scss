@@ -18,7 +18,7 @@ body{
               height: 160px;
               width: 660px;
               padding: 20px;
-              background-image: url('louie-martinez-482218-unsplash.jpg');
+              background-image: url('user-bg.jpg');
               background-size: 700px 200px;
               text-align: center;
               align-items: center;
@@ -34,7 +34,8 @@ body{
                       width: 60px;
                       margin: 0 auto;
                       border-radius: 50%;
-                      background-color: blue;
+                      background-image: url('shinchan.jpg');
+                      background-size: contain;
                       &:hover {
                         opacity: 0.5;
                       }
