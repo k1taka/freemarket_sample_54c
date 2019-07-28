@@ -51,4 +51,6 @@ Rails.application.routes.draw do
       end
     end  
 
+    resource :comment, only: [:create,:destroy]
+
 end
