@@ -23,7 +23,9 @@
       .items-wrapper
         %h3.item-header
         .items-box
-          = render 'item'
+          = render @items
         .view-all
           = link_to "#" do
             = "すべての商品を見る"
+        -# .items-box
+        -#   = render partial: 'item',"@items":@category_ladies
