@@ -6,15 +6,14 @@ class ItemsController < ApplicationController
 
   #トップページ 商品一覧
   def index
-    @items = Item.all.order("created_at DESC").limit(20)
     lady_ids = Category.find(1).subtree_ids
-    @category_ladies = Item.where(category_id: lady_ids).limit(4)
+    @category_ladies = Item.where(category_id: lady_ids).order("created_at DESC").limit(4)
     man_ids = Category.find(2).subtree_ids
-    @category_mens = Item.where(category_id: man_ids).limit(4)
+    @category_mens = Item.where(category_id: man_ids).order("created_at DESC").limit(4)
     baby_ids = Category.find(3).subtree_ids
-    @category_babies = Item.where(category_id: baby_ids).limit(4)
+    @category_babies = Item.where(category_id: baby_ids).order("created_at DESC").limit(4)
     cosme_ids = Category.find(7).subtree_ids
-    @category_cosmes = Item.where(category_id: cosme_ids).limit(4)
+    @category_cosmes = Item.where(category_id: cosme_ids).order("created_at DESC").limit(4)
   end
 
   #商品詳細ページ
