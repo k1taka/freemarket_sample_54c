@@ -46,21 +46,22 @@
               = link_to 'ログイン', new_user_session_path, class: 'login-nav__signin'
 
 -# パンくずルート
-.bread-crumbs
-  %ul
-    %li.itemscope
-      - if request.path == '/users'
-        - breadcrumb :mypage
-      - elsif request.path == '/profile'
-        - breadcrumb :profile
-      - elsif request.path == '/address'
-        - breadcrumb :address
-      - elsif request.path == '/pay_way'
-        - breadcrumb :pay_way
-      - elsif request.path == '/mail/password'
-        - breadcrumb :mail_password
-      - elsif request.path == '/users/logout'
-        - breadcrumb :logout
-      - elsif request.path == '/categories'
-        - breadcrumb :categories
-      = breadcrumbs separator: " &rsaquo; "
+- unless request.path == '/'
+  .bread-crumbs
+    %ul
+      %li.itemscope
+        - if request.path == '/users'
+          - breadcrumb :mypage
+        - elsif request.path == '/profile'
+          - breadcrumb :profile
+        - elsif request.path == '/address'
+          - breadcrumb :address
+        - elsif request.path == '/pay_way'
+          - breadcrumb :pay_way
+        - elsif request.path == '/mail/password'
+          - breadcrumb :mail_password
+        - elsif request.path == '/users/logout'
+          - breadcrumb :logout
+        - elsif request.path == '/categories'
+          - breadcrumb :categories
+        = breadcrumbs separator: " &rsaquo; "
