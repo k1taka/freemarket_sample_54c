@@ -80,10 +80,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_082507) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
     t.string "nickname"
-    t.string "token"
     t.integer "prefecture_id"
     t.string "family_name"
     t.string "first_name"

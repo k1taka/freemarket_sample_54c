@@ -66,7 +66,7 @@ $(function(){
       processData: false
     })
     .done(function(data){
-      alert("出品完了しました")
+      $('.modalArea').fadeIn();
     })
     .fail(function(){
       alert("出品に失敗しました")
@@ -107,7 +107,7 @@ $(".edit_item").on("submit",function(e){
     processData: false
   })
   .done(function(){
-    alert("商品の情報をアップデートしました")
+    window.location = document.referrer;
   })
   .fail(function(){
     alert("出品に失敗しました")
