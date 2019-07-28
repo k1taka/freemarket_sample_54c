@@ -1,64 +1,72 @@
 .first_list{
   display:none;
   position:absolute;
-  left:297px;
-  top:120px;
+  left:200px;
+  top:110px;
   z-index:2;
   border-left:solid 1px #eeeeee;
   border-bottom:solid 1px #eeeeee;
   background-color:white;
-  .link-parent{
-    font-size:18px;
+  .bar-parent{
     display: block;
-    width:290px;
-    height:60px;
-    color:black;
-    padding-top:10px;
-    padding-left:10px;
-    box-sizing: border-box;
+    align-items: center;
   }
+    .link-parent{
+      display: block;
+      font-size:14px;
+      width:224px;
+      line-height: 44px;
+      padding-left:16px;
+      box-sizing: border-box;
+      color: #333;
+      &:hover{
+        color: white;
+      }
+    }
 }
 
 .second_list{
   display:none;
   position:absolute;
-  left:290px;
+  left:223px;
   top:0px;
+  bottom: 0px;
   z-index:2;
   border-left:solid 1px #eeeeee;
   border-left:solid 1px #eeeeee;
   border-bottom:solid 1px #eeeeee;
   background-color:white;
-  .link-child{
-    font-size:18px;
+  .bar-child{
     display: block;
-    width:290px;
-    height:60px;
-    color:black;
-    padding-top:10px;
-    padding-left:10px;
-    box-sizing: border-box;
+    align-items: center;
   }
+    .link-child{
+      display: block;
+      font-size:14px;
+      width:224px;
+      color:#333;
+      padding:4px 16px;
+      box-sizing: border-box;
+    }
 }
 
 .third_list{
   display:none;
   position:absolute;
-  left:290px;
+  left:223px;
   top:0px;
+  bottom: 0px;
   z-index:2;
   border-left:solid 1px #eeeeee;
   border-left:solid 1px #eeeeee;
   border-bottom:solid 1px #eeeeee;
   background-color:white;
   .link-grandchild{
-    font-size:18px;
     display: block;
-    width:290px;
-    height:60px;
-    color:black;
-    padding-top:10px;
-    padding-left:10px;
+    font-size:14px;
+    width:320px;
+    color:#333;
+    padding:4px 16px;
     box-sizing: border-box;
     &:hover{
       background-color:#F5F5F5;
@@ -71,7 +79,6 @@
 }
 .colorForParent{
   background-color:#ea352d;
-  color:white;
 }
 .colorForChild{
   background-color:#F5F5F5;

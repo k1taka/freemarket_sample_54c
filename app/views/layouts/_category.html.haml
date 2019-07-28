@@ -1,15 +1,12 @@
 %ul.first_list
   -@parents.each do |parent| 
     %li.bar-parent
-      =link_to "#" ,class:"link-parent" do
-        =parent[:name]
+      =link_to "#{parent.name}", category_path(parent), class:"link-parent"
       %ul.second_list
         -parent.children.each do |child|
           %li.bar-child
-            =link_to "#", class:"link-child" do
-              =child[:name]
+            =link_to "#{child.name}", category_path(child), class:"link-child"
             %ul.third_list
               -child.children.each do |grandchild|
                 %li.bar-grandchild
-                  =link_to "#", class:"link-grandchild" do
-                    =grandchild[:name]
+                  =link_to "#{grandchild.name}", category_path(grandchild), class:"link-grandchild"
