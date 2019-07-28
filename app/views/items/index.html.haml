@@ -19,13 +19,32 @@
         = image_tag 'banner-camp.jpg', height: '390', width: 'auto', class: 'second-image'
   .pickup-container
     %h2.pickup-head
-      商品一覧
+      カテゴリーピックアップ
       .items-wrapper
-        %h3.item-header
+        %h3.item-header  レディース新着アイテム
         .items-box
-          = render @items
+          = render partial: 'item',collection: @category_ladies,as: "item"
         .view-all
           = link_to "#" do
             = "すべての商品を見る"
-        -# .items-box
-        -#   = render partial: 'item',"@items":@category_ladies
+      .items-wrapper
+        %h3.item-header  メンズ新着アイテム
+        .items-box
+          = render partial: 'item',collection: @category_mens,as: "item"
+        .view-all
+          = link_to "#" do
+            = "すべての商品を見る"
+      .items-wrapper
+        %h3.item-header  ベビー・キッズ 新着アイテム
+        .items-box
+          = render partial: 'item',collection: @category_babies,as: "item"
+        .view-all
+          = link_to "#" do
+            = "すべての商品を見る"
+      .items-wrapper
+        %h3.item-header  コスメ・香水・美容 新着アイテム
+        .items-box
+          = render partial: 'item',collection: @category_cosmes,as: "item"
+        .view-all
+          = link_to "#" do
+            = "すべての商品を見る"
