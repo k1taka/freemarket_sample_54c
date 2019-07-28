@@ -61,7 +61,9 @@
           .buyed__image {
             height: 48px;
             width: 48px;
+            overflow: hidden;
             &__photo {
+            
               height: 100%;
               width: auto;
               left: 50%;
