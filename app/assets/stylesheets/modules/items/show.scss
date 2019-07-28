@@ -113,6 +113,10 @@
       background-color:#ea352d;
       margin:0px auto;
     }
+      .soldout{
+        background: #888;
+        cursor: not-allowed;
+      }
     .item-description{
       padding:40px;
     }
@@ -358,6 +362,7 @@
         font-size:17px;
       }
     }
+    .red-btn
     .modal_btns{
       display: flex;
       justify-content: space-between;
