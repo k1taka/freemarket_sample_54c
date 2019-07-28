@@ -28,13 +28,13 @@
         %tr
           %th カテゴリー
           %td
-            =link_to "#{@item.category.parent.parent.name}","https://www.mercari.com/jp/"
+            =link_to "#{@item.category.root.name}",category_path(@item.category.root)
             %br
             = fa_icon 'arrow-right', class: 'arrow-color'
-            =link_to "#{@item.category.parent.name}","https://www.mercari.com/jp/"
+            =link_to "#{@item.category.parent.name}",category_path(@item.category.parent)
             %br 
             = fa_icon 'arrow-right', class: 'arrow-color'
-            =link_to "#{@item.category.name}","https://www.mercari.com/jp/"
+            =link_to "#{@item.category.name}",category_path(@item.category)
         %tr
           %th ブランド
           %td
