@@ -60,20 +60,17 @@
   line-height: 1.5;
 }
 
-.red-btn {
-  margin: 16px 0 0 0;
+#mypage-btn {
+  margin:16px auto 16px;
   height: 48px;
-    a {
-      display: block;
-      line-height: 48px;
-      width: 668px;
-      text-align: center;
-      background-color: #ea352d;
-      color: #fff;
-      text-decoration: none;
-      &:hover {
-        text-decoration: none;
-        opacity: 1.5;
-      }
-    }
+  width:100%;
+  input{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        appearance: none;
+        color:white;
+        font-size:16px;
+  }
 }

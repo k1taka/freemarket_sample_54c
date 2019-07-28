@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :buyed_items, class_name: "Item",foreign_key: "buyer_id"
   has_many :items,foreign_key: "seller_id"
   has_one :foreign_account
+  mount_uploader :image, ImageUploader
 
   def self.from_omniauth(data)
     user_key = ForeignAccount.where(provider: data.provider, uid: data.uid).first

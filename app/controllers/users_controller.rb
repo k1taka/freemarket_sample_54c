@@ -2,22 +2,22 @@ class UsersController < ApplicationController
   before_action :set_user,only: [:index,:posting_item,:sold_item,:buyed_item]
   # ユーザーページ
   def index
-    @items = @user.buyed_items
+    @items = @user.buyed_items.order(updated_at:"DESC")
   end
 
   # 出品中のアイテム
   def posting_item
-    @items =Item.selling_item.where(seller_id:current_user.id)
+    @items =Item.selling_item.where(seller_id:current_user.id).order(created_at:"DESC")
   end
 
   # 売却済みのアイテム
   def sold_item
-    @items =Item.sold_item.where(seller_id:current_user.id)
+    @items =Item.sold_item.where(seller_id:current_user.id).order(updated_at:"DESC")
   end
 
   # 購入済みアイテム
   def buyed_item
-    @items = @user.buyed_items
+    @items = @user.buyed_items.order(updated_at:"DESC")
   end
   
   # 本人情報確認

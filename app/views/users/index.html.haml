@@ -22,7 +22,7 @@
   .mypage__box
     %section.mypage-profile
       =link_to "#", class: "mypage-profile__user" do
-        .mypage-profile__user__top
+        %image.mypage-profile__user__top{ height: "60",width:"60px",src: current_user.image.url}
         .mypage-profile__user__middle MT
         .mypage-profile__user__bottom
           .mypage-profile__user__bottom__evaluation
@@ -47,7 +47,7 @@
             %li.detail__box__list
               =link_to "#", class: "detail__box__list__inner" do
                 .detail__image
-                  %img.detail__image__photo{ alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+                  %img.detail__image__photo{ alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png",width:"48px",height:"48px"}/
                 .detail__text
                   .detail__text__top #{announce[:Name]}
                   %time.detail__text__time
@@ -60,7 +60,7 @@
               一覧を見る
     %section.buyed-item
       .buyed-item__title
-        出品した商品
+        購入した商品
       %ul.status__tab
         %li.status__tab__past
           = link_to "取引中","#"
@@ -72,8 +72,8 @@
             %li.item__box__list
               =link_to item_path(item), class: "item__box__list__link" do
                 .buyed__image
-                  %img.buyed__image__photo{ alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png", src: "//static.mercdn.net/images/mercari_profile.png"}/
+                  %img.buyed__image__photo{ alt: "", "data-src": "//static.mercdn.net/images/mercari_profile.png", src: item.images[0].image.url,width:"30"}
                 .buyed__text
                   .buyed__text__top #{item.name}
-                  .buyed__text__time 出品中
+                  .buyed__text__time 購入済
                 = fa_icon 'chevron-right', class: "announce-icon"
