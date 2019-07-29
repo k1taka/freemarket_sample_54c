@@ -15,8 +15,13 @@ class MypageController < ApplicationController
   def address
   end
 
-  def address_update
-    redirect_to action: "address"
+  def addressUpdate
+
+    if @user.update(address_update)
+      redirect_to action: "address"
+    else
+      render :address
+    end
   end
 
   def pay_way
@@ -30,13 +35,6 @@ class MypageController < ApplicationController
     # redirect_back(fallback_location: root_path) #直前にいたページに戻る
   end
 
-  def mail_password
-  end
-
-  def mail_password_update
-  end
-
-
   private
   
   def set_user
@@ -44,9 +42,12 @@ class MypageController < ApplicationController
   end
 
   def profile_update
-    params.require(:user).permit(:nickname,:introduction )
+    params.require(:user).permit(:nickname,:introduction,:image)
   end
 
+  def address_update
+    params.require(:user).permit(:family_name,:first_name,:family_name_kana,:first_name_kana,:post_code,:address_city,:address_location,:address_building,:address_phone)
+  end
+
+
 end
-
-

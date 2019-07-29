@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :items,foreign_key: "seller_id"
   has_one :foreign_account
   has_many :goods
+  mount_uploader :image, ImageUploader
+
 
   def self.from_omniauth(data)
     user_key = ForeignAccount.where(provider: data.provider, uid: data.uid).first
@@ -41,4 +43,8 @@ class User < ApplicationRecord
       return new_user if new_user
     end
   end
+
+  #validate
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 end
