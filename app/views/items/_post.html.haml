@@ -139,12 +139,18 @@
             .price-charge__title.flex
               .price-charge__title--text 販売手数料(10%)
             .price-charge__result
-              = "-"
+              - if controller.action_name == "edit"
+                = "¥#{(@item.price*0.1).floor}"
+              - else
+                = "-"
           .price-benefit.flex
             .price-benefit__title.flex
               .price-benefit__title--text 販売利益
             .price-benefit__result
-              = "-"
+              - if controller.action_name == "edit"
+                = "¥#{(@item.price*0.9).floor.to_s(:delimited)}"
+              -else
+                = "-"
       .send-item-content
         .description
           禁止されている出品、行為を必ずご確認ください。
