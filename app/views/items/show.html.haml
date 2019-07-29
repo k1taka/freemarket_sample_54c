@@ -111,3 +111,5 @@
         .modal_btns
           .cancel_btn キャンセル 
           =link_to "削除する",item_path(params[:id]), method: :delete, class:"delete_btn"
+  .user-for-ajax
+    =current_user.id
