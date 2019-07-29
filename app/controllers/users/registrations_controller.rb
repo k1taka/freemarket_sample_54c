@@ -5,7 +5,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
 
   def index
-    
   end
 
   # GET /resource/sign_up

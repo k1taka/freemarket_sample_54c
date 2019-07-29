@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   
   before_action :set_item_new,only: [:new,:create,:edit,:update]
   before_action :set_item,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
+  before_action :set_good,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
   before_action :set_edit,only:[:edit]
 
   #トップページ 商品一覧
@@ -24,6 +25,10 @@ class ItemsController < ApplicationController
       flash[:close]="出品の一旦停止をしました"
       redirect_to action: 'show'
     end
+  end
+
+  def edit_good
+
   end
 
   #商品購入確認ページ
@@ -120,6 +125,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_good
+    @goods =@item.goods.length
   end
 
   def item_params

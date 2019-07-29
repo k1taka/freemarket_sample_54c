@@ -128,11 +128,24 @@
           margin-right:20px;
           width:120px;
           height:33px;
-          border: 1px solid #ea352d;
-          background: none;
-          color: #ea352d;
+          background-color:#F5F5F5;
+          border: 1px solid #F5F5F5;
+          color: #333333;
           border-radius: 40px;
           font-size: 14px;
+          &.getGood{
+            border: 1px solid #ea352d;
+            background: none;
+            color: #ea352d;
+          }
+          .heart{
+            color:#ccc;
+            &.getGoodForHeart{
+              -webkit-animation-name: rubberBand;
+               animation-name: rubberBand;
+              color: #ea352d;
+            }
+          }
         }
         &--improper{
           width:160px;
@@ -382,4 +395,33 @@
         cursor: pointer;
       }
     }
+  }
+
+  @keyframes rubberBand {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+      transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+      transform: scale3d(1.05, .95, 1);
+    }
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  .rubberBand {
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand;
   }
