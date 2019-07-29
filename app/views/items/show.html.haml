@@ -58,7 +58,7 @@
         = @item.shipping_payer.payer
     -if (user_signed_in? && current_user.id == @item.seller_id)
       = render partial:"item-show_edit-btn"
-    -elsif (current_user.id != @item.seller_id && @item.status == "sold_item")
+    -elsif (user_signed_in? && current_user.id != @item.seller_id && @item.status == "sold_item")
       =link_to "売り切れました", "#", class:"item-buy-btn soldout"
       %p.item-description
         = @item.description
@@ -93,8 +93,7 @@
       %textarea.comment__text
       %button.comment__btn
         コメントする
-  -if (user_signed_in? && current_user.id == @item.seller_id)  
-  -else 
+  - unless (user_signed_in? && current_user.id == @item.seller_id)   
     = render partial:"item-show_social-btn"
   %section.modalArea
     .modalBg

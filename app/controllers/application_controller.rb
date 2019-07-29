@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
 protect_from_forgery with: :exception #セキュリティ
-# before_action :authenticate_user!  サインイン完成させないとログインできないはず。
+before_action :authenticate_user! , except: [:index,:show]
 before_action :basic_auth , if: :production?
 before_action :configure_permitted_parameters, if: :devise_controller?
 before_action :category_field
