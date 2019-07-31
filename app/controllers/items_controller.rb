@@ -48,6 +48,7 @@ class ItemsController < ApplicationController
   #商品購入確認ページ
   def confirmation
     @user = User.find(current_user.id)
+    @image = Image.find_by(item_id: @item.id)
   end
 
   # クレジットカード決済のカード情報記入＆購入確定ページ
