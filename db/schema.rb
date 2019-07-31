@@ -84,6 +84,10 @@ ActiveRecord::Schema.define(version: 2019_07_20_051338) do
     t.string "uid"
     t.string "nickname"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    t.string "token"
+>>>>>>> Stashed changes
 =======
     t.string "token"
 >>>>>>> Stashed changes
