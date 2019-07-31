@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   
   before_action :set_item_new,only: [:new,:create,:edit,:update]
   before_action :set_item,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
-  before_action :set_good,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
+  before_action :set_good,only: [:show]
   before_action :set_edit,only:[:edit]
 
   #トップページ 商品一覧
