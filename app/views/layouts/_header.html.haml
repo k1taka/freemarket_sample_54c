@@ -36,7 +36,10 @@
                 %span やることリスト
             %li.user-page__mypage
               = link_to users_path do
-                = image_tag 'https://static.mercdn.net/thumb/photos/m45245951061_1.jpg?1561365524', alt: '', height: '32', width: '32', class: 'user-page__mypage--img'
+                -if current_user.image
+                  %image.user-page__mypage--img{ height: "32",width:"32px",src: current_user.image.url}
+                -else
+                  = image_tag 'https://static.mercdn.net/thumb/photos/m45245951061_1.jpg?1561365524', alt: '', height: '32', width: '32', class: 'user-page__mypage--img'
                 %span マイページ
         - else
           %ul.login-nav
@@ -46,21 +49,22 @@
               = link_to 'ログイン', new_user_session_path, class: 'login-nav__signin'
 
 -# パンくずルート
-.bread-crumbs
-  %ul
-    %li.itemscope
-      - if request.path == '/users'
-        - breadcrumb :mypage
-      - elsif request.path == '/profile'
-        - breadcrumb :profile
-      - elsif request.path == '/address'
-        - breadcrumb :address
-      - elsif request.path == '/pay_way'
-        - breadcrumb :pay_way
-      - elsif request.path == '/mail/password'
-        - breadcrumb :mail_password
-      - elsif request.path == '/users/logout'
-        - breadcrumb :logout
-      - elsif request.path == '/categories'
-        - breadcrumb :categories
-      = breadcrumbs separator: " &rsaquo; "
+- unless request.path == '/'
+  .bread-crumbs
+    %ul
+      %li.itemscope
+        - if request.path == '/users'
+          - breadcrumb :mypage
+        - elsif request.path == '/profile'
+          - breadcrumb :profile
+        - elsif request.path == '/address'
+          - breadcrumb :address
+        - elsif request.path == '/pay_way'
+          - breadcrumb :pay_way
+        - elsif request.path == '/mail/password'
+          - breadcrumb :mail_password
+        - elsif request.path == '/users/logout'
+          - breadcrumb :logout
+        - elsif request.path == '/categories'
+          - breadcrumb :categories
+        = breadcrumbs separator: " &rsaquo; "

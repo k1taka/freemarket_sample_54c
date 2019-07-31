@@ -1,14 +1,46 @@
 .container
   = render 'shared/side_bar'
   %section.mypage-container
-    .profile__head 基本情報入力
-    %form.profil__main{ action: "#", method: "POST"}
-      .profil__main__icon
-        .main__icon__box
-          %image.main__icon__box__image{ height: "60", src: "assets/images/shinchan.jpg", width: "60"}
-        %input.input-default{ name: "nickname", placeholder: "例)AYA☆セール中", :type => "text", :value => ""}/
+    .profile__head 本人情報の入力
+    = form_for @user,url: address_update_path do |f|
       .profil__main__content
-        %textarea.textarea-default{ name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-        .red-btn
-          =link_to "users/#{current_user.id}",method: "patch" do
-            変更する
+        .max-width-content
+          .input-box
+            .input-box__text お名前
+            .need-btn 必須
+          = f.text_field :family_name, autofocus: true, class: "input-box--input", placeholder: "PC・携帯どちらでも可"      
+          = f.text_field :first_name, autofocus: true, class: "input-box--input", placeholder: "PC・携帯どちらでも可" 
+          .input-box
+            .input-box__text お名前カナ
+            .need-btn 必須
+          = f.text_field :family_name_kana, autofocus: true, class: "input-box--input", placeholder: "PC・携帯どちらでも可"           
+          = f.text_field :first_name_kana, autofocus: true, class: "input-box--input", placeholder: "PC・携帯どちらでも可"
+          .input-box
+            .input-box__text 郵便番号
+            .need-btn 必須
+          = f.text_field :post_code, autofocus: true, class: "input-box--input", placeholder: "PC・携帯どちらでも可"           
+          -# .input-box
+          -#   .input-box__text 都道府県
+          -#   .need-btn 必須
+          -# .select-wrap
+          -#   = fa_icon 'chevron-down' ,class: "chevron-select"
+          -#   = f.select :prefecture_id, ["aaaa"] 
+          .input-box
+            .input-box__text 市区町村
+            .need-btn 必須
+          = f.text_field :address_city, autofocus: true, class: "input-box--input", placeholder: "PC・携帯どちらでも可"           
+          .input-box
+            .input-box__text 番地
+            .need-btn 必須
+          = f.text_field :address_location, autofocus: true, class: "input-box--input", placeholder: "PC・携帯どちらでも可"           
+          .input-box
+            .input-box__text 建物名
+            .need-btn--gray 任意
+          = f.text_field :address_building, autofocus: true, class: "input-box--input", placeholder: "PC・携帯どちらでも可"           
+          .input-box
+            .input-box__text 電話
+            .need-btn--gray 任意
+          = f.text_field :address_phone, autofocus: true, class: "input-box--input", placeholder: "PC・携帯どちらでも可"           
+  
+          .red-btn--width-free#mypage-btn
+            = f.submit  "変更する"

@@ -2,16 +2,26 @@ class ItemsController < ApplicationController
   
   before_action :set_item_new,only: [:new,:create,:edit,:update]
   before_action :set_item,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
+  before_action :set_good,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
   before_action :set_edit,only:[:edit]
 
   #トップページ 商品一覧
   def index
-    @items = Item.all.order("created_at DESC").limit(20)
+    lady_ids = Category.find(1).subtree_ids
+    @category_ladies = Item.where(category_id: lady_ids).order("created_at DESC").limit(4)
+    man_ids = Category.find(2).subtree_ids
+    @category_mens = Item.where(category_id: man_ids).order("created_at DESC").limit(4)
+    baby_ids = Category.find(3).subtree_ids
+    @category_babies = Item.where(category_id: baby_ids).order("created_at DESC").limit(4)
+    cosme_ids = Category.find(7).subtree_ids
+    @category_cosmes = Item.where(category_id: cosme_ids).order("created_at DESC").limit(4)
   end
 
   #商品詳細ページ
   def show
     @image = Image.find_by(item_id: @item.id)
+    @comments = @item.comments.includes(:user).all
+    @comment = @item.comments.build(user_id: current_user) if current_user
   end
 
   def update_status
@@ -23,6 +33,15 @@ class ItemsController < ApplicationController
     elsif @status == 2
       flash[:close]="出品の一旦停止をしました"
       redirect_to action: 'show'
+    end
+  end
+
+  def edit_good
+    @good_check = Good.find_by(user_id: "#{params[:user_id]}", item_id: "#{params[:id]}")
+    if @good_check.present?
+      @good_check.destroy
+    else
+      @new_good = Good.create(user_id: "#{params[:user_id]}", item_id: "#{params[:id]}")
     end
   end
 
@@ -120,6 +139,11 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_good
+    @goods =@item.goods.length
+    @goods_plus = @goods + 1
   end
 
   def item_params

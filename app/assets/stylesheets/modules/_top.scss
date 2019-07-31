@@ -86,8 +86,12 @@ max-width:930px;
 }
 .item-header{
   font-size:22px;
-  text-align:center;  
-  margin:26px 11px;
+  text-align:center;
+  margin:26px 330px;
+  white-space: nowrap;
+  a{
+    color:#0099e8;
+    }
   a:hover{
     text-decoration-line: underline;
   }
@@ -146,4 +150,7 @@ max-width:930px;
   font-size:14px;
   text-align:right;
   margin:20;
+  a{
+    color:#0099e8;
+    }
 }

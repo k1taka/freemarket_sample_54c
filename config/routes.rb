@@ -23,11 +23,9 @@ Rails.application.routes.draw do
     get "profile",                 to: "mypage#profile",as: :profile
     patch "profile_update",         to: "mypage#profileupdate",as: :profile_update
     get "address",                 to: "mypage#address",as: :address
-    post "address_update",         to: "mypage#address_update",as: :address_update
+    patch "address_update",         to: "mypage#addressUpdate",as: :address_update
     get "pay_way",                 to: "mypage#pay_way",as: :pay_way
-    get "pay_way_update",         to: "mypage#pay_way_update",as: :pay_way_update
-    get "mail/password",           to: "mypage#mail_password",as: :mail_password
-    post "mail/password_update",   to: "mypage#mail_password_update",as: :mail_update
+    patch "pay_way_update",         to: "mypage#pay_way_update",as: :pay_way_update
 
    #カテゴリー
     resources :categories ,only: [:index,:show]
@@ -47,10 +45,15 @@ Rails.application.routes.draw do
         get "search"
       end
       member do
+        post "edit_good"
+        delete 'delete_good'
         patch "update_status"
         get "confirmation"
         post "pay"
       end
-    end  
+    #コメント
+      resources :comment, only: [:create,:destroy]
+
+    end
 
 end

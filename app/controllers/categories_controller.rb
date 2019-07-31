@@ -5,7 +5,8 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @items = Item.where(category: params[:id])
+    category_ids = @category.subtree_ids
+    @items = Item.where(category: category_ids)
   end
 
 end

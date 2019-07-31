@@ -1,0 +1,20 @@
+- if comment.user_id == current_user.id
+  %li.message{data: {id: comment.id}}
+    .message__body__right
+      .message__body__text
+        = comment.comment
+      = fa_icon 'clock',class:'far fa-clock message__body__time'
+      %span.message__body__time
+        = comment.created_at.strftime("%Y/%m/%d %H:%M")
+    .message__user
+      = image_tag 'anonymous .svg', height: '40', width: '40', class: 'message__user__photo'
+- else
+  %li.message{data: {id: comment.id}}
+    .message__user
+      = image_tag 'anonymous .svg', height: '40', width: '40', class: 'message__user__photo'
+    .message__body
+      .message__body__text
+        = comment.comment
+      = fa_icon 'clock',class:'far fa-clock message__body__time'
+      %span.message__body__time
+        = comment.created_at.strftime("%Y/%m/%d %H:%M")

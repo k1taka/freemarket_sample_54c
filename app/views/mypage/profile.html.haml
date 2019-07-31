@@ -6,10 +6,12 @@
       .profil__main
         .profil__main__icon
           .main__icon__box
-            %image.main__icon__box__image{ height: "60", src: "assets/images/shinchan.jpg", width: "60"}
+            = f.label :image do
+              = f.file_field :image, class:"none"
+              %image.main__icon__box__image{ height: "70", src: @user.image.url, width: "70"}
           = f.text_field :nickname,class: "input-default",placeholder: "例)AYA☆セール中",value:"#{@user.nickname}"
         .profil__main__content
           = f.text_area :introduction, class:"textarea-default", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
-          .red-btn
-            = f.submit "変更する"
-              
+          = f.label "commit" do
+            .red-btn#mypage-btn
+              = f.submit "変更する"
