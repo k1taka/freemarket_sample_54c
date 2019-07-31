@@ -132,6 +132,8 @@
           margin-right:20px;
           width:120px;
           height:33px;
+          display: flex;
+          justify-content: space-around;
           background-color:#F5F5F5;
           border: 1px solid #F5F5F5;
           color: #333333;
@@ -144,11 +146,17 @@
           }
           .heart{
             color:#ccc;
+            box-sizing: border-box;
+            margin-top:5px;
             &.getGoodForHeart{
               -webkit-animation-name: rubberBand;
                animation-name: rubberBand;
               color: #ea352d;
             }
+          }
+          .for-ajax{
+            box-sizing: border-box;
+            margin-top:2px;
           }
         }
         &--improper{

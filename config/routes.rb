@@ -45,7 +45,8 @@ Rails.application.routes.draw do
         get "search"
       end
       member do
-        patch "edit_good"
+        post "edit_good"
+        delete 'delete_good'
         patch "update_status"
         get "confirmation"
         post "pay"

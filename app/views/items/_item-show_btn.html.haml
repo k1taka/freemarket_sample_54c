@@ -3,7 +3,8 @@
     %button.evaluation--likes
       = fa_icon 'heart', class: 'heart'
       %span いいね！
-      = @goods
+      .for-ajax
+        = @goods
     %button.evaluation--improper
       = fa_icon 'flag', class:'far fa-flag'
       %span 不適切な商品の報告

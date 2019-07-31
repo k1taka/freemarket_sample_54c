@@ -35,7 +35,12 @@ class ItemsController < ApplicationController
   end
 
   def edit_good
-
+    @good_check = Good.find_by(user_id: "#{params[:user_id]}", item_id: "#{params[:id]}")
+    if @good_check.present?
+      @good_check.destroy
+    else
+      @new_good = Good.create(user_id: "#{params[:user_id]}", item_id: "#{params[:id]}")
+    end
   end
 
   #商品購入確認ページ
@@ -136,6 +141,7 @@ class ItemsController < ApplicationController
 
   def set_good
     @goods =@item.goods.length
+    @goods_plus = @goods + 1
   end
 
   def item_params
