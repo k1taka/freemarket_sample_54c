@@ -20,6 +20,8 @@ class ItemsController < ApplicationController
   #商品詳細ページ
   def show
     @image = Image.find_by(item_id: @item.id)
+    @comments = @item.comments.includes(:user).all
+    @comment = @item.comments.build(user_id: current_user) if current_user
   end
 
   def update_status

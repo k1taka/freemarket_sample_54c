@@ -8,6 +8,8 @@ class User < ApplicationRecord
   belongs_to_active_hash :prefecture, optional: true
   has_many :buyed_items, class_name: "Item",foreign_key: "buyer_id"
   has_many :items,foreign_key: "seller_id"
+  has_many :comments
+  has_many :items, through: :comments
   has_one :foreign_account
   has_many :goods
   mount_uploader :image, ImageUploader

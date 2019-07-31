@@ -51,6 +51,9 @@ Rails.application.routes.draw do
         get "confirmation"
         post "pay"
       end
-    end  
+    #コメント
+      resources :comment, only: [:create,:destroy]
+
+    end
 
 end
