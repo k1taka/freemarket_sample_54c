@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 2019_07_28_101319) do
     t.index ["user_id"], name: "index_foreign_accounts_on_user_id"
   end
 
+  create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_goods_on_item_id"
+    t.index ["user_id"], name: "index_goods_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "item_id", null: false
@@ -70,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_101319) do
     t.integer "status", default: 0
     t.integer "seller_id"
     t.integer "buyer_id"
+    t.integer "good"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
@@ -90,11 +98,8 @@ ActiveRecord::Schema.define(version: 2019_07_28_101319) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
     t.string "nickname"
-    t.string "token"
-    t.integer "prefecture_id"
+    t.integer "prefecture_id", unsigned: true
     t.string "family_name"
     t.string "first_name"
     t.string "family_name_kana"
@@ -118,5 +123,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_101319) do
   add_foreign_key "comments", "users"
   add_foreign_key "credits", "users"
   add_foreign_key "foreign_accounts", "users"
+  add_foreign_key "goods", "items"
+  add_foreign_key "goods", "users"
   add_foreign_key "images", "items"
 end

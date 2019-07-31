@@ -17,7 +17,8 @@
           = link_to user_google_oauth2_omniauth_authorize_path, class: "gogle__link" do
             .gogle__link__logo
               = image_tag "google-logo.jpg", size: "40x40", alt: "logo"
-            .gogle__link__message Googleでログイン  
+            .gogle__link__message Googleでログイン
+        ※本番環境だと有料のため、上記のSNSを利用を用いたログインは許可はしておりません。
       .inputs
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .input-field
