@@ -9,14 +9,17 @@ class User < ApplicationRecord
   has_many :buyed_items, class_name: "Item",foreign_key: "buyer_id"
   has_many :items,foreign_key: "seller_id"
   has_one :foreign_account
+  has_many :goods
   mount_uploader :image, ImageUploader
+
 
   def self.from_omniauth(data)
     user_key = ForeignAccount.where(provider: data.provider, uid: data.uid).first
+    # ユーザー情報があるか確認
     if user_key != nil
       already_user = user_key.user
       return already_user if already_user
-    
+    #メールアドレスでの登録があれば、関連付け
     elsif User.where(email: data.info.email) != nil
       add_sns_user = User.find_by(email: data.info.email)
       ForeignAccount.create(
@@ -27,6 +30,7 @@ class User < ApplicationRecord
                             )
       return add_sns_user if add_sns_user
     else
+      #そもそもユーザー情報ない場合
       new_user = User.create(
                             nickname: data.info['name'],
                             email: data.info['email'],
