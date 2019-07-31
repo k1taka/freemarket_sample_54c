@@ -68,31 +68,13 @@
       %p.item-description
         = @item.description
       = render partial: "item-show_btn"
-  %ul.messages
-    %li.message
-      .message__user
-        = image_tag 'anonymous .svg', height: '40', width: '40', class: 'message__user__photo'
-      .message__body
-        .message__body__text
-          出品者がコメントを削除しました。
-        = fa_icon 'clock',class:'far fa-clock message__body__time'
-        %span.message__body__time
-          17時間前
-    %li.message
-      .message__user
-        = image_tag 'anonymous .svg', height: '40', width: '40', class: 'message__user__photo'
-      .message__body
-        .message__body__text
-          出品者がコメントを削除しました。
-        = fa_icon 'clock',class:'far fa-clock message__body__time'
-        %span.message__body__time
-          17時間前
-    %p.message__notion
-      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    %form
-      %textarea.comment__text
-      %button.comment__btn
-        コメントする
+    %ul.messages
+      = render @comments
+      %p.message__notion
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      = form_for @comment, url: item_comment_index_path(@item,@comment) do |f|
+        = f.text_field :comment, class: 'comment__text'
+        = f.submit 'コメントする', class: 'comment__btn'
   - unless (user_signed_in? && current_user.id == @item.seller_id)   
     = render partial:"item-show_social-btn"
   %section.modalArea
@@ -110,3 +92,10 @@
         .modal_btns
           .cancel_btn キャンセル 
           =link_to "削除する",item_path(params[:id]), method: :delete, class:"delete_btn"
+  .user-for-ajax
+    =current_user.id
+  .good-for-ajax
+    =@goods_plus
+  .good-first
+    =@goods
+  

@@ -21,11 +21,11 @@ describe Item do
     end
 
     # 特定の条件でpresence: true
-    it "is invalid without a size_id" do
-      item = build(:item , size_id: "")
-      item.valid?
-      expect(item.errors[:size_id]).to include("can't be blank")
-    end
+    # it "is invalid without a size_id" do
+    #   item = build(:item , size_id: "")
+    #   item.valid?
+    #   expect(item.errors[:size_id]).to include("can't be blank")
+    # end
 
     it "is invalid without a condition_id" do
       item = build(:item , condition_id: "")

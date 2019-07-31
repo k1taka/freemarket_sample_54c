@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   
   before_action :set_item_new,only: [:new,:create,:edit,:update]
   before_action :set_item,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
+  before_action :set_good,only: [:show,:confirmation,:pay,:edit,:update,:update_status]
   before_action :set_edit,only:[:edit]
 
   #トップページ 商品一覧
@@ -19,6 +20,8 @@ class ItemsController < ApplicationController
   #商品詳細ページ
   def show
     @image = Image.find_by(item_id: @item.id)
+    @comments = @item.comments.includes(:user).all
+    @comment = @item.comments.build(user_id: current_user) if current_user
   end
 
   def update_status
@@ -33,9 +36,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit_good
+    @good_check = Good.find_by(user_id: "#{params[:user_id]}", item_id: "#{params[:id]}")
+    if @good_check.present?
+      @good_check.destroy
+    else
+      @new_good = Good.create(user_id: "#{params[:user_id]}", item_id: "#{params[:id]}")
+    end
+  end
+
   #商品購入確認ページ
   def confirmation
     @user = User.find(current_user.id)
+    @image = Image.find_by(item_id: @item.id)
   end
 
   # クレジットカード決済のカード情報記入＆購入確定ページ
@@ -127,6 +140,11 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_good
+    @goods =@item.goods.length
+    @goods_plus = @goods + 1
   end
 
   def item_params

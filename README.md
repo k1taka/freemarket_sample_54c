@@ -52,6 +52,16 @@ Things you may want to cover:
 - has_many :images
 - has_one : credit
 
+## goods テーブル
+|Column          |Type   |Null|Options                    |
+|----------------|-------|----|---------------------------|
+|id              |integer|    |null:false                 |
+|user_id         |text   |    |null:false,foreign_key:true|
+|item_id         |string |    |null:false,foreign_key:true|
+### association
+- has_many :users
+- has_many :items
+
 ## credit テーブル
 |Column          |Type   |Options                    |
 |----------------|-------|---------------------------|

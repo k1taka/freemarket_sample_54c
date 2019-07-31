@@ -6,7 +6,7 @@
       .buy-content
         .item-header
           .item-header__photo
-            = image_tag "mercari_logo_horizontal.png", size: "60x60", alt: "logo"
+            = image_tag "#{@image.image.url}", size: "60x100", alt: "logo"
           .item-header__title
             = @item.name
         .price-confirm

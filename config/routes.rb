@@ -45,10 +45,15 @@ Rails.application.routes.draw do
         get "search"
       end
       member do
+        post "edit_good"
+        delete 'delete_good'
         patch "update_status"
         get "confirmation"
         post "pay"
       end
-    end  
+    #コメント
+      resources :comment, only: [:create,:destroy]
+
+    end
 
 end
