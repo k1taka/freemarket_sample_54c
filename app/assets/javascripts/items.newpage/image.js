@@ -27,23 +27,24 @@ $(function(){
         let file_reader = new FileReader();
 
         file_reader.onload = function(event){
-          //image file からURI部分の取得
-          let loadImageUrl = event.target.result;
+        file_reader.onload = function(event){   //画像の埋め込み作業はonloadの中でのみ実行可能
+          let loadImageUrl = event.target.result; //image file からURI部分の取得
           item = buildHTML(loadImageUrl)
-
-          const ulElement = document.getElementById( "target" ) ;
+          const ulElement = document.getElementById( "target" ) ;//親であるulの取得
+          // ulの中のliの数を数える
           const childElementCount = ulElement.childElementCount ;
           if(childElementCount <= 4){
-            $(".image-save-items").append(item)
+            $(".image-save-items").append(item) //1段目
           }else{
-            $(".image-save-items2").append(item)
+            $(".image-save-items2").append(item)  //2段目
           }
         }//onload
-      file_reader.readAsDataURL(file)
+      file_reader.readAsDataURL(file) //画像出力
       }//if
     });//forEach
   })
 
+  //削除
   $(document).on("click",".image-item__button",function(){
   let index = $(".image-item__button").index(this);
   file_array.splice(index -1,1)
@@ -53,9 +54,9 @@ $(function(){
   //画像一括送信  ajaxでコントローラに送る。
   $("#new_item").on("submit",function(e){
     e.preventDefault();
-    let formData = new FormData($(this).get(0));
+    let formData = new FormData($(this).get(0));// formのparamsゲット
     file_array.forEach(function(file){
-      formData.append("image[images][]", file)
+      formData.append("image[images][]", file) 
     })
     $.ajax({
       url: "/items/",
