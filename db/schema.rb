@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_101319) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname"
-    t.integer "prefecture_id", unsigned: true
+    t.integer "prefecture_id"
     t.string "family_name"
     t.string "first_name"
     t.string "family_name_kana"
