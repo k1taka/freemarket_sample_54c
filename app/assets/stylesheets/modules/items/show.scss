@@ -399,50 +399,48 @@
       transform:translate(-50%,-50%);
       width: 790px;
       background-color: #fff;
-    }
-    .modalContents{
-      z-index: 5;
-      height:295px;
-      box-sizing: border-box;
-      padding:70px 227px;
-      font-size:17px;
-      .message{
-        text-align: center;
-        font-weight:bold;
-        font-size:19px;
-      }
-      .text{
-        text-align: center;
+      .modalContents{
+        z-index: 5;
+        height:295px;
+        box-sizing: border-box;
+        padding:70px 227px;
         font-size:17px;
+        .message{
+          text-align: center;
+          font-weight:bold;
+          font-size:19px;
+        }
+        .text{
+          text-align: center;
+          font-size:17px;
+        }
       }
-    }
-    .red-btn
-    .modal_btns{
-      display: flex;
-      justify-content: space-between;
-      .cancel_btn{
-        padding:30px 147px;
-        font-size:20px;
-        width:395px;
-        height:83px;
-        border-top: 1px solid #ccc;
-        border-left: 1px solid #ccc;
-        box-sizing: border-box;
-        cursor: pointer;
-      } 
-      .delete_btn{
-        padding:25px 156px;
-        font-size:20px;
-        width:395px;
-        height:83px;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        color: #0099E8;
-        cursor: pointer;
+      .modal_btns{
+        display: flex;
+        justify-content: space-between;
+        .cancel_btn{
+          padding:30px 147px;
+          font-size:20px;
+          width:395px;
+          height:83px;
+          border-top: 1px solid #ccc;
+          border-left: 1px solid #ccc;
+          box-sizing: border-box;
+          cursor: pointer;
+        } 
+        .delete_btn{
+          padding:25px 156px;
+          font-size:20px;
+          width:395px;
+          height:83px;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+          color: #0099E8;
+          cursor: pointer;
+        }
       }
     }
   }
-
   
 .user-for-ajax{
   opacity:0;

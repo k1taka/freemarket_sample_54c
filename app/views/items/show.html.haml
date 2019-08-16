@@ -72,9 +72,10 @@
       = render @comments
       %p.message__notion
         相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      = form_for @comment, url: item_comment_index_path(@item,@comment) do |f|
-        = f.text_field :comment, class: 'comment__text'
-        = f.submit 'コメントする', class: 'comment__btn'
+      -if (user_signed_in? && current_user.id == @item.seller_id)
+        = form_for @comment, url: item_comment_index_path(@item,@comment) do |f|
+          = f.text_field :comment, class: 'comment__text'
+          = f.submit 'コメントする', class: 'comment__btn'
   - unless (user_signed_in? && current_user.id == @item.seller_id)   
     = render partial:"item-show_social-btn"
   %section.modalArea
@@ -92,10 +93,11 @@
         .modal_btns
           .cancel_btn キャンセル 
           =link_to "削除する",item_path(params[:id]), method: :delete, class:"delete_btn"
-  .user-for-ajax
-    =current_user.id
-  .good-for-ajax
-    =@goods_plus
-  .good-first
-    =@goods
+  -if (user_signed_in? && current_user.id == @item.seller_id)
+    .user-for-ajax
+      =current_user.id
+    .good-for-ajax
+      =@goods_plus
+    .good-first
+      =@goods
   
