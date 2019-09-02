@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     if @good_check.present?
       @good_check.destroy
     else
-      @new_good = Good.create(user_id: "#{params[:user_id]}", item_id: "#{params[:id]}")
+      Good.create(user_id: "#{params[:user_id]}", item_id: "#{params[:id]}")
     end
   end
 
