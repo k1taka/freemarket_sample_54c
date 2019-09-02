@@ -4,7 +4,7 @@ $(document).ready(function(){
   //いいね見た目変化
   $(".evaluation--likes").on("click", function(){
     const for_limit = /[0-9]+/
-    let item = location.pathname.match(for_limit)[0]
+    let item = location.pathname.match(for_limit)[0];
     let good =$(".good-first").text().match(for_limit)[0];
     let good_plus =$(".good-for-ajax").text().match(for_limit)[0];
     let good_standard =$(".for-ajax").text().match(for_limit)[0];
@@ -17,7 +17,6 @@ $(document).ready(function(){
       $('.evaluation--likes').addClass("getGood");
       $(".heart").addClass("getGoodForHeart");
       $('.for-ajax').html(good_plus); 
-      
       //いいね非同期追加
       ajax
       .done(function(){})
@@ -27,7 +26,6 @@ $(document).ready(function(){
       $(".evaluation--likes").removeClass("getGood");
       $(".heart").removeClass("getGoodForHeart");
       $('.for-ajax').html(good);
-
       //いいね非同期追加
       ajax
       .done(function(){})

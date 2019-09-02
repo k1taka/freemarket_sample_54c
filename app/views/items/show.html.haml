@@ -93,7 +93,7 @@
         .modal_btns
           .cancel_btn キャンセル 
           =link_to "削除する",item_path(params[:id]), method: :delete, class:"delete_btn"
-  -if (user_signed_in? && current_user.id == @item.seller_id)
+  -if (user_signed_in? && current_user.id != @item.seller_id)
     .user-for-ajax
       =current_user.id
     .good-for-ajax
